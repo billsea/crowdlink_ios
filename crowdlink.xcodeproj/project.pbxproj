@@ -15,6 +15,13 @@
 		A934CE0B1A93E79400008D8F /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = A934CE0A1A93E79400008D8F /* Images.xcassets */; };
 		A934CE0E1A93E79400008D8F /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = A934CE0C1A93E79400008D8F /* LaunchScreen.xib */; };
 		A934CE1A1A93E79400008D8F /* crowdlinkTests.m in Sources */ = {isa = PBXBuildFile; fileRef = A934CE191A93E79400008D8F /* crowdlinkTests.m */; };
+		A934CE241A93EAD800008D8F /* CoreLocation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A934CE231A93EAD800008D8F /* CoreLocation.framework */; };
+		A934CE271A93EB1400008D8F /* FacebookSDK.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A934CE261A93EB1400008D8F /* FacebookSDK.framework */; };
+		A934CE2C1A93EC7700008D8F /* LoginViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A934CE2A1A93EC7700008D8F /* LoginViewController.m */; };
+		A934CE2D1A93EC7700008D8F /* LoginViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = A934CE2B1A93EC7700008D8F /* LoginViewController.xib */; };
+		A934CE311A93F3D700008D8F /* FriendsTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A934CE2F1A93F3D700008D8F /* FriendsTableViewController.m */; };
+		A934CE321A93F3D700008D8F /* FriendsTableViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = A934CE301A93F3D700008D8F /* FriendsTableViewController.xib */; };
+		A934CE351A93F6F100008D8F /* conference-32.png in Resources */ = {isa = PBXBuildFile; fileRef = A934CE341A93F6F100008D8F /* conference-32.png */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -42,6 +49,16 @@
 		A934CE131A93E79400008D8F /* crowdlinkTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = crowdlinkTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		A934CE181A93E79400008D8F /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		A934CE191A93E79400008D8F /* crowdlinkTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = crowdlinkTests.m; sourceTree = "<group>"; };
+		A934CE231A93EAD800008D8F /* CoreLocation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreLocation.framework; path = System/Library/Frameworks/CoreLocation.framework; sourceTree = SDKROOT; };
+		A934CE261A93EB1400008D8F /* FacebookSDK.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = FacebookSDK.framework; path = ../../FacebookSDK/FacebookSDK.framework; sourceTree = "<group>"; };
+		A934CE291A93EC7700008D8F /* LoginViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LoginViewController.h; sourceTree = "<group>"; };
+		A934CE2A1A93EC7700008D8F /* LoginViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LoginViewController.m; sourceTree = "<group>"; };
+		A934CE2B1A93EC7700008D8F /* LoginViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = LoginViewController.xib; sourceTree = "<group>"; };
+		A934CE2E1A93F3D700008D8F /* FriendsTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FriendsTableViewController.h; sourceTree = "<group>"; };
+		A934CE2F1A93F3D700008D8F /* FriendsTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FriendsTableViewController.m; sourceTree = "<group>"; };
+		A934CE301A93F3D700008D8F /* FriendsTableViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = FriendsTableViewController.xib; sourceTree = "<group>"; };
+		A934CE341A93F6F100008D8F /* conference-32.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "conference-32.png"; path = "../icons/iOS7_icons_free/PNG/32/Users/conference-32.png"; sourceTree = "<group>"; };
+		A934CE361A93F96500008D8F /* Constants.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Constants.h; sourceTree = SOURCE_ROOT; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -49,6 +66,8 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				A934CE241A93EAD800008D8F /* CoreLocation.framework in Frameworks */,
+				A934CE271A93EB1400008D8F /* FacebookSDK.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -65,9 +84,11 @@
 		A934CDEE1A93E79400008D8F = {
 			isa = PBXGroup;
 			children = (
+				A934CE281A93EC3200008D8F /* UIElements */,
 				A934CDF91A93E79400008D8F /* crowdlink */,
 				A934CE161A93E79400008D8F /* crowdlinkTests */,
 				A934CDF81A93E79400008D8F /* Products */,
+				A934CE251A93EADE00008D8F /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -92,6 +113,7 @@
 				A934CE0C1A93E79400008D8F /* LaunchScreen.xib */,
 				A934CE011A93E79400008D8F /* crowdlink.xcdatamodeld */,
 				A934CDFA1A93E79400008D8F /* Supporting Files */,
+				A934CE331A93F68600008D8F /* Images */,
 			);
 			path = crowdlink;
 			sourceTree = "<group>";
@@ -101,6 +123,7 @@
 			children = (
 				A934CDFB1A93E79400008D8F /* Info.plist */,
 				A934CDFC1A93E79400008D8F /* main.m */,
+				A934CE361A93F96500008D8F /* Constants.h */,
 			);
 			name = "Supporting Files";
 			sourceTree = "<group>";
@@ -120,6 +143,37 @@
 				A934CE181A93E79400008D8F /* Info.plist */,
 			);
 			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		A934CE251A93EADE00008D8F /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				A934CE261A93EB1400008D8F /* FacebookSDK.framework */,
+				A934CE231A93EAD800008D8F /* CoreLocation.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		A934CE281A93EC3200008D8F /* UIElements */ = {
+			isa = PBXGroup;
+			children = (
+				A934CE291A93EC7700008D8F /* LoginViewController.h */,
+				A934CE2A1A93EC7700008D8F /* LoginViewController.m */,
+				A934CE2B1A93EC7700008D8F /* LoginViewController.xib */,
+				A934CE2E1A93F3D700008D8F /* FriendsTableViewController.h */,
+				A934CE2F1A93F3D700008D8F /* FriendsTableViewController.m */,
+				A934CE301A93F3D700008D8F /* FriendsTableViewController.xib */,
+			);
+			name = UIElements;
+			sourceTree = "<group>";
+		};
+		A934CE331A93F68600008D8F /* Images */ = {
+			isa = PBXGroup;
+			children = (
+				A934CE341A93F6F100008D8F /* conference-32.png */,
+			);
+			name = Images;
+			path = ..;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -202,7 +256,10 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				A934CE351A93F6F100008D8F /* conference-32.png in Resources */,
+				A934CE2D1A93EC7700008D8F /* LoginViewController.xib in Resources */,
 				A934CE091A93E79400008D8F /* Main.storyboard in Resources */,
+				A934CE321A93F3D700008D8F /* FriendsTableViewController.xib in Resources */,
 				A934CE0E1A93E79400008D8F /* LaunchScreen.xib in Resources */,
 				A934CE0B1A93E79400008D8F /* Images.xcassets in Resources */,
 			);
@@ -225,7 +282,9 @@
 				A934CE031A93E79400008D8F /* crowdlink.xcdatamodeld in Sources */,
 				A934CE001A93E79400008D8F /* AppDelegate.m in Sources */,
 				A934CE061A93E79400008D8F /* ViewController.m in Sources */,
+				A934CE311A93F3D700008D8F /* FriendsTableViewController.m in Sources */,
 				A934CDFD1A93E79400008D8F /* main.m in Sources */,
+				A934CE2C1A93EC7700008D8F /* LoginViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -349,6 +408,10 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					/Users/Bill/Documents/FacebookSDK,
+				);
 				INFOPLIST_FILE = crowdlink/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -359,6 +422,10 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					/Users/Bill/Documents/FacebookSDK,
+				);
 				INFOPLIST_FILE = crowdlink/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_NAME = "$(TARGET_NAME)";
