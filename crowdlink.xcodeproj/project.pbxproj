@@ -22,6 +22,13 @@
 		A934CE311A93F3D700008D8F /* FriendsTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A934CE2F1A93F3D700008D8F /* FriendsTableViewController.m */; };
 		A934CE321A93F3D700008D8F /* FriendsTableViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = A934CE301A93F3D700008D8F /* FriendsTableViewController.xib */; };
 		A934CE351A93F6F100008D8F /* conference-32.png in Resources */ = {isa = PBXBuildFile; fileRef = A934CE341A93F6F100008D8F /* conference-32.png */; };
+		A934CE381A94130400008D8F /* SystemConfiguration.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A934CE371A94130400008D8F /* SystemConfiguration.framework */; };
+		A934CE3C1A94139200008D8F /* Reachability.m in Sources */ = {isa = PBXBuildFile; fileRef = A934CE3B1A94139200008D8F /* Reachability.m */; };
+		A934CE401A941A7B00008D8F /* SettingsTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A934CE3E1A941A7B00008D8F /* SettingsTableViewController.m */; };
+		A934CE411A941A7B00008D8F /* SettingsTableViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = A934CE3F1A941A7B00008D8F /* SettingsTableViewController.xib */; };
+		A934CE431A941D5400008D8F /* settings3-32.png in Resources */ = {isa = PBXBuildFile; fileRef = A934CE421A941D5400008D8F /* settings3-32.png */; };
+		A934CE471A94269B00008D8F /* SettingsTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = A934CE451A94269B00008D8F /* SettingsTableViewCell.m */; };
+		A934CE481A94269B00008D8F /* SettingsTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = A934CE461A94269B00008D8F /* SettingsTableViewCell.xib */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -59,6 +66,16 @@
 		A934CE301A93F3D700008D8F /* FriendsTableViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = FriendsTableViewController.xib; sourceTree = "<group>"; };
 		A934CE341A93F6F100008D8F /* conference-32.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "conference-32.png"; path = "../icons/iOS7_icons_free/PNG/32/Users/conference-32.png"; sourceTree = "<group>"; };
 		A934CE361A93F96500008D8F /* Constants.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Constants.h; sourceTree = SOURCE_ROOT; };
+		A934CE371A94130400008D8F /* SystemConfiguration.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SystemConfiguration.framework; path = System/Library/Frameworks/SystemConfiguration.framework; sourceTree = SDKROOT; };
+		A934CE3A1A94139200008D8F /* Reachability.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Reachability.h; sourceTree = "<group>"; };
+		A934CE3B1A94139200008D8F /* Reachability.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Reachability.m; sourceTree = "<group>"; };
+		A934CE3D1A941A7B00008D8F /* SettingsTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SettingsTableViewController.h; sourceTree = "<group>"; };
+		A934CE3E1A941A7B00008D8F /* SettingsTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SettingsTableViewController.m; sourceTree = "<group>"; };
+		A934CE3F1A941A7B00008D8F /* SettingsTableViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = SettingsTableViewController.xib; sourceTree = "<group>"; };
+		A934CE421A941D5400008D8F /* settings3-32.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "settings3-32.png"; sourceTree = "<group>"; };
+		A934CE441A94269B00008D8F /* SettingsTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SettingsTableViewCell.h; sourceTree = "<group>"; };
+		A934CE451A94269B00008D8F /* SettingsTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SettingsTableViewCell.m; sourceTree = "<group>"; };
+		A934CE461A94269B00008D8F /* SettingsTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = SettingsTableViewCell.xib; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -66,6 +83,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				A934CE381A94130400008D8F /* SystemConfiguration.framework in Frameworks */,
 				A934CE241A93EAD800008D8F /* CoreLocation.framework in Frameworks */,
 				A934CE271A93EB1400008D8F /* FacebookSDK.framework in Frameworks */,
 			);
@@ -84,6 +102,7 @@
 		A934CDEE1A93E79400008D8F = {
 			isa = PBXGroup;
 			children = (
+				A934CE391A94137100008D8F /* Classes */,
 				A934CE281A93EC3200008D8F /* UIElements */,
 				A934CDF91A93E79400008D8F /* crowdlink */,
 				A934CE161A93E79400008D8F /* crowdlinkTests */,
@@ -148,6 +167,7 @@
 		A934CE251A93EADE00008D8F /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				A934CE371A94130400008D8F /* SystemConfiguration.framework */,
 				A934CE261A93EB1400008D8F /* FacebookSDK.framework */,
 				A934CE231A93EAD800008D8F /* CoreLocation.framework */,
 			);
@@ -163,6 +183,12 @@
 				A934CE2E1A93F3D700008D8F /* FriendsTableViewController.h */,
 				A934CE2F1A93F3D700008D8F /* FriendsTableViewController.m */,
 				A934CE301A93F3D700008D8F /* FriendsTableViewController.xib */,
+				A934CE3D1A941A7B00008D8F /* SettingsTableViewController.h */,
+				A934CE3E1A941A7B00008D8F /* SettingsTableViewController.m */,
+				A934CE3F1A941A7B00008D8F /* SettingsTableViewController.xib */,
+				A934CE441A94269B00008D8F /* SettingsTableViewCell.h */,
+				A934CE451A94269B00008D8F /* SettingsTableViewCell.m */,
+				A934CE461A94269B00008D8F /* SettingsTableViewCell.xib */,
 			);
 			name = UIElements;
 			sourceTree = "<group>";
@@ -170,10 +196,20 @@
 		A934CE331A93F68600008D8F /* Images */ = {
 			isa = PBXGroup;
 			children = (
+				A934CE421A941D5400008D8F /* settings3-32.png */,
 				A934CE341A93F6F100008D8F /* conference-32.png */,
 			);
 			name = Images;
 			path = ..;
+			sourceTree = "<group>";
+		};
+		A934CE391A94137100008D8F /* Classes */ = {
+			isa = PBXGroup;
+			children = (
+				A934CE3A1A94139200008D8F /* Reachability.h */,
+				A934CE3B1A94139200008D8F /* Reachability.m */,
+			);
+			name = Classes;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -257,9 +293,12 @@
 			buildActionMask = 2147483647;
 			files = (
 				A934CE351A93F6F100008D8F /* conference-32.png in Resources */,
+				A934CE431A941D5400008D8F /* settings3-32.png in Resources */,
 				A934CE2D1A93EC7700008D8F /* LoginViewController.xib in Resources */,
+				A934CE481A94269B00008D8F /* SettingsTableViewCell.xib in Resources */,
 				A934CE091A93E79400008D8F /* Main.storyboard in Resources */,
 				A934CE321A93F3D700008D8F /* FriendsTableViewController.xib in Resources */,
+				A934CE411A941A7B00008D8F /* SettingsTableViewController.xib in Resources */,
 				A934CE0E1A93E79400008D8F /* LaunchScreen.xib in Resources */,
 				A934CE0B1A93E79400008D8F /* Images.xcassets in Resources */,
 			);
@@ -279,9 +318,12 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				A934CE401A941A7B00008D8F /* SettingsTableViewController.m in Sources */,
 				A934CE031A93E79400008D8F /* crowdlink.xcdatamodeld in Sources */,
 				A934CE001A93E79400008D8F /* AppDelegate.m in Sources */,
 				A934CE061A93E79400008D8F /* ViewController.m in Sources */,
+				A934CE3C1A94139200008D8F /* Reachability.m in Sources */,
+				A934CE471A94269B00008D8F /* SettingsTableViewCell.m in Sources */,
 				A934CE311A93F3D700008D8F /* FriendsTableViewController.m in Sources */,
 				A934CDFD1A93E79400008D8F /* main.m in Sources */,
 				A934CE2C1A93EC7700008D8F /* LoginViewController.m in Sources */,
@@ -413,6 +455,7 @@
 					/Users/Bill/Documents/FacebookSDK,
 				);
 				INFOPLIST_FILE = crowdlink/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 			};
@@ -427,6 +470,7 @@
 					/Users/Bill/Documents/FacebookSDK,
 				);
 				INFOPLIST_FILE = crowdlink/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 			};

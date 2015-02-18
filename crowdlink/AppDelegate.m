@@ -10,6 +10,7 @@
 #import "Constants.h"
 #import "FriendsTableViewController.h"
 #import "LoginViewController.h"
+#import "SettingsTableViewController.h"
 
 @interface AppDelegate ()
 
@@ -18,6 +19,7 @@
 @implementation AppDelegate
 
 @synthesize tabBarController = _tabBarController;
+@synthesize UserFacebookID = _UserFacebookID;
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
     // Override point for customization after application launch.
@@ -158,7 +160,7 @@
                 // retrive user's details at here as shown below
                 //public profile,id,name,first_name,last_name,link
                 //    gender,locale,timezone,pdated_time,verified
-                //                     NSLog(@"FB user ID:%@",user.id);
+                 //                   NSLog(@"FB user ID:%@",user.id);
                 //                     NSLog(@"FB user Link:%@",user.link);
                 //                    NSLog(@"FB user first name:%@",user.first_name);
                 //                    NSLog(@"FB user last name:%@",user.last_name);
@@ -170,28 +172,18 @@
                 //                    NSLog(@"location:%@", [NSString stringWithFormat:@"Location: %@\n\n",
                 //                                           user.location[@"name"]]);
                 
-                NSString *userName = [user name];
-                
+                //NSString *userName = [user name];
                 //NSString * userEmail =[user objectForKey:@"email"];
                 
-                
-                //[[CustomerSharedModel sharedModel] setLoginFacebookUser:user];
-                
-                //log into Zipdin system or register as new facebook user
-                //check login
-                NSString *facebookAppId = [[NSBundle mainBundle] objectForInfoDictionaryKey:@"FacebookAppID"];
-                
-                
-                //[[CustomerSharedModel sharedModel] authenticateWithFacebookUserId:user.id andPassword:facebookAppId andUserName:userName];
-                
+                //set this users facebook id
+                _UserFacebookID = user.id;
                 
                 
             }
         }];
         
+        //show main application view
         [self createNavigationRootView];
-        
-        
         
         return;
     }
@@ -242,6 +234,7 @@
                 [self showMessage:alertText withTitle:alertTitle];
             }
         }
+        
         // Clear this token
         [FBSession.activeSession closeAndClearTokenInformation];
         // Show the user the logged-out UI
@@ -253,12 +246,8 @@
 
 #pragma mark Build Navigation
 
-
-
 -(BOOL)createNavigationRootView
 {
-
-    
     //create viewControllers
     FriendsTableViewController * friendsTableView;
     
@@ -281,15 +270,14 @@
     friendsNavController.tabBarItem.image = [UIImage imageNamed:@"conference-32.png"];//set tab image
     
     
-//    //invoices tab
-//    InvoicesTableViewController * invoicesTableView = [[InvoicesTableViewController alloc] init];
-//    UINavigationController *invoicesNavController = [[UINavigationController alloc]
-//                                                     initWithRootViewController:invoicesTableView];
-//    invoicesNavController.tabBarItem.title = @"Invoices";
-//    invoicesNavController.tabBarItem.image = [UIImage imageNamed:@"bill-32.png"];
-//    
-//    
-//    
+    //settings tab
+    SettingsTableViewController * settingsTableView = [[SettingsTableViewController alloc] init];
+    UINavigationController *settingsNavController = [[UINavigationController alloc]
+                                                     initWithRootViewController:settingsTableView];
+    settingsNavController.tabBarItem.title = @"Settings";
+    settingsNavController.tabBarItem.image = [UIImage imageNamed:@"settings3-32.png"];
+   
+
 //    //profile tab
 //    ProfileTableViewController * profileView = [[ProfileTableViewController alloc] init];
 //    UINavigationController * profileNavController=[[UINavigationController alloc] initWithRootViewController:profileView];
@@ -300,9 +288,9 @@
     //add all nav controllers to stack
     NSArray *viewControllers;
     if(friendsTableView != nil)
-        viewControllers = [NSArray arrayWithObjects:friendsNavController,nil];
+        viewControllers = [NSArray arrayWithObjects:friendsNavController, settingsNavController,nil];
     else
-        viewControllers = [NSArray arrayWithObjects:friendsNavController,nil];
+        viewControllers = [NSArray arrayWithObjects:friendsNavController, settingsNavController,nil];
     
     
     
@@ -322,9 +310,6 @@
 
 
 
-
-
-
 #pragma mark utility methods
 // Show an alert message
 - (void)showMessage:(NSString *)text withTitle:(NSString *)title
@@ -335,8 +320,6 @@
                       cancelButtonTitle:@"OK"
                       otherButtonTitles:nil] show];
 }
-
-
 
 
 

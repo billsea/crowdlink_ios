@@ -8,9 +8,14 @@
 
 #import <UIKit/UIKit.h>
 #import <FacebookSDK/FacebookSDK.h>
+#import <CoreBluetooth/CoreBluetooth.h>
+#import <CoreLocation/CoreLocation.h>
 
-@interface FriendsTableViewController : UITableViewController
+@interface FriendsTableViewController : UITableViewController<CLLocationManagerDelegate,CBCentralManagerDelegate>
 
+@property (nonatomic, strong) CBCentralManager* bluetoothManager;
+@property (strong, nonatomic) CLBeaconRegion *myBeaconRegion;
+@property (strong, nonatomic) CLLocationManager *locationManager;
 
 - (IBAction)LogoutUser:(id)sender;
 
