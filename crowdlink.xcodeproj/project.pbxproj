@@ -29,6 +29,10 @@
 		A934CE431A941D5400008D8F /* settings3-32.png in Resources */ = {isa = PBXBuildFile; fileRef = A934CE421A941D5400008D8F /* settings3-32.png */; };
 		A934CE471A94269B00008D8F /* SettingsTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = A934CE451A94269B00008D8F /* SettingsTableViewCell.m */; };
 		A934CE481A94269B00008D8F /* SettingsTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = A934CE461A94269B00008D8F /* SettingsTableViewCell.xib */; };
+		A934CE4A1A94540500008D8F /* FB-f-Logo__blue_29.png in Resources */ = {isa = PBXBuildFile; fileRef = A934CE491A94540500008D8F /* FB-f-Logo__blue_29.png */; };
+		A934CE4C1A94543200008D8F /* FB-f-Logo__blue_50.png in Resources */ = {isa = PBXBuildFile; fileRef = A934CE4B1A94543200008D8F /* FB-f-Logo__blue_50.png */; };
+		A9A410D91A9560910006C07A /* FriendsTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = A9A410D71A9560910006C07A /* FriendsTableViewCell.m */; };
+		A9A410DA1A9560910006C07A /* FriendsTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = A9A410D81A9560910006C07A /* FriendsTableViewCell.xib */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -76,6 +80,11 @@
 		A934CE441A94269B00008D8F /* SettingsTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SettingsTableViewCell.h; sourceTree = "<group>"; };
 		A934CE451A94269B00008D8F /* SettingsTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SettingsTableViewCell.m; sourceTree = "<group>"; };
 		A934CE461A94269B00008D8F /* SettingsTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = SettingsTableViewCell.xib; sourceTree = "<group>"; };
+		A934CE491A94540500008D8F /* FB-f-Logo__blue_29.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "FB-f-Logo__blue_29.png"; sourceTree = "<group>"; };
+		A934CE4B1A94543200008D8F /* FB-f-Logo__blue_50.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "FB-f-Logo__blue_50.png"; sourceTree = "<group>"; };
+		A9A410D61A9560910006C07A /* FriendsTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FriendsTableViewCell.h; sourceTree = "<group>"; };
+		A9A410D71A9560910006C07A /* FriendsTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FriendsTableViewCell.m; sourceTree = "<group>"; };
+		A9A410D81A9560910006C07A /* FriendsTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = FriendsTableViewCell.xib; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -189,6 +198,9 @@
 				A934CE441A94269B00008D8F /* SettingsTableViewCell.h */,
 				A934CE451A94269B00008D8F /* SettingsTableViewCell.m */,
 				A934CE461A94269B00008D8F /* SettingsTableViewCell.xib */,
+				A9A410D61A9560910006C07A /* FriendsTableViewCell.h */,
+				A9A410D71A9560910006C07A /* FriendsTableViewCell.m */,
+				A9A410D81A9560910006C07A /* FriendsTableViewCell.xib */,
 			);
 			name = UIElements;
 			sourceTree = "<group>";
@@ -196,6 +208,8 @@
 		A934CE331A93F68600008D8F /* Images */ = {
 			isa = PBXGroup;
 			children = (
+				A934CE4B1A94543200008D8F /* FB-f-Logo__blue_50.png */,
+				A934CE491A94540500008D8F /* FB-f-Logo__blue_29.png */,
 				A934CE421A941D5400008D8F /* settings3-32.png */,
 				A934CE341A93F6F100008D8F /* conference-32.png */,
 			);
@@ -292,6 +306,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				A934CE4C1A94543200008D8F /* FB-f-Logo__blue_50.png in Resources */,
 				A934CE351A93F6F100008D8F /* conference-32.png in Resources */,
 				A934CE431A941D5400008D8F /* settings3-32.png in Resources */,
 				A934CE2D1A93EC7700008D8F /* LoginViewController.xib in Resources */,
@@ -300,7 +315,9 @@
 				A934CE321A93F3D700008D8F /* FriendsTableViewController.xib in Resources */,
 				A934CE411A941A7B00008D8F /* SettingsTableViewController.xib in Resources */,
 				A934CE0E1A93E79400008D8F /* LaunchScreen.xib in Resources */,
+				A934CE4A1A94540500008D8F /* FB-f-Logo__blue_29.png in Resources */,
 				A934CE0B1A93E79400008D8F /* Images.xcassets in Resources */,
+				A9A410DA1A9560910006C07A /* FriendsTableViewCell.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -319,6 +336,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				A934CE401A941A7B00008D8F /* SettingsTableViewController.m in Sources */,
+				A9A410D91A9560910006C07A /* FriendsTableViewCell.m in Sources */,
 				A934CE031A93E79400008D8F /* crowdlink.xcdatamodeld in Sources */,
 				A934CE001A93E79400008D8F /* AppDelegate.m in Sources */,
 				A934CE061A93E79400008D8F /* ViewController.m in Sources */,
@@ -529,6 +547,7 @@
 				A934CE1F1A93E79400008D8F /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		A934CE201A93E79400008D8F /* Build configuration list for PBXNativeTarget "crowdlinkTests" */ = {
 			isa = XCConfigurationList;
@@ -537,6 +556,7 @@
 				A934CE221A93E79400008D8F /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 

@@ -21,6 +21,7 @@
 @synthesize tabBarController = _tabBarController;
 @synthesize UserFacebookID = _UserFacebookID;
 
+
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
     // Override point for customization after application launch.
     
@@ -34,8 +35,11 @@
     // Whenever a person opens the app, check for a cached session
     if (FBSession.activeSession.state == FBSessionStateCreatedTokenLoaded) {
         
+        NSArray *permissions = [NSArray arrayWithObjects:@"public_profile",@"email", @"user_friends", nil];
+
+        
         // If there's one, just open the session silently, without showing the user the login UI
-        [FBSession openActiveSessionWithReadPermissions:@[@"public_profile,Email,user_friends"]
+        [FBSession openActiveSessionWithReadPermissions:permissions
                                            allowLoginUI:NO
                                       completionHandler:^(FBSession *session, FBSessionState state, NSError *error) {
                                           // Handler for session state changes
@@ -126,6 +130,8 @@
 
 
 #pragma mark - Facebook methods
+
+
 - (BOOL)application:(UIApplication *)application
             openURL:(NSURL *)url
   sourceApplication:(NSString *)sourceApplication
@@ -162,18 +168,20 @@
                 //    gender,locale,timezone,pdated_time,verified
                  //                   NSLog(@"FB user ID:%@",user.id);
                 //                     NSLog(@"FB user Link:%@",user.link);
-                //                    NSLog(@"FB user first name:%@",user.first_name);
+                                   NSLog(@"FB user first name:%@",user.first_name);
                 //                    NSLog(@"FB user last name:%@",user.last_name);
                 //                    NSLog(@"FB user birthday:%@",user.birthday);
                 //                    NSLog(@"FB user location:%@",user.location);
                 //                    NSLog(@"FB user username:%@",user.username);
                 //                    NSLog(@"FB user gender:%@",[user objectForKey:@"gender"]);
-                //                    NSLog(@"email id:%@",[user objectForKey:@"email"]);
+                //                   NSLog(@"email id:%@",[user objectForKey:@"email"]);
                 //                    NSLog(@"location:%@", [NSString stringWithFormat:@"Location: %@\n\n",
                 //                                           user.location[@"name"]]);
                 
                 //NSString *userName = [user name];
                 //NSString * userEmail =[user objectForKey:@"email"];
+                
+        
                 
                 //set this users facebook id
                 _UserFacebookID = user.id;
@@ -182,6 +190,7 @@
             }
         }];
         
+
         //show main application view
         [self createNavigationRootView];
         
@@ -198,6 +207,8 @@
     {
         
     }
+    
+   
     
     
     // Handle errors

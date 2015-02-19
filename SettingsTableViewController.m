@@ -68,18 +68,21 @@
     //[cellLabel setBackgroundColor:[UIColor redColor]];
     
     UISwitch * tSwitch = [[UISwitch alloc] initWithFrame:CGRectMake(cell.frame.size.width - 60,5, 50, 50)];
-    [tSwitch addTarget:self action:@selector(toggleBeaconBroadcast:) forControlEvents:UIControlEventValueChanged];
+    
     
     // Configure the cell...
     switch ([indexPath row]) {
         case 0:
+            [tSwitch addTarget:self action:@selector(toggleBeaconBroadcast:) forControlEvents:UIControlEventValueChanged];
             [cellLabel setText:@"Let others find me"];
             [cell addSubview: cellLabel];
             [cell addSubview:tSwitch];
             break;
         case 1:
+            [tSwitch addTarget:self action:@selector(showPicture:) forControlEvents:UIControlEventValueChanged];
             [cellLabel setText:@"Show my picture"];
             [cell addSubview:cellLabel];
+            [cell addSubview:tSwitch];
             break;
             
         default:
@@ -87,6 +90,11 @@
     }
     
     return cell;
+}
+
+- (void)showPicture:(NSNotification*)notification
+{
+    
 }
 
 #pragma mark - beacon methods

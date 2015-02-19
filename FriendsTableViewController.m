@@ -12,6 +12,9 @@
 #import "LoginViewController.h"
 #import "Reachability.h"
 #import "Constants.h"
+#import "AppDelegate.h"
+#import "FriendsTableViewCell.h"
+
 @interface FriendsTableViewController ()
 
 @property UIBarButtonItem * logoutButton;
@@ -23,6 +26,7 @@
 @synthesize bluetoothManager = _bluetoothManager;
 @synthesize myBeaconRegion = _myBeaconRegion;
 @synthesize locationManager = _locationManager;
+@synthesize friendsInRange = _friendsInRange;
 
 - (void)viewDidLoad {
     [super viewDidLoad];
@@ -56,6 +60,32 @@
     
     // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
     // self.navigationItem.rightBarButtonItem = self.editButtonItem;
+    
+    //request friends
+    [self requestFacebookFriends];
+    
+}
+
+- (void)requestFacebookFriends
+{
+    self.allFacebookFriendsUsingTheApp = [[NSMutableArray alloc] init];
+    
+    //get friends list
+    FBRequest* friendsRequest = [FBRequest requestForMyFriends];
+    [friendsRequest startWithCompletionHandler: ^(FBRequestConnection *connection,
+                                                  NSDictionary* result,
+                                                  NSError *error) {
+        NSArray* friends = [result objectForKey:@"data"];
+        NSLog(@"Found: %lu friends", (unsigned long)friends.count);
+        for (NSDictionary<FBGraphUser>* friend in friends) {
+            
+            [_allFacebookFriendsUsingTheApp addObject:friend];
+            
+            NSLog(@"I have a friend named %@ with id %@", friend.name, friend.id);
+        }
+        
+        [[self tableView] reloadData];
+    }];
 }
 
 - (IBAction)LogoutUser:(id)sender
@@ -101,20 +131,32 @@
 }
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
-#warning Incomplete method implementation.
+
     // Return the number of rows in the section.
-    return 0;
+    return [[self allFacebookFriendsUsingTheApp] count];
 }
 
-/*
+
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
-    UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:<#@"reuseIdentifier"#> forIndexPath:indexPath];
+    static NSString *simpleTableIdentifier = @"FriendsTableViewCell";
     
+    FriendsTableViewCell *cell = (FriendsTableViewCell *)[tableView dequeueReusableCellWithIdentifier:simpleTableIdentifier];
+    
+    if (cell == nil)
+    {
+        NSArray *nib = [[NSBundle mainBundle] loadNibNamed:@"FriendsTableViewCell" owner:self options:nil];
+        cell = [nib objectAtIndex:0];
+        
+    }
     // Configure the cell...
+    NSDictionary<FBGraphUser>* friend = [[self allFacebookFriendsUsingTheApp] objectAtIndex:[indexPath row]];
+    
+    [[cell friendNameLabel] setText:friend.name];
+    
     
     return cell;
 }
-*/
+
 
 /*
 // Override to support conditional editing of the table view.

@@ -16,6 +16,8 @@
 @property (nonatomic, strong) CBCentralManager* bluetoothManager;
 @property (strong, nonatomic) CLBeaconRegion *myBeaconRegion;
 @property (strong, nonatomic) CLLocationManager *locationManager;
+@property (nonatomic, strong) NSMutableArray * friendsInRange;
+@property (nonatomic, strong) NSMutableArray * allFacebookFriendsUsingTheApp;
 
 - (IBAction)LogoutUser:(id)sender;
 
