@@ -293,20 +293,19 @@
     if(beacons.count > 0)
     {
         // You can retrieve the beacon data from its properties
-        //        NSString *uuid = nearestBeacon.proximityUUID.UUIDString;
-        //        NSString *major = [NSString stringWithFormat:@"%@", nearestBeacon.major];
-        //        NSString *minor = [NSString stringWithFormat:@"%@", nearestBeacon.minor];
-        //        NSString *proximity= [NSString stringWithFormat:@"%d", nearestBeacon.proximity];
-        //        NSString *accuracy= [NSString stringWithFormat:@"%f", nearestBeacon.accuracy];
-        //
-        //        NSLog(@"UUID: %@",uuid);
-        //      NSLog(@"MAJOR: %@", major);
-        //        NSLog(@"PROXIMITY: %@", proximity);
-        //        NSLog(@"ACCURACY: %@",accuracy);
-        //
+                NSString *uuid = nearestBeacon.proximityUUID.UUIDString;
+                NSString *major = [NSString stringWithFormat:@"%@", nearestBeacon.major];
+                NSString *minor = [NSString stringWithFormat:@"%@", nearestBeacon.minor];
+                NSString *proximity= [NSString stringWithFormat:@"%d", nearestBeacon.proximity];
+                NSString *accuracy= [NSString stringWithFormat:@"%f", nearestBeacon.accuracy];
+
+                NSLog(@"UUID: %@",uuid);
+                NSLog(@"MAJOR: %@", major);
+                NSLog(@"PROXIMITY: %@", proximity);
+                NSLog(@"ACCURACY: %@",accuracy);
         
-        //set accuracy in shared model
-        // [[CustomerSharedModel sharedModel] setBeaconAccuracy:accuracy];
+        
+   
         
         switch(nearestBeacon.proximity) {
             case CLProximityFar:

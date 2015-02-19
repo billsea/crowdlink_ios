@@ -28,6 +28,8 @@
     
     // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
     // self.navigationItem.rightBarButtonItem = self.editButtonItem;
+    
+    
 }
 
 - (void)didReceiveMemoryWarning {
@@ -107,9 +109,18 @@
     
     AppDelegate * appDelegate = (AppDelegate *)[UIApplication sharedApplication].delegate;
     
+    
+  
+   //major is uint_16, use only last four digits of user id for Major parameter
+    NSInteger idStringLength = [[appDelegate UserFacebookID] length];
+    NSString * lastFourOfID = [[appDelegate UserFacebookID] substringWithRange:NSMakeRange (idStringLength - 4, 4)];
+    
+    NSNumberFormatter* formatter = [[NSNumberFormatter alloc] init];
+    UInt16 maj = [[formatter numberFromString:lastFourOfID] unsignedShortValue];
+    
     // Initialize the Beacon Region
     self.myBeaconRegion = [[CLBeaconRegion alloc] initWithProximityUUID:uuid
-                                                                  major:[[appDelegate UserFacebookID] intValue]
+                                                                  major: maj
                                                                   minor:1
                                                              identifier:@"crowdlink"];
     
@@ -121,6 +132,32 @@
     self.peripheralManager = [[CBPeripheralManager alloc] initWithDelegate:self
                                                                      queue:nil
                                                                    options:nil];
+}
+
+-(void)peripheralManagerDidUpdateState:(CBPeripheralManager*)peripheral
+{
+    if (peripheral.state == CBPeripheralManagerStatePoweredOn)
+    {
+        // Bluetooth is on
+        
+        // Update our status label
+        NSLog(@"Broadcasting...");
+        
+        // Start broadcasting
+        [self.peripheralManager startAdvertising:self.myBeaconData];
+    }
+    else if (peripheral.state == CBPeripheralManagerStatePoweredOff)
+    {
+        // Update our status label
+        NSLog(@"Stopped...");
+        
+        // Bluetooth isn't on. Stop broadcasting
+        [self.peripheralManager stopAdvertising];
+    }
+    else if (peripheral.state == CBPeripheralManagerStateUnsupported)
+    {
+        NSLog(@"Unsupported...");
+    }
 }
 
 
