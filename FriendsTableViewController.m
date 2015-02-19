@@ -52,6 +52,10 @@
     //check bluetooth status
     [self detectBluetooth];
     
+    
+    //initialize friends in range
+    self.friendsInRange = [[NSMutableArray alloc] init];
+    
     //Monitor for broadcasting beacons
     [self startBeaconMonitoring];
     
@@ -84,18 +88,21 @@
             NSLog(@"I have a friend named %@ with id %@", friend.name, friend.id);
         }
         
-        [[self tableView] reloadData];
+        //[[self tableView] reloadData];
     }];
 }
 
 - (IBAction)LogoutUser:(id)sender
 {
+    [self stopBeaconMonitoring];
+    
     [self FacebookUserLogout];
     
     LoginViewController * loginView = [[LoginViewController alloc] init];
     //show new login view
     [self.navigationController pushViewController:loginView animated:YES];
 }
+
 
 //clear facebook session
 - (void)FacebookUserLogout
@@ -149,7 +156,7 @@
         
     }
     // Configure the cell...
-    NSDictionary<FBGraphUser>* friend = [[self allFacebookFriendsUsingTheApp] objectAtIndex:[indexPath row]];
+    NSDictionary<FBGraphUser>* friend = [[self friendsInRange] objectAtIndex:[indexPath row]];
     
     [[cell friendNameLabel] setText:friend.name];
     
@@ -243,7 +250,7 @@
     
     // Setup a new region with that UUID and same identifier as the broadcasting beacon
     self.myBeaconRegion = [[CLBeaconRegion alloc] initWithProximityUUID:uuid
-                                                             identifier:@"zipDin"];
+                                                             identifier:@"crowdlink"];
     
     self.myBeaconRegion.notifyEntryStateOnDisplay = YES;
     self.myBeaconRegion.notifyOnEntry=YES;
@@ -285,58 +292,77 @@
        didRangeBeacons:(NSArray*)beacons
               inRegion:(CLBeaconRegion*)region
 {
+    //clear all from friendsInRange array
+    [self.friendsInRange removeAllObjects];
     
-    
-    //collection of beacons in range
-    CLBeacon *nearestBeacon = [beacons firstObject];
-    
-    if(beacons.count > 0)
+    //check if broadcasting beacon is a friend, and add to list of friends in range
+    for(CLBeacon *beacon in beacons)
     {
-        // You can retrieve the beacon data from its properties
-                NSString *uuid = nearestBeacon.proximityUUID.UUIDString;
-                NSString *major = [NSString stringWithFormat:@"%@", nearestBeacon.major];
-                NSString *minor = [NSString stringWithFormat:@"%@", nearestBeacon.minor];
-                NSString *proximity= [NSString stringWithFormat:@"%d", nearestBeacon.proximity];
-                NSString *accuracy= [NSString stringWithFormat:@"%f", nearestBeacon.accuracy];
-
-                NSLog(@"UUID: %@",uuid);
-                NSLog(@"MAJOR: %@", major);
-                NSLog(@"PROXIMITY: %@", proximity);
-                NSLog(@"ACCURACY: %@",accuracy);
+        //get major minor
+        NSString * majMinId = [NSString stringWithFormat:@"%@%@",beacon.major,beacon.minor];
         
-        
-   
-        
-        switch(nearestBeacon.proximity) {
-            case CLProximityFar:
-                //message = @"You are far away from the beacon";
+        for (NSDictionary<FBGraphUser>* friend in _allFacebookFriendsUsingTheApp)
+        {
+            NSInteger idStringLength = [friend.id length];
+            NSString * lastEightOfFriendID = [friend.id substringWithRange:NSMakeRange (idStringLength - 8, 8)];
+            
+            if([lastEightOfFriendID isEqualToString:majMinId])
+            {
+                //add to friends in range
+                [[self friendsInRange] addObject: friend];
                 
-                break;
-            case CLProximityNear:
-                
-                //set the major of the nearest beacon - update when major changes
-//                if(![_nearestEstablishmentMajor isEqual: nearestBeacon.major])
-//                {
-//                    //get closest establishment data from web service
-//                    [[CustomerSharedModel sharedModel] EstablishmentData:nearestBeacon.major];
-//                    
-//                    //add closest major id to shared model property
-//                    [self setNearestEstablishmentMajor:nearestBeacon.major];
-//                }
-                
-                break;
-            case CLProximityImmediate:
-                //message = @"You are in the immediate proximity of the beacon";
-                
-                break;
-            case CLProximityUnknown:
-                return;
+            }
         }
         
-        
     }
-    else{
-     }
+    
+    //reload active friends table
+    if([[self friendsInRange] count] > 0)
+    {
+        [[self tableView] reloadData];
+    }
+    
+//    //collection of beacons in range
+//    CLBeacon *nearestBeacon = [beacons firstObject];
+//    
+//    if(beacons.count > 0)
+//    {
+//        // You can retrieve the beacon data from its properties
+//                NSString *uuid = nearestBeacon.proximityUUID.UUIDString;
+//                NSString *major = [NSString stringWithFormat:@"%@", nearestBeacon.major];
+//                NSString *minor = [NSString stringWithFormat:@"%@", nearestBeacon.minor];
+//                NSString *proximity= [NSString stringWithFormat:@"%d", nearestBeacon.proximity];
+//                NSString *accuracy= [NSString stringWithFormat:@"%f", nearestBeacon.accuracy];
+//
+//                NSLog(@"UUID: %@",uuid);
+//                NSLog(@"MAJOR: %@", major);
+//                NSLog(@"MINOR: %@", minor);
+//                NSLog(@"PROXIMITY: %@", proximity);
+//                NSLog(@"ACCURACY: %@",accuracy);
+//        
+//
+//        switch(nearestBeacon.proximity) {
+//            case CLProximityFar:
+//                //message = @"You are far away from the beacon";
+//                
+//                break;
+//            case CLProximityNear:
+//                //message = @"You are proximity near of the beacon";
+//                break;
+//            case CLProximityImmediate:
+//                //message = @"You are in the immediate proximity of the beacon";
+//                
+//                break;
+//            case CLProximityUnknown:
+//                return;
+//        }
+//
+//    }
+//    else
+//    {
+//        
+//    }
+    
 }
 
 
@@ -388,6 +414,14 @@
     //self.statusLabel.text = @"monitoring started";
     //NSLog(@"monitoring started");
     [self.locationManager requestStateForRegion:self.myBeaconRegion];
+}
+
+- (void)stopBeaconMonitoring
+{
+    //stop beacon monitoring
+    [self.locationManager stopRangingBeaconsInRegion:self.myBeaconRegion];
+    [self.locationManager stopMonitoringForRegion:self.myBeaconRegion];
+    [self.locationManager stopUpdatingLocation];
 }
 
 #pragma mark - system check

@@ -20,5 +20,6 @@
 @property (nonatomic, strong) NSMutableArray * allFacebookFriendsUsingTheApp;
 
 - (IBAction)LogoutUser:(id)sender;
-
+- (void)startBeaconMonitoring;
+- (void)stopBeaconMonitoring;
 @end

@@ -11,6 +11,7 @@
 #import "FriendsTableViewController.h"
 #import "LoginViewController.h"
 #import "SettingsTableViewController.h"
+#import "AppSharedModel.h"
 
 @interface AppDelegate ()
 
@@ -273,6 +274,8 @@
         [alert show];
     }
     
+    //add to shared model
+    [[AppSharedModel sharedModel] setFriendsTableViewController:friendsTableView];
     
     //clients tab
     UINavigationController *friendsNavController = [[UINavigationController alloc]
