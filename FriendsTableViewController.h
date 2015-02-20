@@ -22,4 +22,5 @@
 - (IBAction)LogoutUser:(id)sender;
 - (void)startBeaconMonitoring;
 - (void)stopBeaconMonitoring;
+- (void)requestFacebookFriends;
 @end

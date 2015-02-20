@@ -10,5 +10,7 @@
 
 @interface FriendsTableViewCell : UITableViewCell
 
+@property (weak, nonatomic) IBOutlet UIImageView *userPicture;
+
 @property (weak, nonatomic) IBOutlet UILabel *friendNameLabel;
 @end

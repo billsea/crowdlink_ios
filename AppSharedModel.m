@@ -17,6 +17,7 @@
 static AppSharedModel *_model;
 
 @synthesize friendsTableViewController = _friendsTableViewController;
+@synthesize friendsInRangeAll = _friendsInRangeAll;
 
 +(void)initialize
 {

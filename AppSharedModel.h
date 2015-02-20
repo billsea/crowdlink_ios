@@ -19,6 +19,6 @@
 
 
 @property (nonatomic, weak) FriendsTableViewController * friendsTableViewController;
-
+@property (nonatomic, strong) NSMutableArray * friendsInRangeAll;
 
 @end

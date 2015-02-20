@@ -49,7 +49,7 @@
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
 
     // Return the number of rows in the section.
-    return 2;
+    return 3;
 }
 
 
@@ -66,12 +66,16 @@
         
     }
     
-    UILabel * cellLabel = [[UILabel alloc] initWithFrame:CGRectMake(10,0, cell.frame.size.width, 50)];
+    UILabel * cellLabel = [[UILabel alloc] initWithFrame:CGRectMake(10,0, cell.frame.size.width - 100, 50)];
 
-    //[cellLabel setBackgroundColor:[UIColor redColor]];
+    
     
     UISwitch * tSwitch = [[UISwitch alloc] initWithFrame:CGRectMake(cell.frame.size.width - 60,5, 50, 50)];
-    
+    UIButton * btnRefresh = [[UIButton alloc] init];
+                             
+    [btnRefresh setFrame:CGRectMake(10,0,140, 50)];
+    [btnRefresh setTitleColor:[UIColor blueColor] forState:UIControlStateNormal];
+    [btnRefresh setTitleColor:[UIColor grayColor] forState:UIControlStateSelected];
     
     // Configure the cell...
     switch ([indexPath row]) {
@@ -87,7 +91,11 @@
             [cell addSubview:cellLabel];
             [cell addSubview:tSwitch];
             break;
-            
+        case 2:
+            [btnRefresh addTarget:self action:@selector(refreshFriends:) forControlEvents:UIControlEventTouchUpInside];
+            [btnRefresh setTitle:@"Refresh Friends" forState:UIControlStateNormal];
+            [cell addSubview:btnRefresh];
+            break;
         default:
             break;
     }
@@ -100,44 +108,64 @@
     
 }
 
-#pragma mark - beacon methods
-- (void)toggleBeaconBroadcast:(NSNotification*)notification
+- (void)refreshFriends:(NSNotification*)notification
 {
-    //stop/start beacon monitoring
-    [[[AppSharedModel sharedModel] friendsTableViewController]stopBeaconMonitoring];
+    //only needed if a new friend has downloaded the app for first use
+    [[[AppSharedModel sharedModel] friendsTableViewController] requestFacebookFriends];
+}
+
+#pragma mark - beacon methods
+- (void)toggleBeaconBroadcast:(id)sender
+{
+    UISwitch * broadcastToggle = sender;
     
-    //start or stop beacon broadcast
-    
-    // Create a NSUUID object - todo: pull from db
-    NSUUID *uuid = [[NSUUID alloc] initWithUUIDString:APPLICATION_BEACON_UUID];
-    
-    AppDelegate * appDelegate = (AppDelegate *)[UIApplication sharedApplication].delegate;
-    
-   //get last eight characters of facebook user id, and split to create major(4 digits) and minor(4 digits)
-    NSInteger idStringLength = [[appDelegate UserFacebookID] length];
-    NSString * lastEightOfID = [[appDelegate UserFacebookID] substringWithRange:NSMakeRange (idStringLength - 8, 8)];
-    
-    NSString * firstFourOfSubId = [lastEightOfID substringWithRange:NSMakeRange (0, 4)];//for major
-    NSString * lastFourOfSubId = [lastEightOfID substringWithRange:NSMakeRange (4, 4)];//for minor
-    
-    NSNumberFormatter* formatter = [[NSNumberFormatter alloc] init];
-    
-    UInt16 maj = [[formatter numberFromString:firstFourOfSubId] unsignedShortValue];
-    UInt16 min = [[formatter numberFromString:lastFourOfSubId] unsignedShortValue];
-    
-    // Initialize the Beacon Region
-    self.myBeaconRegion = [[CLBeaconRegion alloc] initWithProximityUUID:uuid
-                                                                  major:maj
-                                                                  minor:min
-                                                             identifier:@"crowdlink"];
-    
-    // Get the beacon data to advertise
-    self.myBeaconData = [self.myBeaconRegion peripheralDataWithMeasuredPower:nil];
-    
-    // Start the peripheral manager
-    self.peripheralManager = [[CBPeripheralManager alloc] initWithDelegate:self
-                                                                     queue:nil
-                                                                   options:nil];
+    if(![[self peripheralManager] isAdvertising] && [broadcastToggle isOn])
+    {
+        //stop beacon monitoring
+        [[[AppSharedModel sharedModel] friendsTableViewController]stopBeaconMonitoring];
+        
+        //start beacon broadcast
+        
+        // Create a NSUUID object - todo: pull from db
+        NSUUID *uuid = [[NSUUID alloc] initWithUUIDString:APPLICATION_BEACON_UUID];
+        
+        AppDelegate * appDelegate = (AppDelegate *)[UIApplication sharedApplication].delegate;
+        
+       //get last eight characters of facebook user id, and split to create major(4 digits) and minor(4 digits)
+        NSInteger idStringLength = [[appDelegate UserFacebookID] length];
+        NSString * lastEightOfID = [[appDelegate UserFacebookID] substringWithRange:NSMakeRange (idStringLength - 8, 8)];
+        
+        NSString * firstFourOfSubId = [lastEightOfID substringWithRange:NSMakeRange (0, 4)];//for major
+        NSString * lastFourOfSubId = [lastEightOfID substringWithRange:NSMakeRange (4, 4)];//for minor
+        
+        NSNumberFormatter* formatter = [[NSNumberFormatter alloc] init];
+        
+        UInt16 maj = [[formatter numberFromString:firstFourOfSubId] unsignedShortValue];
+        UInt16 min = [[formatter numberFromString:lastFourOfSubId] unsignedShortValue];
+        
+        // Initialize the Beacon Region
+        self.myBeaconRegion = [[CLBeaconRegion alloc] initWithProximityUUID:uuid
+                                                                      major:maj
+                                                                      minor:min
+                                                                 identifier:@"crowdlink"];
+        
+        // Get the beacon data to advertise
+        self.myBeaconData = [self.myBeaconRegion peripheralDataWithMeasuredPower:nil];
+        
+        // Start the peripheral manager
+        self.peripheralManager = [[CBPeripheralManager alloc] initWithDelegate:self
+                                                                         queue:nil
+                                                                       options:nil];
+    }
+    else
+    {
+        //stop broadcasting
+        [[self peripheralManager] stopAdvertising];
+        
+        //start beacon monitoring
+        [[[AppSharedModel sharedModel] friendsTableViewController]startBeaconMonitoring];
+        
+    }
 }
 
 -(void)peripheralManagerDidUpdateState:(CBPeripheralManager*)peripheral

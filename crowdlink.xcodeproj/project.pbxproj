@@ -34,6 +34,10 @@
 		A9A410D91A9560910006C07A /* FriendsTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = A9A410D71A9560910006C07A /* FriendsTableViewCell.m */; };
 		A9A410DA1A9560910006C07A /* FriendsTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = A9A410D81A9560910006C07A /* FriendsTableViewCell.xib */; };
 		A9A4D1C71A9669D000DD1ABA /* AppSharedModel.m in Sources */ = {isa = PBXBuildFile; fileRef = A9A4D1C61A9669D000DD1ABA /* AppSharedModel.m */; };
+		A9A4D1CA1A96A1FF00DD1ABA /* Friend.m in Sources */ = {isa = PBXBuildFile; fileRef = A9A4D1C91A96A1FF00DD1ABA /* Friend.m */; };
+		A9A4D1CC1A96AA4A00DD1ABA /* forward-32.png in Resources */ = {isa = PBXBuildFile; fileRef = A9A4D1CB1A96AA4A00DD1ABA /* forward-32.png */; };
+		A9A4D1D01A96AB0F00DD1ABA /* FriendDetailViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A9A4D1CE1A96AB0F00DD1ABA /* FriendDetailViewController.m */; };
+		A9A4D1D11A96AB0F00DD1ABA /* FriendDetailViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = A9A4D1CF1A96AB0F00DD1ABA /* FriendDetailViewController.xib */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -88,6 +92,12 @@
 		A9A410D81A9560910006C07A /* FriendsTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = FriendsTableViewCell.xib; sourceTree = "<group>"; };
 		A9A4D1C51A9669D000DD1ABA /* AppSharedModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AppSharedModel.h; sourceTree = "<group>"; };
 		A9A4D1C61A9669D000DD1ABA /* AppSharedModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AppSharedModel.m; sourceTree = "<group>"; };
+		A9A4D1C81A96A1FF00DD1ABA /* Friend.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Friend.h; sourceTree = "<group>"; };
+		A9A4D1C91A96A1FF00DD1ABA /* Friend.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Friend.m; sourceTree = "<group>"; };
+		A9A4D1CB1A96AA4A00DD1ABA /* forward-32.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "forward-32.png"; sourceTree = "<group>"; };
+		A9A4D1CD1A96AB0F00DD1ABA /* FriendDetailViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FriendDetailViewController.h; sourceTree = "<group>"; };
+		A9A4D1CE1A96AB0F00DD1ABA /* FriendDetailViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FriendDetailViewController.m; sourceTree = "<group>"; };
+		A9A4D1CF1A96AB0F00DD1ABA /* FriendDetailViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = FriendDetailViewController.xib; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -204,6 +214,9 @@
 				A9A410D61A9560910006C07A /* FriendsTableViewCell.h */,
 				A9A410D71A9560910006C07A /* FriendsTableViewCell.m */,
 				A9A410D81A9560910006C07A /* FriendsTableViewCell.xib */,
+				A9A4D1CD1A96AB0F00DD1ABA /* FriendDetailViewController.h */,
+				A9A4D1CE1A96AB0F00DD1ABA /* FriendDetailViewController.m */,
+				A9A4D1CF1A96AB0F00DD1ABA /* FriendDetailViewController.xib */,
 			);
 			name = UIElements;
 			sourceTree = "<group>";
@@ -211,6 +224,7 @@
 		A934CE331A93F68600008D8F /* Images */ = {
 			isa = PBXGroup;
 			children = (
+				A9A4D1CB1A96AA4A00DD1ABA /* forward-32.png */,
 				A934CE4B1A94543200008D8F /* FB-f-Logo__blue_50.png */,
 				A934CE491A94540500008D8F /* FB-f-Logo__blue_29.png */,
 				A934CE421A941D5400008D8F /* settings3-32.png */,
@@ -227,6 +241,8 @@
 				A934CE3B1A94139200008D8F /* Reachability.m */,
 				A9A4D1C51A9669D000DD1ABA /* AppSharedModel.h */,
 				A9A4D1C61A9669D000DD1ABA /* AppSharedModel.m */,
+				A9A4D1C81A96A1FF00DD1ABA /* Friend.h */,
+				A9A4D1C91A96A1FF00DD1ABA /* Friend.m */,
 			);
 			name = Classes;
 			sourceTree = "<group>";
@@ -317,12 +333,14 @@
 				A934CE2D1A93EC7700008D8F /* LoginViewController.xib in Resources */,
 				A934CE481A94269B00008D8F /* SettingsTableViewCell.xib in Resources */,
 				A934CE091A93E79400008D8F /* Main.storyboard in Resources */,
+				A9A4D1CC1A96AA4A00DD1ABA /* forward-32.png in Resources */,
 				A934CE321A93F3D700008D8F /* FriendsTableViewController.xib in Resources */,
 				A934CE411A941A7B00008D8F /* SettingsTableViewController.xib in Resources */,
 				A934CE0E1A93E79400008D8F /* LaunchScreen.xib in Resources */,
 				A934CE4A1A94540500008D8F /* FB-f-Logo__blue_29.png in Resources */,
 				A934CE0B1A93E79400008D8F /* Images.xcassets in Resources */,
 				A9A410DA1A9560910006C07A /* FriendsTableViewCell.xib in Resources */,
+				A9A4D1D11A96AB0F00DD1ABA /* FriendDetailViewController.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -342,7 +360,9 @@
 			files = (
 				A934CE401A941A7B00008D8F /* SettingsTableViewController.m in Sources */,
 				A9A410D91A9560910006C07A /* FriendsTableViewCell.m in Sources */,
+				A9A4D1D01A96AB0F00DD1ABA /* FriendDetailViewController.m in Sources */,
 				A934CE031A93E79400008D8F /* crowdlink.xcdatamodeld in Sources */,
+				A9A4D1CA1A96A1FF00DD1ABA /* Friend.m in Sources */,
 				A9A4D1C71A9669D000DD1ABA /* AppSharedModel.m in Sources */,
 				A934CE001A93E79400008D8F /* AppDelegate.m in Sources */,
 				A934CE061A93E79400008D8F /* ViewController.m in Sources */,

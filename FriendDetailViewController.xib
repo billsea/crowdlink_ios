@@ -1,0 +1,82 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="6254" systemVersion="14A389" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES">
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="6247"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="FriendDetailViewController">
+            <connections>
+                <outlet property="accuracyLabel" destination="NZU-Kp-EM3" id="AD6-rI-jEh"/>
+                <outlet property="nameLabel" destination="WnU-bq-3Pi" id="c71-g9-7Zw"/>
+                <outlet property="updateLabel" destination="hzI-68-8lq" id="Mak-UD-2OY"/>
+                <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
+            </connections>
+        </placeholder>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <view clearsContextBeforeDrawing="NO" contentMode="scaleToFill" id="i5M-Pr-FkT">
+            <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+            <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+            <subviews>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="WnU-bq-3Pi">
+                    <rect key="frame" x="147" y="118" width="307" height="21"/>
+                    <constraints>
+                        <constraint firstAttribute="width" constant="307" id="ASQ-5o-suu"/>
+                        <constraint firstAttribute="width" constant="307" id="HE6-6S-o7v"/>
+                        <constraint firstAttribute="height" constant="21" id="Sum-3Y-Dyg"/>
+                        <constraint firstAttribute="height" constant="21" id="tZh-yC-4Xh"/>
+                    </constraints>
+                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                    <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                    <nil key="highlightedColor"/>
+                    <variation key="default">
+                        <mask key="constraints">
+                            <exclude reference="ASQ-5o-suu"/>
+                            <exclude reference="HE6-6S-o7v"/>
+                            <exclude reference="Sum-3Y-Dyg"/>
+                            <exclude reference="tZh-yC-4Xh"/>
+                        </mask>
+                    </variation>
+                </label>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="NZU-Kp-EM3">
+                    <rect key="frame" x="235" y="459" width="130" height="52"/>
+                    <fontDescription key="fontDescription" type="system" pointSize="32"/>
+                    <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                    <nil key="highlightedColor"/>
+                </label>
+                <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="hzI-68-8lq">
+                    <rect key="frame" x="8" y="279" width="88" height="30"/>
+                    <state key="normal" title="Update label">
+                        <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                    </state>
+                    <connections>
+                        <action selector="updateAccuracyLabel:" destination="-1" eventType="touchUpInside" id="1UU-TH-Hxw"/>
+                    </connections>
+                </button>
+            </subviews>
+            <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+            <constraints>
+                <constraint firstItem="WnU-bq-3Pi" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" constant="147" id="4hF-WF-INl"/>
+                <constraint firstItem="WnU-bq-3Pi" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" constant="118" id="4mV-B3-Uht"/>
+                <constraint firstAttribute="trailing" secondItem="WnU-bq-3Pi" secondAttribute="trailing" constant="146" id="6kj-Y7-MUI"/>
+                <constraint firstItem="WnU-bq-3Pi" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" constant="147" id="IST-t0-XWK"/>
+                <constraint firstItem="WnU-bq-3Pi" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" constant="118" id="go6-g6-g0N"/>
+                <constraint firstAttribute="centerY" secondItem="NZU-Kp-EM3" secondAttribute="centerY" constant="-185" id="lxd-C6-VSh"/>
+                <constraint firstAttribute="trailing" secondItem="WnU-bq-3Pi" secondAttribute="trailing" constant="146" id="nxr-DS-qf0"/>
+                <constraint firstAttribute="centerX" secondItem="NZU-Kp-EM3" secondAttribute="centerX" id="p89-zM-UYL"/>
+                <constraint firstAttribute="centerX" secondItem="WnU-bq-3Pi" secondAttribute="centerX" constant="-0.5" id="pCd-18-Igg"/>
+                <constraint firstAttribute="centerY" secondItem="WnU-bq-3Pi" secondAttribute="centerY" constant="171.5" id="zbK-hN-zVA"/>
+            </constraints>
+            <variation key="default">
+                <mask key="constraints">
+                    <exclude reference="4hF-WF-INl"/>
+                    <exclude reference="4mV-B3-Uht"/>
+                    <exclude reference="6kj-Y7-MUI"/>
+                    <exclude reference="IST-t0-XWK"/>
+                    <exclude reference="go6-g6-g0N"/>
+                    <exclude reference="nxr-DS-qf0"/>
+                </mask>
+            </variation>
+        </view>
+    </objects>
+</document>

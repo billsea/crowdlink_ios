@@ -14,6 +14,9 @@
 #import "Constants.h"
 #import "AppDelegate.h"
 #import "FriendsTableViewCell.h"
+#import "Friend.h"
+#import "FriendDetailViewController.h"
+#import "AppSharedModel.h"
 
 @interface FriendsTableViewController ()
 
@@ -32,7 +35,7 @@
     [super viewDidLoad];
     
     // Set the title of the navigation item
-    [[self navigationItem] setTitle:@"Active"];
+    [[self navigationItem] setTitle:@"Friends Nearby"];
     
     
     //add new navigation bar button
@@ -140,7 +143,7 @@
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
 
     // Return the number of rows in the section.
-    return [[self allFacebookFriendsUsingTheApp] count];
+    return [[self friendsInRange] count];
 }
 
 
@@ -156,10 +159,11 @@
         
     }
     // Configure the cell...
-    NSDictionary<FBGraphUser>* friend = [[self friendsInRange] objectAtIndex:[indexPath row]];
+    Friend * friendInRange = [[self friendsInRange] objectAtIndex:[indexPath row]];
+    UIImage * fbImage = [UIImage imageWithData:[NSData dataWithContentsOfURL:[NSURL URLWithString:friendInRange.PictureURL]]];
     
-    [[cell friendNameLabel] setText:friend.name];
-    
+    [[cell friendNameLabel] setText:friendInRange.FullName];
+    [[cell userPicture] setImage:fbImage];
     
     return cell;
 }
@@ -199,21 +203,24 @@
 }
 */
 
-/*
+
 #pragma mark - Table view delegate
 
 // In a xib-based application, navigation from a table can be handled in -tableView:didSelectRowAtIndexPath:
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
     // Navigation logic may go here, for example:
     // Create the next view controller.
-    <#DetailViewController#> *detailViewController = [[<#DetailViewController#> alloc] initWithNibName:<#@"Nib name"#> bundle:nil];
+    FriendDetailViewController *detailViewController = [[FriendDetailViewController alloc] initWithNibName:@"FriendDetailViewController" bundle:nil];
     
     // Pass the selected object to the new view controller.
+    Friend * selFriendInRange = [[self friendsInRange] objectAtIndex:[indexPath row]];
+    
+    [detailViewController setSelectedFriend:selFriendInRange];
     
     // Push the view controller.
     [self.navigationController pushViewController:detailViewController animated:YES];
 }
-*/
+
 
 /*
 #pragma mark - Navigation
@@ -293,7 +300,8 @@
               inRegion:(CLBeaconRegion*)region
 {
     //clear all from friendsInRange array
-    [self.friendsInRange removeAllObjects];
+    [[self friendsInRange] removeAllObjects];
+    [[[AppSharedModel sharedModel] friendsInRangeAll] removeAllObjects];
     
     //check if broadcasting beacon is a friend, and add to list of friends in range
     for(CLBeacon *beacon in beacons)
@@ -308,19 +316,29 @@
             
             if([lastEightOfFriendID isEqualToString:majMinId])
             {
-                //add to friends in range
-                [[self friendsInRange] addObject: friend];
                 
+                Friend * friendInRange = [[Friend alloc] init];
+                friendInRange.FullName = friend.name;
+                friendInRange.FirstName = friend.first_name;
+                friendInRange.LastName = friend.last_name;
+                friendInRange.FacebookID = friend.id;
+                friendInRange.PictureURL = [NSString stringWithFormat:@"https://graph.facebook.com/%@/picture?type=large", friend.id];
+                friendInRange.Proximity = [NSString stringWithFormat:@"%d",beacon.proximity];
+                friendInRange.Accuracy = [NSString stringWithFormat:@"%f",beacon.accuracy];
+                
+                //add to friends in range
+                [[self friendsInRange] addObject:friendInRange];
+                [[[AppSharedModel sharedModel] friendsInRangeAll] addObject:friendInRange];
             }
         }
         
     }
     
     //reload active friends table
-    if([[self friendsInRange] count] > 0)
-    {
+    //if([[self friendsInRange] count] > 0)
+    //{
         [[self tableView] reloadData];
-    }
+   // }
     
 //    //collection of beacons in range
 //    CLBeacon *nearestBeacon = [beacons firstObject];

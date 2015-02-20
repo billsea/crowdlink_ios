@@ -16,6 +16,6 @@
 @property (strong, nonatomic) NSDictionary *myBeaconData;
 @property (strong, nonatomic) CBPeripheralManager *peripheralManager;
 
-- (void)toggleBeaconBroadcast:(NSNotification*)notification;
-
+- (void)toggleBeaconBroadcast:(id)sender;
+- (void)refreshFriends:(NSNotification*)notification;
 @end
