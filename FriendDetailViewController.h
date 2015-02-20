@@ -15,6 +15,6 @@
 @property (weak, nonatomic) IBOutlet UILabel *nameLabel;
 @property (weak, nonatomic) IBOutlet UILabel *accuracyLabel;
 
-@property (weak, nonatomic) IBOutlet UIButton *updateLabel;
-- (IBAction)updateAccuracyLabel:(id)sender;
+- (void)updateDisplay;
+
 @end

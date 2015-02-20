@@ -59,6 +59,7 @@
     //initialize friends in range
     self.friendsInRange = [[NSMutableArray alloc] init];
     
+    
     //Monitor for broadcasting beacons
     [self startBeaconMonitoring];
     
@@ -219,6 +220,8 @@
     
     // Push the view controller.
     [self.navigationController pushViewController:detailViewController animated:YES];
+    
+    [[AppSharedModel sharedModel] setFriendsDetailViewController:detailViewController];
 }
 
 
@@ -335,10 +338,13 @@
     }
     
     //reload active friends table
-    //if([[self friendsInRange] count] > 0)
-    //{
         [[self tableView] reloadData];
-   // }
+    
+    //update selected friend details
+    if([[[AppSharedModel sharedModel] friendsDetailViewController] isViewLoaded])
+    {
+        [[[AppSharedModel sharedModel] friendsDetailViewController] updateDisplay];
+    }
     
 //    //collection of beacons in range
 //    CLBeacon *nearestBeacon = [beacons firstObject];

@@ -14,7 +14,6 @@
 @end
 
 
-
 @implementation FriendDetailViewController
 
 @synthesize selectedFriend = _selectedFriend;
@@ -25,12 +24,21 @@
     // Do any additional setup after loading the view from its nib.
     
     [[self nameLabel] setText:[[self selectedFriend] FullName]];
-    [[self accuracyLabel] setText:[[self selectedFriend] Accuracy]];
+
 }
 
-- (void)refreshStatus
+//called from location manager(beacon loop in FriendsTableViewController) to update the accuracy text
+- (void)updateDisplay
 {
+    for(Friend * f in [[AppSharedModel sharedModel] friendsInRangeAll])
+    {
+        if([[f FacebookID] isEqualToString:[[self selectedFriend] FacebookID]])
+        {
+            [self setSelectedFriend:f];
+        }
+    }
     
+    [[self accuracyLabel] setText:[[self selectedFriend] Accuracy]];
 }
 
 - (void)didReceiveMemoryWarning {
@@ -48,7 +56,6 @@
 }
 */
 
-- (IBAction)updateAccuracyLabel:(id)sender {
-    [[self accuracyLabel] setText:[[self selectedFriend] Accuracy]];
-}
+
+
 @end

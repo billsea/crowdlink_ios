@@ -9,6 +9,7 @@
 #import <Foundation/Foundation.h>
 #import <CoreData/CoreData.h>
 #import "FriendsTableViewController.h"
+#import "FriendDetailViewController.h"
 
 @interface AppSharedModel : NSObject
 {
@@ -19,6 +20,7 @@
 
 
 @property (nonatomic, weak) FriendsTableViewController * friendsTableViewController;
+@property (nonatomic, weak) FriendDetailViewController * friendsDetailViewController;
 @property (nonatomic, strong) NSMutableArray * friendsInRangeAll;
 
 @end

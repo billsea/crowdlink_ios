@@ -17,6 +17,7 @@
 static AppSharedModel *_model;
 
 @synthesize friendsTableViewController = _friendsTableViewController;
+@synthesize friendsDetailViewController = _friendsDetailViewController;
 @synthesize friendsInRangeAll = _friendsInRangeAll;
 
 +(void)initialize
@@ -38,7 +39,7 @@ static AppSharedModel *_model;
     
     self = [super init];
     
-
+    self.friendsInRangeAll = [[NSMutableArray alloc] init];
     
     return self;
 }

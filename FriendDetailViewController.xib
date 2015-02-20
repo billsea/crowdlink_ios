@@ -9,7 +9,6 @@
             <connections>
                 <outlet property="accuracyLabel" destination="NZU-Kp-EM3" id="AD6-rI-jEh"/>
                 <outlet property="nameLabel" destination="WnU-bq-3Pi" id="c71-g9-7Zw"/>
-                <outlet property="updateLabel" destination="hzI-68-8lq" id="Mak-UD-2OY"/>
                 <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
             </connections>
         </placeholder>
@@ -44,15 +43,6 @@
                     <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                     <nil key="highlightedColor"/>
                 </label>
-                <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="hzI-68-8lq">
-                    <rect key="frame" x="8" y="279" width="88" height="30"/>
-                    <state key="normal" title="Update label">
-                        <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
-                    </state>
-                    <connections>
-                        <action selector="updateAccuracyLabel:" destination="-1" eventType="touchUpInside" id="1UU-TH-Hxw"/>
-                    </connections>
-                </button>
             </subviews>
             <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
             <constraints>
