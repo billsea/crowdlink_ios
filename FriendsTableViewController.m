@@ -318,20 +318,30 @@
             NSString * lastEightOfFriendID = [friend.id substringWithRange:NSMakeRange (idStringLength - 8, 8)];
             
             if([lastEightOfFriendID isEqualToString:majMinId])
+               // if(([lastEightOfFriendID isEqualToString:majMinId]) || [majMinId isEqualToString:@"3630347456"]) //testing with estimote beacon
             {
                 
                 Friend * friendInRange = [[Friend alloc] init];
                 friendInRange.FullName = friend.name;
+                
+                //testing with estimote beacon
+//                if([majMinId isEqualToString:@"3630347456"])
+//                {
+//                   friendInRange.FullName = @"Estimote Beacon";
+//                }
+                
                 friendInRange.FirstName = friend.first_name;
                 friendInRange.LastName = friend.last_name;
                 friendInRange.FacebookID = friend.id;
                 friendInRange.PictureURL = [NSString stringWithFormat:@"https://graph.facebook.com/%@/picture?type=large", friend.id];
-                friendInRange.Proximity = [NSString stringWithFormat:@"%d",beacon.proximity];
+                friendInRange.Proximity = [NSString stringWithFormat:@"%ld",beacon.proximity];
                 friendInRange.Accuracy = [NSString stringWithFormat:@"%f",beacon.accuracy];
                 
                 //add to friends in range
                 [[self friendsInRange] addObject:friendInRange];
                 [[[AppSharedModel sharedModel] friendsInRangeAll] addObject:friendInRange];
+                
+                //TODO: add friendInRange to core data table
             }
         }
         

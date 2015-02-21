@@ -38,6 +38,13 @@
 		A9A4D1CC1A96AA4A00DD1ABA /* forward-32.png in Resources */ = {isa = PBXBuildFile; fileRef = A9A4D1CB1A96AA4A00DD1ABA /* forward-32.png */; };
 		A9A4D1D01A96AB0F00DD1ABA /* FriendDetailViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A9A4D1CE1A96AB0F00DD1ABA /* FriendDetailViewController.m */; };
 		A9A4D1D11A96AB0F00DD1ABA /* FriendDetailViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = A9A4D1CF1A96AB0F00DD1ABA /* FriendDetailViewController.xib */; };
+		A9C61FBD1A9813B000C41477 /* MultiplePulsingHaloLayer.m in Sources */ = {isa = PBXBuildFile; fileRef = A9C61FBA1A9813B000C41477 /* MultiplePulsingHaloLayer.m */; };
+		A9C61FBE1A9813B000C41477 /* PulsingHaloLayer.m in Sources */ = {isa = PBXBuildFile; fileRef = A9C61FBC1A9813B000C41477 /* PulsingHaloLayer.m */; };
+		A9C61FC01A981C2C00C41477 /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A9C61FBF1A981C2C00C41477 /* QuartzCore.framework */; };
+		A9C61FC21A981C7800C41477 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A9C61FC11A981C7800C41477 /* CoreGraphics.framework */; };
+		A9C61FC41A981C8200C41477 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A9C61FC31A981C8200C41477 /* UIKit.framework */; };
+		A9C61FC71A9901D400C41477 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A9C61FC61A9901D400C41477 /* Foundation.framework */; };
+		A9C61FCA1A9919A400C41477 /* FlashingDot.m in Sources */ = {isa = PBXBuildFile; fileRef = A9C61FC91A9919A400C41477 /* FlashingDot.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -98,6 +105,16 @@
 		A9A4D1CD1A96AB0F00DD1ABA /* FriendDetailViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FriendDetailViewController.h; sourceTree = "<group>"; };
 		A9A4D1CE1A96AB0F00DD1ABA /* FriendDetailViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FriendDetailViewController.m; sourceTree = "<group>"; };
 		A9A4D1CF1A96AB0F00DD1ABA /* FriendDetailViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = FriendDetailViewController.xib; sourceTree = "<group>"; };
+		A9C61FB91A9813B000C41477 /* MultiplePulsingHaloLayer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MultiplePulsingHaloLayer.h; sourceTree = "<group>"; };
+		A9C61FBA1A9813B000C41477 /* MultiplePulsingHaloLayer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MultiplePulsingHaloLayer.m; sourceTree = "<group>"; };
+		A9C61FBB1A9813B000C41477 /* PulsingHaloLayer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PulsingHaloLayer.h; sourceTree = "<group>"; };
+		A9C61FBC1A9813B000C41477 /* PulsingHaloLayer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PulsingHaloLayer.m; sourceTree = "<group>"; };
+		A9C61FBF1A981C2C00C41477 /* QuartzCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = QuartzCore.framework; path = System/Library/Frameworks/QuartzCore.framework; sourceTree = SDKROOT; };
+		A9C61FC11A981C7800C41477 /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
+		A9C61FC31A981C8200C41477 /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
+		A9C61FC61A9901D400C41477 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
+		A9C61FC81A9919A400C41477 /* FlashingDot.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FlashingDot.h; sourceTree = "<group>"; };
+		A9C61FC91A9919A400C41477 /* FlashingDot.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FlashingDot.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -105,6 +122,10 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				A9C61FC71A9901D400C41477 /* Foundation.framework in Frameworks */,
+				A9C61FC41A981C8200C41477 /* UIKit.framework in Frameworks */,
+				A9C61FC21A981C7800C41477 /* CoreGraphics.framework in Frameworks */,
+				A9C61FC01A981C2C00C41477 /* QuartzCore.framework in Frameworks */,
 				A934CE381A94130400008D8F /* SystemConfiguration.framework in Frameworks */,
 				A934CE241A93EAD800008D8F /* CoreLocation.framework in Frameworks */,
 				A934CE271A93EB1400008D8F /* FacebookSDK.framework in Frameworks */,
@@ -189,6 +210,10 @@
 		A934CE251A93EADE00008D8F /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				A9C61FC61A9901D400C41477 /* Foundation.framework */,
+				A9C61FC31A981C8200C41477 /* UIKit.framework */,
+				A9C61FC11A981C7800C41477 /* CoreGraphics.framework */,
+				A9C61FBF1A981C2C00C41477 /* QuartzCore.framework */,
 				A934CE371A94130400008D8F /* SystemConfiguration.framework */,
 				A934CE261A93EB1400008D8F /* FacebookSDK.framework */,
 				A934CE231A93EAD800008D8F /* CoreLocation.framework */,
@@ -237,14 +262,28 @@
 		A934CE391A94137100008D8F /* Classes */ = {
 			isa = PBXGroup;
 			children = (
+				A9C61FB81A9813B000C41477 /* PulsingHalo */,
 				A934CE3A1A94139200008D8F /* Reachability.h */,
 				A934CE3B1A94139200008D8F /* Reachability.m */,
 				A9A4D1C51A9669D000DD1ABA /* AppSharedModel.h */,
 				A9A4D1C61A9669D000DD1ABA /* AppSharedModel.m */,
 				A9A4D1C81A96A1FF00DD1ABA /* Friend.h */,
 				A9A4D1C91A96A1FF00DD1ABA /* Friend.m */,
+				A9C61FC81A9919A400C41477 /* FlashingDot.h */,
+				A9C61FC91A9919A400C41477 /* FlashingDot.m */,
 			);
 			name = Classes;
+			sourceTree = "<group>";
+		};
+		A9C61FB81A9813B000C41477 /* PulsingHalo */ = {
+			isa = PBXGroup;
+			children = (
+				A9C61FB91A9813B000C41477 /* MultiplePulsingHaloLayer.h */,
+				A9C61FBA1A9813B000C41477 /* MultiplePulsingHaloLayer.m */,
+				A9C61FBB1A9813B000C41477 /* PulsingHaloLayer.h */,
+				A9C61FBC1A9813B000C41477 /* PulsingHaloLayer.m */,
+			);
+			path = PulsingHalo;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -358,15 +397,18 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				A9C61FBE1A9813B000C41477 /* PulsingHaloLayer.m in Sources */,
 				A934CE401A941A7B00008D8F /* SettingsTableViewController.m in Sources */,
 				A9A410D91A9560910006C07A /* FriendsTableViewCell.m in Sources */,
 				A9A4D1D01A96AB0F00DD1ABA /* FriendDetailViewController.m in Sources */,
 				A934CE031A93E79400008D8F /* crowdlink.xcdatamodeld in Sources */,
+				A9C61FBD1A9813B000C41477 /* MultiplePulsingHaloLayer.m in Sources */,
 				A9A4D1CA1A96A1FF00DD1ABA /* Friend.m in Sources */,
 				A9A4D1C71A9669D000DD1ABA /* AppSharedModel.m in Sources */,
 				A934CE001A93E79400008D8F /* AppDelegate.m in Sources */,
 				A934CE061A93E79400008D8F /* ViewController.m in Sources */,
 				A934CE3C1A94139200008D8F /* Reachability.m in Sources */,
+				A9C61FCA1A9919A400C41477 /* FlashingDot.m in Sources */,
 				A934CE471A94269B00008D8F /* SettingsTableViewCell.m in Sources */,
 				A934CE311A93F3D700008D8F /* FriendsTableViewController.m in Sources */,
 				A934CDFD1A93E79400008D8F /* main.m in Sources */,

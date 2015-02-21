@@ -7,13 +7,15 @@
 //
 
 #import <UIKit/UIKit.h>
+
 #import "Friend.h"
 
 @interface FriendDetailViewController : UIViewController
 
 @property Friend * selectedFriend;
-@property (weak, nonatomic) IBOutlet UILabel *nameLabel;
 @property (weak, nonatomic) IBOutlet UILabel *accuracyLabel;
+
+
 
 - (void)updateDisplay;
 
