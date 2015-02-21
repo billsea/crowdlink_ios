@@ -14,12 +14,15 @@
 #import "FlashingDot.h"
 
 #define kMaxRadius 160
+#define searchStartDistanceY 200
 
 @interface FriendDetailViewController ()
 @property (nonatomic, weak) MultiplePulsingHaloLayer *mutiHalo;
 @property (nonatomic, weak) IBOutlet UIImageView *beaconViewMuti;
 @end
 
+FlashingDot * flashingDot;
+float searchDotIncrement;
 
 @implementation FriendDetailViewController
 
@@ -32,6 +35,11 @@
     
     // Set the title of the navigation item
     [[self navigationItem] setTitle:[[self selectedFriend] FullName]];
+    
+    //set increment for flashing dot
+    NSLog(@"accuracty:%f",[[[self selectedFriend] Accuracy] floatValue]);
+    searchDotIncrement = searchStartDistanceY/[[[self selectedFriend] Accuracy] floatValue];
+    
     
     [self addBeaconHalo];
 }
@@ -48,17 +56,20 @@
    // [[self beaconViewMuti]setFrame:CGRectMake(screenPosition.x, screenPosition.y, 100, 100)];
     
 
-
-    
     //flashing dot for searching device
-    FlashingDot * flashingDot = [FlashingDot layer];
-    flashingDot.position = CGPointMake(self.beaconViewMuti.center.x, self.beaconViewMuti.center.y + 200);
-    //flashingDot.radius = 10;
+    flashingDot = [FlashingDot layer];
+    flashingDot.position = CGPointMake(self.beaconViewMuti.center.x, self.beaconViewMuti.center.y + searchStartDistanceY);
+    flashingDot.radius = 20;
+    flashingDot.fromValueForAlpha = 1;
+    flashingDot.keyTimeForHalfOpacity = 1;
+    flashingDot.fromValueForRadius = 1;
+    flashingDot.animationDuration = 1;
     [self.view.layer addSublayer:flashingDot];
  
     ///setup multiple halo layer
     //you can specify the number of halos by initial method or by instance property "haloLayerNumber"
     MultiplePulsingHaloLayer *multiLayer = [[MultiplePulsingHaloLayer alloc] initWithHaloLayerNum:3 andStartInterval:1];
+    multiLayer.animationDuration = 4;
     self.mutiHalo = multiLayer;
     self.mutiHalo.position = self.beaconViewMuti.center;
     self.mutiHalo.useTimingFunction = NO;
@@ -71,7 +82,7 @@
 //                                     green:self.gSlider.value
 //                                      blue:self.bSlider.value
 //                                     alpha:1.0];
-    UIColor * color = [UIColor redColor];
+    UIColor * color = [UIColor greenColor];
     [self.mutiHalo setHaloLayerColor:color.CGColor];
    
 
@@ -90,6 +101,19 @@
     }
     
     [[self accuracyLabel] setText:[[self selectedFriend] Accuracy]];
+    [self updateDotPosition:[[self selectedFriend] Accuracy]];
+}
+
+- (void)updateDotPosition:(NSString *)distance
+{
+    float newYposition = [distance floatValue] * searchDotIncrement;
+    flashingDot.position = CGPointMake(self.beaconViewMuti.center.x, self.beaconViewMuti.center.y + newYposition);
+    
+    //adjust starting point if needed
+    if(newYposition > searchStartDistanceY)
+    {
+        searchDotIncrement = searchStartDistanceY/[[[self selectedFriend] Accuracy] floatValue];
+    }
 }
 
 - (void)didReceiveMemoryWarning {
