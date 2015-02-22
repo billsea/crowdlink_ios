@@ -15,6 +15,7 @@
 @property Friend * selectedFriend;
 @property (weak, nonatomic) IBOutlet UILabel *accuracyLabel;
 
+@property (weak, nonatomic) IBOutlet UILabel *metersFeetLabel;
 
 
 - (void)updateDisplay;

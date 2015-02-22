@@ -318,21 +318,22 @@
             NSString * lastEightOfFriendID = [friend.id substringWithRange:NSMakeRange (idStringLength - 8, 8)];
             
             if([lastEightOfFriendID isEqualToString:majMinId])
-               // if(([lastEightOfFriendID isEqualToString:majMinId]) || [majMinId isEqualToString:@"3630347456"]) //testing with estimote beacon
+               //if(([lastEightOfFriendID isEqualToString:majMinId]) || [majMinId isEqualToString:@"3630347456"]) //testing with estimote beacon
             {
                 
                 Friend * friendInRange = [[Friend alloc] init];
                 friendInRange.FullName = friend.name;
+                friendInRange.FacebookID = friend.id;
                 
-                //testing with estimote beacon
+//                //testing with estimote beacon
 //                if([majMinId isEqualToString:@"3630347456"])
 //                {
 //                   friendInRange.FullName = @"Estimote Beacon";
+//                    friendInRange.FacebookID = @"3630347456";
 //                }
                 
                 friendInRange.FirstName = friend.first_name;
                 friendInRange.LastName = friend.last_name;
-                friendInRange.FacebookID = friend.id;
                 friendInRange.PictureURL = [NSString stringWithFormat:@"https://graph.facebook.com/%@/picture?type=large", friend.id];
                 friendInRange.Proximity = [NSString stringWithFormat:@"%ld",beacon.proximity];
                 friendInRange.Accuracy = [NSString stringWithFormat:@"%f",beacon.accuracy];

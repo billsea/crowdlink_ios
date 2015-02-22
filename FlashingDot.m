@@ -83,6 +83,7 @@
     scaleAnimation.fromValue = @(self.fromValueForRadius);
     scaleAnimation.toValue = @1.0;
     scaleAnimation.duration = self.animationDuration;
+
     
     CAKeyframeAnimation *opacityAnimation = [CAKeyframeAnimation animationWithKeyPath:@"opacity"];
     opacityAnimation.duration = self.animationDuration;
