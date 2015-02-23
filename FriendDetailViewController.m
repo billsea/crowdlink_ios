@@ -12,9 +12,11 @@
 #import "MultiplePulsingHaloLayer.h"
 #import "PulsingHaloLayer.h"
 #import "FlashingDot.h"
+#import "BeaconGrid.h"
 
 #define kMaxRadius 160
 #define searchStartDistanceY 200
+
 
 @interface FriendDetailViewController ()
 @property (nonatomic, weak) MultiplePulsingHaloLayer *mutiHalo;
@@ -41,9 +43,27 @@ CGPoint beaconScreenPosition;
     NSLog(@"accuracty:%f",[[[self selectedFriend] Accuracy] floatValue]);
     searchDotIncrement = searchStartDistanceY/[[[self selectedFriend] Accuracy] floatValue];
     
+    [self drawGridLines];
+ 
     
     [self addBeaconHalo];
 }
+
+#pragma mark grid lines
+
+
+- (void) drawGridLines {
+   
+    //add grid lines layer
+    BeaconGrid * beaconGrid = [[BeaconGrid layer] initWithFrame:[[UIScreen mainScreen] bounds]];
+    [self.view.layer addSublayer:beaconGrid];
+  
+}
+
+
+
+
+#pragma mark ui update
 
 - (void) addBeaconHalo
 {

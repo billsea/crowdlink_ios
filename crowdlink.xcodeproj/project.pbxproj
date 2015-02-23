@@ -31,6 +31,7 @@
 		A934CE481A94269B00008D8F /* SettingsTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = A934CE461A94269B00008D8F /* SettingsTableViewCell.xib */; };
 		A934CE4A1A94540500008D8F /* FB-f-Logo__blue_29.png in Resources */ = {isa = PBXBuildFile; fileRef = A934CE491A94540500008D8F /* FB-f-Logo__blue_29.png */; };
 		A934CE4C1A94543200008D8F /* FB-f-Logo__blue_50.png in Resources */ = {isa = PBXBuildFile; fileRef = A934CE4B1A94543200008D8F /* FB-f-Logo__blue_50.png */; };
+		A9891A591A9AC291001E6390 /* BeaconGrid.m in Sources */ = {isa = PBXBuildFile; fileRef = A9891A581A9AC291001E6390 /* BeaconGrid.m */; };
 		A9A410D91A9560910006C07A /* FriendsTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = A9A410D71A9560910006C07A /* FriendsTableViewCell.m */; };
 		A9A410DA1A9560910006C07A /* FriendsTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = A9A410D81A9560910006C07A /* FriendsTableViewCell.xib */; };
 		A9A4D1C71A9669D000DD1ABA /* AppSharedModel.m in Sources */ = {isa = PBXBuildFile; fileRef = A9A4D1C61A9669D000DD1ABA /* AppSharedModel.m */; };
@@ -94,6 +95,8 @@
 		A934CE461A94269B00008D8F /* SettingsTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = SettingsTableViewCell.xib; sourceTree = "<group>"; };
 		A934CE491A94540500008D8F /* FB-f-Logo__blue_29.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "FB-f-Logo__blue_29.png"; sourceTree = "<group>"; };
 		A934CE4B1A94543200008D8F /* FB-f-Logo__blue_50.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "FB-f-Logo__blue_50.png"; sourceTree = "<group>"; };
+		A9891A571A9AC291001E6390 /* BeaconGrid.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BeaconGrid.h; sourceTree = "<group>"; };
+		A9891A581A9AC291001E6390 /* BeaconGrid.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BeaconGrid.m; sourceTree = "<group>"; };
 		A9A410D61A9560910006C07A /* FriendsTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FriendsTableViewCell.h; sourceTree = "<group>"; };
 		A9A410D71A9560910006C07A /* FriendsTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FriendsTableViewCell.m; sourceTree = "<group>"; };
 		A9A410D81A9560910006C07A /* FriendsTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = FriendsTableViewCell.xib; sourceTree = "<group>"; };
@@ -271,6 +274,8 @@
 				A9A4D1C91A96A1FF00DD1ABA /* Friend.m */,
 				A9C61FC81A9919A400C41477 /* FlashingDot.h */,
 				A9C61FC91A9919A400C41477 /* FlashingDot.m */,
+				A9891A571A9AC291001E6390 /* BeaconGrid.h */,
+				A9891A581A9AC291001E6390 /* BeaconGrid.m */,
 			);
 			name = Classes;
 			sourceTree = "<group>";
@@ -402,6 +407,7 @@
 				A9A410D91A9560910006C07A /* FriendsTableViewCell.m in Sources */,
 				A9A4D1D01A96AB0F00DD1ABA /* FriendDetailViewController.m in Sources */,
 				A934CE031A93E79400008D8F /* crowdlink.xcdatamodeld in Sources */,
+				A9891A591A9AC291001E6390 /* BeaconGrid.m in Sources */,
 				A9C61FBD1A9813B000C41477 /* MultiplePulsingHaloLayer.m in Sources */,
 				A9A4D1CA1A96A1FF00DD1ABA /* Friend.m in Sources */,
 				A9A4D1C71A9669D000DD1ABA /* AppSharedModel.m in Sources */,
