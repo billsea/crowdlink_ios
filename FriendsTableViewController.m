@@ -49,6 +49,9 @@
     [[self navigationItem] setRightBarButtonItem:self.logoutButton];
     
     
+ 
+    
+    
     //check network
     [self checkNetworkConnection];
     
@@ -106,6 +109,7 @@
     //show new login view
     [self.navigationController pushViewController:loginView animated:YES];
 }
+
 
 
 //clear facebook session

@@ -46,6 +46,8 @@
 		A9C61FC41A981C8200C41477 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A9C61FC31A981C8200C41477 /* UIKit.framework */; };
 		A9C61FC71A9901D400C41477 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A9C61FC61A9901D400C41477 /* Foundation.framework */; };
 		A9C61FCA1A9919A400C41477 /* FlashingDot.m in Sources */ = {isa = PBXBuildFile; fileRef = A9C61FC91A9919A400C41477 /* FlashingDot.m */; };
+		A9C839CA1A9BFB570061F945 /* HelpViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A9C839C81A9BFB570061F945 /* HelpViewController.m */; };
+		A9C839CB1A9BFB570061F945 /* HelpViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = A9C839C91A9BFB570061F945 /* HelpViewController.xib */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -118,6 +120,9 @@
 		A9C61FC61A9901D400C41477 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		A9C61FC81A9919A400C41477 /* FlashingDot.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FlashingDot.h; sourceTree = "<group>"; };
 		A9C61FC91A9919A400C41477 /* FlashingDot.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FlashingDot.m; sourceTree = "<group>"; };
+		A9C839C71A9BFB570061F945 /* HelpViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HelpViewController.h; sourceTree = "<group>"; };
+		A9C839C81A9BFB570061F945 /* HelpViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HelpViewController.m; sourceTree = "<group>"; };
+		A9C839C91A9BFB570061F945 /* HelpViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = HelpViewController.xib; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -245,6 +250,9 @@
 				A9A4D1CD1A96AB0F00DD1ABA /* FriendDetailViewController.h */,
 				A9A4D1CE1A96AB0F00DD1ABA /* FriendDetailViewController.m */,
 				A9A4D1CF1A96AB0F00DD1ABA /* FriendDetailViewController.xib */,
+				A9C839C71A9BFB570061F945 /* HelpViewController.h */,
+				A9C839C81A9BFB570061F945 /* HelpViewController.m */,
+				A9C839C91A9BFB570061F945 /* HelpViewController.xib */,
 			);
 			name = UIElements;
 			sourceTree = "<group>";
@@ -382,6 +390,7 @@
 				A934CE411A941A7B00008D8F /* SettingsTableViewController.xib in Resources */,
 				A934CE0E1A93E79400008D8F /* LaunchScreen.xib in Resources */,
 				A934CE4A1A94540500008D8F /* FB-f-Logo__blue_29.png in Resources */,
+				A9C839CB1A9BFB570061F945 /* HelpViewController.xib in Resources */,
 				A934CE0B1A93E79400008D8F /* Images.xcassets in Resources */,
 				A9A410DA1A9560910006C07A /* FriendsTableViewCell.xib in Resources */,
 				A9A4D1D11A96AB0F00DD1ABA /* FriendDetailViewController.xib in Resources */,
@@ -409,6 +418,7 @@
 				A934CE031A93E79400008D8F /* crowdlink.xcdatamodeld in Sources */,
 				A9891A591A9AC291001E6390 /* BeaconGrid.m in Sources */,
 				A9C61FBD1A9813B000C41477 /* MultiplePulsingHaloLayer.m in Sources */,
+				A9C839CA1A9BFB570061F945 /* HelpViewController.m in Sources */,
 				A9A4D1CA1A96A1FF00DD1ABA /* Friend.m in Sources */,
 				A9A4D1C71A9669D000DD1ABA /* AppSharedModel.m in Sources */,
 				A934CE001A93E79400008D8F /* AppDelegate.m in Sources */,

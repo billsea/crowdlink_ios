@@ -20,4 +20,5 @@
 
 - (void)updateDisplay;
 
+- (IBAction)ViewHelp:(id)sender;
 @end

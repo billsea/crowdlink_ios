@@ -7,7 +7,6 @@
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="LoginViewController">
             <connections>
-                <outlet property="FBLoginButton" destination="Q6O-dt-P7W" id="NDd-g9-9tb"/>
                 <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
             </connections>
         </placeholder>
@@ -16,52 +15,70 @@
             <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
-                <button opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Q6O-dt-P7W">
-                    <rect key="frame" x="190" y="179" width="209" height="29"/>
-                    <color key="backgroundColor" name="controlBackgroundColor" catalog="System" colorSpace="catalog"/>
+                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="conference-32.png" translatesAutoresizingMaskIntoConstraints="NO" id="6T1-uz-IE3">
+                    <rect key="frame" x="200" y="99" width="200" height="200"/>
                     <constraints>
-                        <constraint firstAttribute="height" constant="30" id="4d1-PN-YMh"/>
-                        <constraint firstAttribute="width" constant="111" id="gLD-xK-j8X"/>
+                        <constraint firstAttribute="width" constant="230" id="2Vk-oR-8M4"/>
+                        <constraint firstAttribute="height" constant="230" id="5Ds-rn-upm"/>
+                        <constraint firstAttribute="height" constant="200" id="Bkc-jM-K9P"/>
+                        <constraint firstAttribute="height" constant="200" id="Yf4-p4-Xjb"/>
+                        <constraint firstAttribute="height" constant="225" id="ca6-Mc-B9u"/>
+                        <constraint firstAttribute="width" constant="200" id="m3t-Ou-3hg"/>
+                        <constraint firstAttribute="width" constant="225" id="rnh-Gx-40p"/>
+                        <constraint firstAttribute="width" constant="200" id="stX-zQ-I7e"/>
                     </constraints>
-                    <color key="tintColor" name="selectedMenuItemColor" catalog="System" colorSpace="catalog"/>
-                    <state key="normal" title=" Login with Facebook" image="FB-f-Logo__blue_29.png">
-                        <color key="titleColor" name="alternateSelectedControlColor" catalog="System" colorSpace="catalog"/>
-                        <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
-                    </state>
                     <variation key="default">
                         <mask key="constraints">
-                            <exclude reference="4d1-PN-YMh"/>
-                            <exclude reference="gLD-xK-j8X"/>
+                            <exclude reference="2Vk-oR-8M4"/>
+                            <exclude reference="5Ds-rn-upm"/>
+                            <exclude reference="Yf4-p4-Xjb"/>
+                            <exclude reference="ca6-Mc-B9u"/>
+                            <exclude reference="m3t-Ou-3hg"/>
+                            <exclude reference="rnh-Gx-40p"/>
                         </mask>
                     </variation>
+                </imageView>
+                <tableView clipsSubviews="YES" alpha="0.64999999999999969" contentMode="scaleToFill" ambiguous="YES" alwaysBounceVertical="YES" style="plain" separatorStyle="none" rowHeight="44" sectionHeaderHeight="22" sectionFooterHeight="22" translatesAutoresizingMaskIntoConstraints="NO" id="deH-pR-0SV">
+                    <rect key="frame" x="0.0" y="334" width="600" height="163"/>
                     <connections>
-                        <action selector="facebookSignon:" destination="-1" eventType="touchUpInside" id="7pM-OY-i38"/>
+                        <outlet property="dataSource" destination="-1" id="eDl-bk-ECK"/>
+                        <outlet property="delegate" destination="-1" id="Kvd-2U-VRz"/>
                     </connections>
-                </button>
+                </tableView>
             </subviews>
-            <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+            <color key="backgroundColor" red="0.2822539147" green="0.52320459890000004" blue="0.60000002379999995" alpha="1" colorSpace="calibratedRGB"/>
             <constraints>
-                <constraint firstAttribute="centerX" secondItem="Q6O-dt-P7W" secondAttribute="centerX" constant="-0.5" id="0VU-TD-Fh3"/>
-                <constraint firstItem="Q6O-dt-P7W" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" constant="239" id="4Dn-VN-kek"/>
-                <constraint firstAttribute="centerY" secondItem="Q6O-dt-P7W" secondAttribute="centerY" constant="46" id="BgA-WT-TbZ"/>
-                <constraint firstItem="Q6O-dt-P7W" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" constant="245" id="EGc-nD-yzF"/>
-                <constraint firstAttribute="trailing" secondItem="Q6O-dt-P7W" secondAttribute="trailing" constant="244" id="fLr-ZH-eCz"/>
-                <constraint firstAttribute="centerX" secondItem="Q6O-dt-P7W" secondAttribute="centerX" constant="-0.5" id="tIB-se-Wa3"/>
-                <constraint firstAttribute="centerY" secondItem="Q6O-dt-P7W" secondAttribute="centerY" constant="105" id="vQy-Z4-pHC"/>
+                <constraint firstItem="6T1-uz-IE3" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" constant="73" id="0G8-EH-BUh"/>
+                <constraint firstItem="6T1-uz-IE3" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" constant="65" id="5mH-TN-MAv"/>
+                <constraint firstItem="6T1-uz-IE3" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" constant="73" id="BpA-ec-6xW"/>
+                <constraint firstAttribute="centerY" secondItem="6T1-uz-IE3" secondAttribute="centerY" constant="122.5" id="G1f-1h-lWU"/>
+                <constraint firstItem="deH-pR-0SV" firstAttribute="top" secondItem="6T1-uz-IE3" secondAttribute="bottom" constant="8" id="HxI-yQ-iJY"/>
+                <constraint firstAttribute="centerX" secondItem="6T1-uz-IE3" secondAttribute="centerX" constant="-0.5" id="a5J-qV-8Ns"/>
+                <constraint firstAttribute="centerY" secondItem="6T1-uz-IE3" secondAttribute="centerY" constant="122.5" id="hpp-dH-3JJ"/>
+                <constraint firstItem="6T1-uz-IE3" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" constant="99" id="nPU-Uc-Ibv"/>
+                <constraint firstAttribute="centerX" secondItem="6T1-uz-IE3" secondAttribute="centerX" constant="-0.5" id="ooE-07-1U5"/>
+                <constraint firstAttribute="centerX" secondItem="6T1-uz-IE3" secondAttribute="centerX" id="wfK-yU-oE4"/>
+                <constraint firstAttribute="centerX" secondItem="6T1-uz-IE3" secondAttribute="centerX" id="wlV-0y-116"/>
+                <constraint firstAttribute="bottom" secondItem="deH-pR-0SV" secondAttribute="bottom" constant="57" id="xsU-qc-q9D"/>
             </constraints>
             <variation key="default">
                 <mask key="constraints">
-                    <exclude reference="4Dn-VN-kek"/>
-                    <exclude reference="BgA-WT-TbZ"/>
-                    <exclude reference="EGc-nD-yzF"/>
-                    <exclude reference="fLr-ZH-eCz"/>
-                    <exclude reference="tIB-se-Wa3"/>
+                    <exclude reference="0G8-EH-BUh"/>
+                    <exclude reference="5mH-TN-MAv"/>
+                    <exclude reference="BpA-ec-6xW"/>
+                    <exclude reference="G1f-1h-lWU"/>
+                    <exclude reference="a5J-qV-8Ns"/>
+                    <exclude reference="hpp-dH-3JJ"/>
+                    <exclude reference="ooE-07-1U5"/>
+                    <exclude reference="wlV-0y-116"/>
+                    <exclude reference="HxI-yQ-iJY"/>
+                    <exclude reference="xsU-qc-q9D"/>
                 </mask>
             </variation>
             <point key="canvasLocation" x="245" y="272"/>
         </view>
     </objects>
     <resources>
-        <image name="FB-f-Logo__blue_29.png" width="29" height="29"/>
+        <image name="conference-32.png" width="32" height="32"/>
     </resources>
 </document>

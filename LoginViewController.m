@@ -16,7 +16,7 @@
 
 @implementation LoginViewController
 
-@synthesize FBLoginButton = _FBLoginButton;
+
 
 - (void)viewDidLoad {
     [super viewDidLoad];
@@ -37,6 +37,11 @@
 }
 
 - (IBAction)facebookSignon:(id)sender
+{
+    [self signonWithFacebook];
+}
+
+- (void)signonWithFacebook
 {
     // If the session state is any of the two "open" states when the button is clicked
     if (FBSession.activeSession.state == FBSessionStateOpen
@@ -63,6 +68,56 @@
          }];
     }
 }
+
+#pragma mark - Table view data source
+
+- (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView {
+    
+    // Return the number of sections.
+    return 1;
+}
+
+- (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
+    
+    // Return the number of rows in the section.
+    return 1;
+}
+- (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
+    
+    CGRect screenRect = [[UIScreen mainScreen] bounds];
+    CGFloat screenWidth = screenRect.size.width;
+    
+    static NSString *CellIdentifier = @"LoginCell";
+    UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:CellIdentifier];
+    if (cell == nil) {
+        cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:CellIdentifier];
+    }
+    cell.accessoryView =nil;
+    
+    UIImageView * fbImage = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"FB-f-Logo__blue_29.png"]];
+    [fbImage setFrame:CGRectMake(5, 6, 30, 30)];
+    UILabel * loginLabel = [[UILabel alloc] initWithFrame:CGRectMake(43, 6, 200, 30)];
+    [loginLabel setTintColor:[UIColor blueColor]];
+     [loginLabel setText:@"Login with Facebook"];
+    
+    UIImageView * arrowImage = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"forward-32.png"]];
+    [arrowImage setFrame:CGRectMake(screenWidth - 32, 7, 30, 30)];
+    
+    [cell addSubview:fbImage];
+    [cell addSubview:loginLabel];
+    [cell addSubview:arrowImage];
+    
+    return cell;
+}
+
+#pragma mark table view delegate methods
+
+- (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
+    // Navigation logic may go here, for example:
+    // Create the next view controller.
+    [self signonWithFacebook];
+}
+
 
 /*
 #pragma mark - Navigation

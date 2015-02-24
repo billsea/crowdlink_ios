@@ -13,6 +13,7 @@
 #import "PulsingHaloLayer.h"
 #import "FlashingDot.h"
 #import "BeaconGrid.h"
+#import "HelpViewController.h"
 
 #define kMaxRadius 160
 #define searchStartDistanceY 200
@@ -21,6 +22,7 @@
 @interface FriendDetailViewController ()
 @property (nonatomic, weak) MultiplePulsingHaloLayer *mutiHalo;
 @property (nonatomic, strong) IBOutlet UIImageView *beaconViewMuti;
+@property UIBarButtonItem * helpButton;
 @end
 
 FlashingDot * flashingDot;
@@ -39,6 +41,16 @@ CGPoint beaconScreenPosition;
     // Set the title of the navigation item
     [[self navigationItem] setTitle:[[self selectedFriend] FullName]];
     
+    //add help navigation bar button
+    self.helpButton = [[UIBarButtonItem alloc]
+                       //initWithImage:[UIImage imageNamed:@"reload-50.png"]
+                       initWithTitle:@"Help"
+                       style:UIBarButtonItemStyleBordered
+                       target:self
+                       action:@selector(ViewHelp:)];
+    //self.addClientButton.tintColor = [UIColor blackColor];
+    [[self navigationItem] setRightBarButtonItem:self.helpButton];
+    
     //set increment for flashing dot
     NSLog(@"accuracty:%f",[[[self selectedFriend] Accuracy] floatValue]);
     searchDotIncrement = searchStartDistanceY/[[[self selectedFriend] Accuracy] floatValue];
@@ -47,6 +59,14 @@ CGPoint beaconScreenPosition;
  
     
     [self addBeaconHalo];
+}
+
+- (IBAction)ViewHelp:(id)sender
+{
+    HelpViewController * helpView = [[HelpViewController alloc] init];
+    // Push the view controller.
+    [self.navigationController pushViewController:helpView animated:YES];
+
 }
 
 #pragma mark grid lines
