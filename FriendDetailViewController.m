@@ -22,17 +22,20 @@
 @interface FriendDetailViewController ()
 @property (nonatomic, weak) MultiplePulsingHaloLayer *mutiHalo;
 @property (nonatomic, strong) IBOutlet UIImageView *beaconViewMuti;
+@property (strong, nonatomic) IBOutlet UIImageView *gridImageView;
 @property UIBarButtonItem * helpButton;
+
 @end
 
 FlashingDot * flashingDot;
 float searchDotIncrement;
-CGPoint beaconScreenPosition;
+
 
 @implementation FriendDetailViewController
 
 @synthesize selectedFriend = _selectedFriend;
 @synthesize beaconViewMuti = _beaconViewMuti;
+@synthesize gridImageView = _gridImageView;
 
 - (void)viewDidLoad {
     [super viewDidLoad];
@@ -55,10 +58,16 @@ CGPoint beaconScreenPosition;
     NSLog(@"accuracty:%f",[[[self selectedFriend] Accuracy] floatValue]);
     searchDotIncrement = searchStartDistanceY/[[[self selectedFriend] Accuracy] floatValue];
     
-    [self drawGridLines];
- 
+    //add oval background
+   [self drawGridLines];
     
+    
+    //add halo effect
     [self addBeaconHalo];
+    
+    
+    
+    
 }
 
 - (IBAction)ViewHelp:(id)sender
@@ -71,32 +80,40 @@ CGPoint beaconScreenPosition;
 
 #pragma mark grid lines
 
-
+//draw ovals
 - (void) drawGridLines {
    
+    CGRect screenRect = [[UIScreen mainScreen] bounds];
+    CGFloat screenWidth = screenRect.size.width;
+    float imageSizeX = screenWidth;
+    float imageSizeY = self.beaconPosition.y + searchStartDistanceY;
+    _gridImageView = [[UIImageView alloc] initWithFrame:CGRectMake(self.beaconPosition.x - (imageSizeX/2),self.beaconPosition.y - 100, imageSizeX, imageSizeY)];
+    
+    [self.view addSubview:_gridImageView];
+    
     //add grid lines layer
-    BeaconGrid * beaconGrid = [[BeaconGrid layer] initWithFrame:[[UIScreen mainScreen] bounds]];
-    [self.view.layer addSublayer:beaconGrid];
-  
+    BeaconGrid * beaconGrid = [[BeaconGrid layer] initWithFrame:[_gridImageView bounds]];
+    [self.gridImageView.layer addSublayer:beaconGrid];
+
 }
 
 
-
+- (CGPoint)beaconPosition
+{
+    CGRect screenRect = [[UIScreen mainScreen] bounds];
+    CGFloat screenWidth = screenRect.size.width;
+    CGFloat screenHeight = screenRect.size.height;
+    return CGPointMake(screenWidth/2, (screenHeight/2) - 100);
+}
 
 #pragma mark ui update
 
 - (void) addBeaconHalo
 {
-    //position the multi-halo
-    CGRect screenRect = [[UIScreen mainScreen] bounds];
-    CGFloat screenWidth = screenRect.size.width;
-    CGFloat screenHeight = screenRect.size.height;
-    beaconScreenPosition = CGPointMake(screenWidth/2, (screenHeight/2) - 100);
-    
-    
+
     //add image
     float imageSize = 80;
-    _beaconViewMuti = [[UIImageView alloc] initWithFrame:CGRectMake(beaconScreenPosition.x - (imageSize/2), beaconScreenPosition.y - (imageSize/2), imageSize, imageSize)];
+    _beaconViewMuti = [[UIImageView alloc] initWithFrame:CGRectMake(self.beaconPosition.x - (imageSize/2),self.beaconPosition.y - (imageSize/2), imageSize, imageSize)];
 
      UIImage * fbImage = [UIImage imageWithData:[NSData dataWithContentsOfURL:[NSURL URLWithString:self.selectedFriend.PictureURL]]];
     
@@ -111,7 +128,7 @@ CGPoint beaconScreenPosition;
     
     //flashing dot for searching device
     flashingDot = [FlashingDot layer];
-    flashingDot.position = CGPointMake(beaconScreenPosition.x,beaconScreenPosition.y + searchStartDistanceY);
+    flashingDot.position = CGPointMake(self.beaconPosition.x,self.beaconPosition.y + searchStartDistanceY);
     //flashingDot.position = CGPointMake(self.beaconViewMuti.center.x, self.beaconViewMuti.center.y + searchStartDistanceY);
     flashingDot.radius = 20;
     flashingDot.fromValueForAlpha = 1;
@@ -125,7 +142,7 @@ CGPoint beaconScreenPosition;
     MultiplePulsingHaloLayer *multiLayer = [[MultiplePulsingHaloLayer alloc] initWithHaloLayerNum:3 andStartInterval:1];
     multiLayer.animationDuration = 4;
     self.mutiHalo = multiLayer;
-    self.mutiHalo.position = beaconScreenPosition;//self.beaconViewMuti.center;
+    self.mutiHalo.position = self.beaconPosition;//self.beaconViewMuti.center;
     self.mutiHalo.useTimingFunction = NO;
     [self.mutiHalo buildSublayers];
    [self.view.layer insertSublayer:self.mutiHalo below:self.beaconViewMuti.layer];
@@ -176,6 +193,7 @@ CGPoint beaconScreenPosition;
 
 - (void)updateDotPosition:(NSString *)distance
 {
+
     float newYposition = [distance floatValue] * searchDotIncrement;
     
     if(newYposition < 75)
@@ -195,7 +213,7 @@ CGPoint beaconScreenPosition;
 
     }
     
-    flashingDot.position = CGPointMake(beaconScreenPosition.x,beaconScreenPosition.y + newYposition);
+    flashingDot.position = CGPointMake(self.beaconPosition.x,self.beaconPosition.y + newYposition);
     //flashingDot.position = CGPointMake(self.beaconViewMuti.center.x, self.beaconViewMuti.center.y + newYposition);
     
     //adjust starting point if needed

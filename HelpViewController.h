@@ -7,7 +7,10 @@
 //
 
 #import <UIKit/UIKit.h>
+#import <iAd/iAd.h>
 
 @interface HelpViewController : UIViewController
+
+@property (weak, nonatomic) IBOutlet ADBannerView *adBanner;
 
 @end

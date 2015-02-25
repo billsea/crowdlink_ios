@@ -14,5 +14,5 @@
 @property (nonatomic, assign) CGRect gridFrame;
 
 - (id)initWithFrame:(CGRect)gridFrame;
-
+- (void) buildOvals;
 @end

@@ -18,7 +18,9 @@
 @property (weak, nonatomic) IBOutlet UILabel *metersFeetLabel;
 
 
+
 - (void)updateDisplay;
 
 - (IBAction)ViewHelp:(id)sender;
+- (CGPoint)beaconPosition;
 @end

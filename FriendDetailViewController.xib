@@ -8,6 +8,7 @@
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="FriendDetailViewController">
             <connections>
                 <outlet property="accuracyLabel" destination="kTB-1Z-ixq" id="600-du-OXP"/>
+                <outlet property="metersFeetLabel" destination="wIo-De-Je5" id="mMw-6A-87o"/>
                 <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
             </connections>
         </placeholder>

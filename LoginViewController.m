@@ -129,4 +129,7 @@
 }
 */
 
+- (IBAction)loginImage:(id)sender {
+    [self signonWithFacebook];
+}
 @end

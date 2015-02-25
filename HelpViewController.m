@@ -17,6 +17,9 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view from its nib.
+    
+    // Make self the delegate of the ad banner.
+    self.adBanner.delegate = self;
 }
 
 - (void)didReceiveMemoryWarning {
@@ -24,6 +27,24 @@
     // Dispose of any resources that can be recreated.
 }
 
+#pragma mark ad Banner delegate methods
+-(void)bannerViewWillLoadAd:(ADBannerView *)banner{
+    NSLog(@"Ad Banner will load ad.");
+}
+-(void)bannerViewDidLoadAd:(ADBannerView *)banner{
+    NSLog(@"Ad Banner did load ad.");
+}
+-(BOOL)bannerViewActionShouldBegin:(ADBannerView *)banner willLeaveApplication:(BOOL)willLeave{
+    NSLog(@"Ad Banner action is about to begin.");
+    
+    return YES;
+}
+-(void)bannerViewActionDidFinish:(ADBannerView *)banner{
+    NSLog(@"Ad Banner action did finish");
+}
+-(void)bannerView:(ADBannerView *)banner didFailToReceiveAdWithError:(NSError *)error{
+    NSLog(@"Unable to show ads. Error: %@", [error localizedDescription]);
+}
 /*
 #pragma mark - Navigation
 
