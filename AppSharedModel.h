@@ -22,5 +22,6 @@
 @property (nonatomic, weak) FriendsTableViewController * friendsTableViewController;
 @property (nonatomic, weak) FriendDetailViewController * friendsDetailViewController;
 @property (nonatomic, strong) NSMutableArray * friendsInRangeAll;
+@property BOOL beaconIsBroadcasting;
 
 @end

@@ -11,12 +11,15 @@
 #import "Constants.h"
 #import "AppDelegate.h"
 #import "AppSharedModel.h"
+#import "GMDCircleLoader.h"
 
 @interface SettingsTableViewController ()
-
+//@property (strong, nonatomic) CBMutableCharacteristic   *transferCharacteristic;
 @end
 
 @implementation SettingsTableViewController
+
+
 
 - (void)viewDidLoad {
     [super viewDidLoad];
@@ -31,6 +34,23 @@
     // self.navigationItem.rightBarButtonItem = self.editButtonItem;
     
     
+}
+
+- (void)viewWillAppear:(BOOL)animated
+{
+    if([[self peripheralManager] isAdvertising])
+    {
+        //start activity indicator
+        [GMDCircleLoader setOnView:self.view withTitle:@"Broadcasting..." animated:YES];
+    }
+}
+- (void)viewWillDisappear:(BOOL)animated
+{
+    if([[self peripheralManager] isAdvertising])
+    {
+        //stop activity indicator
+        [GMDCircleLoader hideFromView:self.view animated:YES];
+    }
 }
 
 - (void)didReceiveMemoryWarning {
@@ -156,6 +176,11 @@
         self.peripheralManager = [[CBPeripheralManager alloc] initWithDelegate:self
                                                                          queue:nil
                                                                        options:nil];
+        
+        
+        //start activity indicator
+        [GMDCircleLoader setOnView:self.view withTitle:@"Broadcasting..." animated:YES];
+        [[AppSharedModel sharedModel] setBeaconIsBroadcasting:TRUE];
     }
     else
     {
@@ -165,8 +190,21 @@
         //start beacon monitoring
         [[[AppSharedModel sharedModel] friendsTableViewController]startBeaconMonitoring];
         
+        
+        //stop activity indicator
+        [GMDCircleLoader hideFromView:self.view animated:YES];
+        [[AppSharedModel sharedModel] setBeaconIsBroadcasting:FALSE];
+        
+       
     }
 }
+
+//- (void)peripheralManager:(CBPeripheralManager *)peripheral central:(CBCentral *)central didSubscribeToCharacteristic:(CBCharacteristic *)characteristic
+//{
+//    NSLog(@"Central subscribed to characteristic");
+//    [_peripheralManager setDesiredConnectionLatency:CBPeripheralManagerConnectionLatencyLow forCentral:central];
+//    
+//}
 
 -(void)peripheralManagerDidUpdateState:(CBPeripheralManager*)peripheral
 {
@@ -176,6 +214,27 @@
         
         // Update our status label
         NSLog(@"Broadcasting...");
+        
+//        ///////set latency to LOW = Should callback to didSubscribeToCharacteristic(above) but it's not gettng called /////////
+//        // Start with the CBMutableCharacteristic
+//        self.transferCharacteristic = [[CBMutableCharacteristic alloc] initWithType:[CBUUID UUIDWithString:APPLICATION_BEACON_UUID]
+//                 properties:CBCharacteristicPropertyNotify
+//                      value:nil
+//                permissions:CBAttributePermissionsReadable];
+//        
+//        // Then the service
+//        CBMutableService *transferService = [[CBMutableService alloc] initWithType:[CBUUID UUIDWithString:APPLICATION_BEACON_UUID]
+//                                                                           primary:YES];
+//        
+//        // Add the characteristic to the service
+//        transferService.characteristics = @[self.transferCharacteristic];
+//        
+//        // And add it to the peripheral manager
+//        [self.peripheralManager addService:transferService];
+//        ////////////
+      
+  
+        
         
         // Start broadcasting
         [self.peripheralManager startAdvertising:self.myBeaconData];

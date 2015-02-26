@@ -23,4 +23,5 @@
 
 - (IBAction)ViewHelp:(id)sender;
 - (CGPoint)beaconPosition;
+-(NSString *)metersToFeet:(float)accuracyMeters;
 @end

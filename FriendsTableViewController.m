@@ -17,10 +17,12 @@
 #import "Friend.h"
 #import "FriendDetailViewController.h"
 #import "AppSharedModel.h"
+#import "GMDCircleLoader.h"
 
 @interface FriendsTableViewController ()
 
 @property UIBarButtonItem * logoutButton;
+
 
 @end
 
@@ -30,6 +32,8 @@
 @synthesize myBeaconRegion = _myBeaconRegion;
 @synthesize locationManager = _locationManager;
 @synthesize friendsInRange = _friendsInRange;
+@synthesize activityIndicatorStopped = _activityIndicatorStopped;
+
 
 - (void)viewDidLoad {
     [super viewDidLoad];
@@ -50,7 +54,7 @@
     
     
  
-    
+
     
     //check network
     [self checkNetworkConnection];
@@ -75,6 +79,24 @@
     //request friends
     [self requestFacebookFriends];
     
+}
+
+- (void)viewDidDisappear:(BOOL)animated
+{
+    if(self.activityIndicatorStopped==FALSE)
+    {
+        //stop activity indicator
+        [GMDCircleLoader hideFromView:self.view animated:YES];
+        self.activityIndicatorStopped = TRUE;
+    }
+}
+
+- (void)viewWillAppear:(BOOL)animated
+{
+[[AppSharedModel sharedModel] beaconIsBroadcasting] ==false
+    //star activity indicator
+    [GMDCircleLoader setOnView:self.view withTitle:@"Searching for friends..." animated:YES];
+    self.activityIndicatorStopped = FALSE;
 }
 
 - (void)requestFacebookFriends
@@ -153,6 +175,11 @@
 
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
+    
+    //stop activity indicator
+    [GMDCircleLoader hideFromView:self.view animated:YES];
+    self.activityIndicatorStopped = TRUE;
+    
     static NSString *simpleTableIdentifier = @"FriendsTableViewCell";
     
     FriendsTableViewCell *cell = (FriendsTableViewCell *)[tableView dequeueReusableCellWithIdentifier:simpleTableIdentifier];
@@ -349,7 +376,14 @@
                 //TODO: add friendInRange to core data table
             }
         }
-        
+ 
+    }
+    
+    //start activity indicatore
+    if([[self friendsInRange] count] == 0 && (self.activityIndicatorStopped == TRUE))
+    {
+        [GMDCircleLoader setOnView:self.view withTitle:@"Searching for friends..." animated:YES];
+        self.activityIndicatorStopped = FALSE;
     }
     
     //reload active friends table
@@ -476,6 +510,9 @@
 
 - (void)centralManagerDidUpdateState:(CBCentralManager *)central
 {
+    
+   
+    
     //    NSString *stateString = nil;
     //
     //    switch(bluetoothManager.state)

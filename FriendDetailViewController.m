@@ -149,11 +149,11 @@ float searchDotIncrement;
     
     self.mutiHalo.radius = 1 * kMaxRadius;
     
-    UIColor *color = [UIColor colorWithRed:0.62711
-                                     green:0.51694
-                                      blue:1.0
-                                     alpha:1.0];
-   // UIColor * color = [UIColor greenColor];
+//    UIColor *color = [UIColor colorWithRed:0.62711
+//                                     green:0.51694
+//                                      blue:1.0
+//                                     alpha:1.0];
+    UIColor * color = [UIColor purpleColor];
     [self.mutiHalo setHaloLayerColor:color.CGColor];
    
 
@@ -187,6 +187,9 @@ float searchDotIncrement;
         
         
         [[self accuracyLabel] setText:roundedAccuracy];
+        
+        
+        [[self metersFeetLabel] setText: [self metersToFeet:[roundedAccuracy floatValue]]];
         [self updateDotPosition:[[self selectedFriend] Accuracy]];
     }
 }
@@ -221,6 +224,17 @@ float searchDotIncrement;
     {
         searchDotIncrement = searchStartDistanceY/[[[self selectedFriend] Accuracy] floatValue];
     }
+}
+
+-(NSString *)metersToFeet:(float)accuracyMeters
+{
+    double rawFeet = accuracyMeters * 3.281;
+    float roundedValue = round(2.0f * rawFeet) / 2.0f;
+    NSNumberFormatter *formatter = [[NSNumberFormatter alloc] init];
+    [formatter setMaximumFractionDigits:1];
+    [formatter setRoundingMode: NSNumberFormatterRoundDown];
+    return [formatter stringFromNumber:[NSNumber numberWithFloat:roundedValue]];
+    
 }
 
 - (void)didReceiveMemoryWarning {
