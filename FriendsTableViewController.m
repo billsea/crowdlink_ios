@@ -93,10 +93,19 @@
 
 - (void)viewWillAppear:(BOOL)animated
 {
-[[AppSharedModel sharedModel] beaconIsBroadcasting] ==false
-    //star activity indicator
-    [GMDCircleLoader setOnView:self.view withTitle:@"Searching for friends..." animated:YES];
-    self.activityIndicatorStopped = FALSE;
+    if([[AppSharedModel sharedModel] beaconIsBroadcasting] ==false)
+    {
+     //star activity indicator
+     [GMDCircleLoader setOnView:self.view withTitle:@"Searching for friends..." animated:YES];
+     self.activityIndicatorStopped = FALSE;
+    }
+    else
+    {
+        //stop activity indicator
+        [GMDCircleLoader hideFromView:self.view animated:YES];
+        self.activityIndicatorStopped = TRUE;
+    }
+    
 }
 
 - (void)requestFacebookFriends

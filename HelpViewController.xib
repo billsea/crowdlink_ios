@@ -7,9 +7,6 @@
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="HelpViewController">
             <connections>
-                <outlet property="adBanner" destination="WCn-Iu-phB" id="9hZ-ew-TBZ"/>
-                <outlet property="banner" destination="WCn-Iu-phB" id="2Hh-nS-dFm"/>
-                <outlet property="bannerView" destination="WCn-Iu-phB" id="vDj-XL-h5R"/>
                 <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
             </connections>
         </placeholder>
@@ -24,9 +21,6 @@
                     <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                     <nil key="highlightedColor"/>
                 </label>
-                <adBannerView opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="WCn-Iu-phB">
-                    <rect key="frame" x="8" y="134" width="320" height="50"/>
-                </adBannerView>
             </subviews>
             <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
         </view>

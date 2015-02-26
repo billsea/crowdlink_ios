@@ -13,13 +13,14 @@
 @end
 
 @implementation HelpViewController
+//@synthesize adBanner = _adBanner;
 
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view from its nib.
     
     // Make self the delegate of the ad banner.
-    self.adBanner.delegate = self;
+    //self.adBanner.delegate = self;
 }
 
 - (void)didReceiveMemoryWarning {

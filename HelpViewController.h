@@ -11,6 +11,6 @@
 
 @interface HelpViewController : UIViewController
 
-@property (weak, nonatomic) IBOutlet ADBannerView *adBanner;
+//@property (weak, nonatomic) IBOutlet ADBannerView *adBanner;
 
 @end
