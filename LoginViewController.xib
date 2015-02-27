@@ -16,8 +16,13 @@
             <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
-                <tableView clipsSubviews="YES" contentMode="scaleToFill" ambiguous="YES" alwaysBounceVertical="YES" style="plain" separatorStyle="none" rowHeight="44" sectionHeaderHeight="22" sectionFooterHeight="22" translatesAutoresizingMaskIntoConstraints="NO" id="deH-pR-0SV">
+                <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" style="plain" separatorStyle="none" rowHeight="44" sectionHeaderHeight="22" sectionFooterHeight="22" translatesAutoresizingMaskIntoConstraints="NO" id="deH-pR-0SV">
                     <rect key="frame" x="0.0" y="334" width="600" height="266"/>
+                    <color key="backgroundColor" red="0.80000000000000004" green="0.79053181949999995" blue="0.2696282472" alpha="1" colorSpace="calibratedRGB"/>
+                    <constraints>
+                        <constraint firstAttribute="width" constant="600" id="C7l-DM-MaM"/>
+                        <constraint firstAttribute="height" constant="266" id="btR-H7-qIw"/>
+                    </constraints>
                     <connections>
                         <outlet property="dataSource" destination="-1" id="eDl-bk-ECK"/>
                         <outlet property="delegate" destination="-1" id="Kvd-2U-VRz"/>
@@ -35,8 +40,11 @@
             </subviews>
             <color key="backgroundColor" red="0.80000000000000004" green="0.79053181949999995" blue="0.2696282472" alpha="1" colorSpace="calibratedRGB"/>
             <constraints>
+                <constraint firstAttribute="trailing" secondItem="deH-pR-0SV" secondAttribute="trailing" id="2zO-Hc-lhb"/>
                 <constraint firstAttribute="centerX" secondItem="RJh-RM-pym" secondAttribute="centerX" constant="-0.5" id="BWL-m8-7ys"/>
                 <constraint firstAttribute="centerY" secondItem="RJh-RM-pym" secondAttribute="centerY" constant="119" id="bxI-JH-Zg4"/>
+                <constraint firstItem="deH-pR-0SV" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" id="tf5-bN-cGc"/>
+                <constraint firstAttribute="bottom" secondItem="deH-pR-0SV" secondAttribute="bottom" id="tnt-fN-A8m"/>
                 <constraint firstAttribute="bottom" secondItem="deH-pR-0SV" secondAttribute="bottom" constant="57" id="xsU-qc-q9D"/>
             </constraints>
             <simulatedOrientationMetrics key="simulatedOrientationMetrics"/>

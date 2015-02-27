@@ -75,52 +75,47 @@
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
     
-    static NSString *simpleTableIdentifier = @"SettingsTableViewCell";
     
-    SettingsTableViewCell *cell = (SettingsTableViewCell *)[tableView dequeueReusableCellWithIdentifier:simpleTableIdentifier];
+    CGRect screenRect = [[UIScreen mainScreen] bounds];
+    CGFloat screenWidth = screenRect.size.width;
     
-    if (cell == nil)
-    {
-        NSArray *nib = [[NSBundle mainBundle] loadNibNamed:@"SettingsTableViewCell" owner:self options:nil];
-        cell = [nib objectAtIndex:0];
-        
+    static NSString *CellIdentifier = @"SettingsCell";
+    UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:CellIdentifier];
+    if (cell == nil) {
+        cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:CellIdentifier];
     }
+    
+    [cell setBackgroundColor:[UIColor clearColor]];
+    cell.accessoryView =nil;
     
     UILabel * cellLabel = [[UILabel alloc] initWithFrame:CGRectMake(10,0, cell.frame.size.width - 100, 50)];
 
-    
-    
-    UISwitch * tSwitch = [[UISwitch alloc] initWithFrame:CGRectMake(cell.frame.size.width - 60,5, 50, 50)];
+    UISwitch * tSwitch = [[UISwitch alloc] initWithFrame:CGRectMake(screenWidth - 75, 15, 30, 30)];
     UIButton * btnRefresh = [[UIButton alloc] init];
-                             
-    [btnRefresh setFrame:CGRectMake(10,0,140, 50)];
+
+    [btnRefresh setFrame:CGRectMake(10,0,170, 50)];
     [btnRefresh setTitleColor:[UIColor blueColor] forState:UIControlStateNormal];
     [btnRefresh setTitleColor:[UIColor grayColor] forState:UIControlStateSelected];
     
-    // Configure the cell...
     switch ([indexPath row]) {
-        case 0:
-            [tSwitch addTarget:self action:@selector(toggleBeaconBroadcast:) forControlEvents:UIControlEventValueChanged];
-            [cellLabel setText:@"Let others find me"];
-            [cell addSubview: cellLabel];
-            [cell addSubview:tSwitch];
-            break;
-//        case 1:
-//            [tSwitch addTarget:self action:@selector(showPicture:) forControlEvents:UIControlEventValueChanged];
-//            [cellLabel setText:@"Show my picture"];
-//            [cell addSubview:cellLabel];
-//            [cell addSubview:tSwitch];
-//            break;
-        case 1:
-            [btnRefresh addTarget:self action:@selector(refreshFriends:) forControlEvents:UIControlEventTouchUpInside];
-            [btnRefresh setTitle:@"Refresh Friends" forState:UIControlStateNormal];
-            [cell addSubview:btnRefresh];
-            break;
-        default:
-            break;
-    }
-    
+                    case 0:
+                        [tSwitch addTarget:self action:@selector(toggleBeaconBroadcast:) forControlEvents:UIControlEventValueChanged];
+                        [cellLabel setText:@"Let Friends Find Me"];
+                        [cell addSubview: cellLabel];
+                        [cell addSubview:tSwitch];
+                        break;
+                    case 1:
+                        [btnRefresh addTarget:self action:@selector(refreshFriends:) forControlEvents:UIControlEventTouchUpInside];
+                        [btnRefresh setTitle:@"Refresh Friends List" forState:UIControlStateNormal];
+                        [cell addSubview:btnRefresh];
+                        break;
+                    default:
+                        break;
+                }
+
+
     return cell;
+    
 }
 
 - (void)showPicture:(NSNotification*)notification
