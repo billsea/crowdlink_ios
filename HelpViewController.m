@@ -28,9 +28,9 @@ NSMutableArray * helpTopics;
     [[self navigationItem] setTitle:@"Help"];
     
     helpTopics = [[NSMutableArray alloc] init];
-    [helpTopics addObject:@"When you start Crowdlink, the app will begin searching for your friends who have the Crowdlink app runnning, and are broadcasting. Friends will show up in the Friends Nearby list. Click on a Friend in the list to get location details."];
-    [helpTopics addObject:@"You can allow friends to find you by tapping Settings, in the bottom tab bar, and swithching on the 'let friends find me' toggle button."];
-    [helpTopics addObject:@"If a new user has just downloaded the Crowdling app, you may need to refresh your friends list. To do this, go to the Settings Tab, and and tap the Refresh Friends button."];
+    [helpTopics addObject:@"When you start Crowdlink, the app will begin searching for your friends who have the Crowdlink app runnning and are broadcasting for friends. These friends will be displayed in the 'Friends' Nearby list. Click on a Friend in the list to display this friend's location details. The details display will show the distance to the selected friend"];
+    [helpTopics addObject:@"You can allow friends to find you by selecting the 'Settings' tab, in the bottom tab bar, and swithching on the 'Let friends find me' toggle button."];
+    [helpTopics addObject:@"If a new user has just downloaded the Crowdlink app, you may need to refresh your friends list. To do this, go to the Settings Tab, and and tap the Refresh Friends button."];
     
     [self showTopicDetails];
     

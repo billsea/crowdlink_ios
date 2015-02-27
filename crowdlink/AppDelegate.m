@@ -12,6 +12,7 @@
 #import "LoginViewController.h"
 #import "SettingsTableViewController.h"
 #import "AppSharedModel.h"
+#import "AdViewController.h"
 
 @interface AppDelegate ()
 
@@ -50,6 +51,10 @@
                                       }];
         //show main view
         [self createNavigationRootView];
+        
+
+        //show ad banner view first?
+        //[self showAdBannerView];
     }
     else
     {
@@ -88,6 +93,22 @@
     [self saveContext];
 }
 
+#pragma mark iAd banner
+
+- (void)showAdBannerView
+{
+    AdViewController * adViewController = [[AdViewController alloc] init];
+
+    UINavigationController *loginNavController = [[UINavigationController alloc]
+                                                  initWithRootViewController:adViewController];
+
+    self.window = [[UIWindow alloc] initWithFrame:[[UIScreen mainScreen] bounds]];
+    [[self window] setRootViewController: loginNavController];
+    [[self window] makeKeyAndVisible];
+
+}
+
+
 #pragma mark - Notifications
 - (void)NotificationSetup
 {
@@ -108,6 +129,8 @@
 {
     //show main view
     [self createNavigationRootView];
+    
+   
 }
 
 - (void)facebookAuthenticationFailedHandler:(NSNotification*)notification
@@ -194,6 +217,9 @@
 
         //show main application view
         [self createNavigationRootView];
+        
+        //show ad banner view?
+        //[self showAdBannerView];
         
         return;
     }

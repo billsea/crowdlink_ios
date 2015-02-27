@@ -130,7 +130,7 @@
     
     AppDelegate * appDelegate = (AppDelegate *)[UIApplication sharedApplication].delegate;
     
-    [appDelegate showMessage:@"Friends list has been refreshed" withTitle:@"Done!"];
+    [appDelegate showMessage:@"Friends list has been refreshed" withTitle:@"Completed"];
 }
 
 #pragma mark - beacon methods

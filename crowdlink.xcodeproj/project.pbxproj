@@ -36,6 +36,8 @@
 		A9886FE41A9FDDF10028B8F6 /* AboutViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = A9886FE21A9FDDF10028B8F6 /* AboutViewController.xib */; };
 		A9886FE81A9FE2F50028B8F6 /* HelpTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A9886FE61A9FE2F50028B8F6 /* HelpTableViewController.m */; };
 		A9886FE91A9FE2F50028B8F6 /* HelpTableViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = A9886FE71A9FE2F50028B8F6 /* HelpTableViewController.xib */; };
+		A9886FED1AA044AE0028B8F6 /* AdViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A9886FEB1AA044AE0028B8F6 /* AdViewController.m */; };
+		A9886FEE1AA044AE0028B8F6 /* AdViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = A9886FEC1AA044AE0028B8F6 /* AdViewController.xib */; };
 		A9891A591A9AC291001E6390 /* BeaconGrid.m in Sources */ = {isa = PBXBuildFile; fileRef = A9891A581A9AC291001E6390 /* BeaconGrid.m */; };
 		A9A410D91A9560910006C07A /* FriendsTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = A9A410D71A9560910006C07A /* FriendsTableViewCell.m */; };
 		A9A410DA1A9560910006C07A /* FriendsTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = A9A410D81A9560910006C07A /* FriendsTableViewCell.xib */; };
@@ -111,6 +113,9 @@
 		A9886FE51A9FE2F50028B8F6 /* HelpTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HelpTableViewController.h; sourceTree = "<group>"; };
 		A9886FE61A9FE2F50028B8F6 /* HelpTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HelpTableViewController.m; sourceTree = "<group>"; };
 		A9886FE71A9FE2F50028B8F6 /* HelpTableViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = HelpTableViewController.xib; sourceTree = "<group>"; };
+		A9886FEA1AA044AE0028B8F6 /* AdViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AdViewController.h; sourceTree = "<group>"; };
+		A9886FEB1AA044AE0028B8F6 /* AdViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AdViewController.m; sourceTree = "<group>"; };
+		A9886FEC1AA044AE0028B8F6 /* AdViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = AdViewController.xib; sourceTree = "<group>"; };
 		A9891A571A9AC291001E6390 /* BeaconGrid.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BeaconGrid.h; sourceTree = "<group>"; };
 		A9891A581A9AC291001E6390 /* BeaconGrid.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BeaconGrid.m; sourceTree = "<group>"; };
 		A9A410D61A9560910006C07A /* FriendsTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FriendsTableViewCell.h; sourceTree = "<group>"; };
@@ -276,6 +281,9 @@
 				A9886FE51A9FE2F50028B8F6 /* HelpTableViewController.h */,
 				A9886FE61A9FE2F50028B8F6 /* HelpTableViewController.m */,
 				A9886FE71A9FE2F50028B8F6 /* HelpTableViewController.xib */,
+				A9886FEA1AA044AE0028B8F6 /* AdViewController.h */,
+				A9886FEB1AA044AE0028B8F6 /* AdViewController.m */,
+				A9886FEC1AA044AE0028B8F6 /* AdViewController.xib */,
 			);
 			name = UIElements;
 			sourceTree = "<group>";
@@ -433,6 +441,7 @@
 				A934CE0E1A93E79400008D8F /* LaunchScreen.xib in Resources */,
 				A9886FE91A9FE2F50028B8F6 /* HelpTableViewController.xib in Resources */,
 				A934CE4A1A94540500008D8F /* FB-f-Logo__blue_29.png in Resources */,
+				A9886FEE1AA044AE0028B8F6 /* AdViewController.xib in Resources */,
 				A9C839CB1A9BFB570061F945 /* HelpViewController.xib in Resources */,
 				A934CE0B1A93E79400008D8F /* Images.xcassets in Resources */,
 				A9A410DA1A9560910006C07A /* FriendsTableViewCell.xib in Resources */,
@@ -459,6 +468,7 @@
 				A9A410D91A9560910006C07A /* FriendsTableViewCell.m in Sources */,
 				A9A4D1D01A96AB0F00DD1ABA /* FriendDetailViewController.m in Sources */,
 				A934CE031A93E79400008D8F /* crowdlink.xcdatamodeld in Sources */,
+				A9886FED1AA044AE0028B8F6 /* AdViewController.m in Sources */,
 				A9891A591A9AC291001E6390 /* BeaconGrid.m in Sources */,
 				A9886FE31A9FDDF10028B8F6 /* AboutViewController.m in Sources */,
 				A9C61FBD1A9813B000C41477 /* MultiplePulsingHaloLayer.m in Sources */,

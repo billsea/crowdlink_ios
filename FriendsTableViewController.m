@@ -36,6 +36,7 @@
 @synthesize activityIndicatorStopped = _activityIndicatorStopped;
 
 
+
 - (void)viewDidLoad {
     [super viewDidLoad];
     
@@ -91,27 +92,33 @@
     
 }
 
-- (void)viewDidDisappear:(BOOL)animated
+- (void)viewWillDisappear:(BOOL)animated
 {
     if(self.activityIndicatorStopped==FALSE)
     {
         //stop activity indicator
         [GMDCircleLoader hideFromView:self.view animated:YES];
         self.activityIndicatorStopped = TRUE;
+        
+        
 
     }
 }
 
-- (void)viewWillAppear:(BOOL)animated
+
+- (void)viewDidAppear:(BOOL)animated
 {
-    if([[AppSharedModel sharedModel] beaconIsBroadcasting] == false && self.activityIndicatorStopped ==YES)
+    if([[AppSharedModel sharedModel] beaconIsBroadcasting] == false && self.activityIndicatorStopped == YES)
     {
-     //star activity indicator
-     [GMDCircleLoader setOnView:self.view withTitle:@"Searching for friends" animated:YES];
-     self.activityIndicatorStopped = FALSE;
+        [GMDCircleLoader hideFromView:self.view animated:YES];
+         //star activity indicator
+         [GMDCircleLoader setOnView:self.view withTitle:@"Searching for friends" animated:YES];
+         self.activityIndicatorStopped = FALSE;
     }
     else if ([[AppSharedModel sharedModel] beaconIsBroadcasting] == TRUE)
     {
+        [GMDCircleLoader hideFromView:self.view animated:YES];
+        
         //set activity indicator for broadcast
         [GMDCircleLoader setOnView:self.view withTitle:@"Broadcasting to Friends" animated:YES];
         
@@ -213,8 +220,8 @@
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
     
     //stop activity indicator
-    [GMDCircleLoader hideFromView:self.view animated:YES];
-    self.activityIndicatorStopped = TRUE;
+//    [GMDCircleLoader hideFromView:self.view animated:YES];
+//    self.activityIndicatorStopped = TRUE;
     
     static NSString *simpleTableIdentifier = @"FriendsTableViewCell";
     
@@ -415,12 +422,13 @@
  
     }
     
-    //start activity indicatore
-    if([[self friendsInRange] count] == 0 && (self.activityIndicatorStopped == TRUE))
-    {
-        [GMDCircleLoader setOnView:self.view withTitle:@"Searching for friends..." animated:YES];
-        self.activityIndicatorStopped = FALSE;
-    }
+//    //start activity indicator
+//    if([[self friendsInRange] count] == 0 && self.activityIndicatorStopped == TRUE)
+//    {
+//        [GMDCircleLoader hideFromView:self.view animated:YES];
+//        [GMDCircleLoader setOnView:self.view withTitle:@"Searching for friends..." animated:YES];
+//        self.activityIndicatorStopped = FALSE;
+//    }
     
     //reload active friends table
         [[self tableView] reloadData];
