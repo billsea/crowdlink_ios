@@ -16,7 +16,7 @@
             <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
-                <tableView clipsSubviews="YES" alpha="0.64999999999999969" contentMode="scaleToFill" ambiguous="YES" alwaysBounceVertical="YES" style="plain" separatorStyle="none" rowHeight="44" sectionHeaderHeight="22" sectionFooterHeight="22" translatesAutoresizingMaskIntoConstraints="NO" id="deH-pR-0SV">
+                <tableView clipsSubviews="YES" contentMode="scaleToFill" ambiguous="YES" alwaysBounceVertical="YES" style="plain" separatorStyle="none" rowHeight="44" sectionHeaderHeight="22" sectionFooterHeight="22" translatesAutoresizingMaskIntoConstraints="NO" id="deH-pR-0SV">
                     <rect key="frame" x="0.0" y="334" width="600" height="266"/>
                     <connections>
                         <outlet property="dataSource" destination="-1" id="eDl-bk-ECK"/>
@@ -33,7 +33,7 @@
                     </connections>
                 </button>
             </subviews>
-            <color key="backgroundColor" red="0.2822539147" green="0.52320459890000004" blue="0.60000002379999995" alpha="1" colorSpace="calibratedRGB"/>
+            <color key="backgroundColor" red="0.80000000000000004" green="0.79053181949999995" blue="0.2696282472" alpha="1" colorSpace="calibratedRGB"/>
             <constraints>
                 <constraint firstAttribute="centerX" secondItem="RJh-RM-pym" secondAttribute="centerX" constant="-0.5" id="BWL-m8-7ys"/>
                 <constraint firstAttribute="centerY" secondItem="RJh-RM-pym" secondAttribute="centerY" constant="119" id="bxI-JH-Zg4"/>

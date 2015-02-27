@@ -24,5 +24,6 @@
 - (void)startBeaconMonitoring;
 - (void)stopBeaconMonitoring;
 - (void)requestFacebookFriends;
+- (IBAction)ViewHelp:(id)sender;
 
 @end

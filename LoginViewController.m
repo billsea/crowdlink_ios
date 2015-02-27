@@ -9,9 +9,10 @@
 #import "LoginViewController.h"
 #import <FacebookSDK/FacebookSDK.h>
 #import "AppDelegate.h"
+#import "AboutViewController.h"
 
 @interface LoginViewController ()
-
+@property UIBarButtonItem * aboutButton;
 @end
 
 @implementation LoginViewController
@@ -24,6 +25,16 @@
     
     // Set the title of the navigation item
     [[self navigationItem] setTitle:@"Login"];
+    
+    //add help navigation bar button
+    self.aboutButton = [[UIBarButtonItem alloc]
+                       //initWithImage:[UIImage imageNamed:@"reload-50.png"]
+                       initWithTitle:@"About"
+                       style:UIBarButtonItemStyleBordered
+                       target:self
+                       action:@selector(ViewAbout:)];
+    //self.addClientButton.tintColor = [UIColor blackColor];
+    [[self navigationItem] setRightBarButtonItem:self.aboutButton];
     
 //    //facebook login init
 //    FBLoginView *loginView = [[FBLoginView alloc] init];
@@ -67,6 +78,14 @@
              [appDelegate sessionStateChanged:session state:state error:error];
          }];
     }
+}
+
+- (IBAction)ViewAbout:(id)sender
+{
+    AboutViewController * aboutView = [[AboutViewController alloc] init];
+    // Push the view controller.
+    [self.navigationController pushViewController:aboutView animated:YES];
+    
 }
 
 #pragma mark - Table view data source

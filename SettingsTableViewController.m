@@ -41,7 +41,7 @@
     if([[self peripheralManager] isAdvertising])
     {
         //start activity indicator
-        [GMDCircleLoader setOnView:self.view withTitle:@"Broadcasting..." animated:YES];
+        [GMDCircleLoader setOnView:self.view withTitle:@"Broadcasting to Friends" animated:YES];
     }
 }
 - (void)viewWillDisappear:(BOOL)animated
@@ -105,13 +105,13 @@
             [cell addSubview: cellLabel];
             [cell addSubview:tSwitch];
             break;
+//        case 1:
+//            [tSwitch addTarget:self action:@selector(showPicture:) forControlEvents:UIControlEventValueChanged];
+//            [cellLabel setText:@"Show my picture"];
+//            [cell addSubview:cellLabel];
+//            [cell addSubview:tSwitch];
+//            break;
         case 1:
-            [tSwitch addTarget:self action:@selector(showPicture:) forControlEvents:UIControlEventValueChanged];
-            [cellLabel setText:@"Show my picture"];
-            [cell addSubview:cellLabel];
-            [cell addSubview:tSwitch];
-            break;
-        case 2:
             [btnRefresh addTarget:self action:@selector(refreshFriends:) forControlEvents:UIControlEventTouchUpInside];
             [btnRefresh setTitle:@"Refresh Friends" forState:UIControlStateNormal];
             [cell addSubview:btnRefresh];
@@ -132,6 +132,10 @@
 {
     //only needed if a new friend has downloaded the app for first use
     [[[AppSharedModel sharedModel] friendsTableViewController] requestFacebookFriends];
+    
+    AppDelegate * appDelegate = (AppDelegate *)[UIApplication sharedApplication].delegate;
+    
+    [appDelegate showMessage:@"Friends list has been refreshed" withTitle:@"Done!"];
 }
 
 #pragma mark - beacon methods
@@ -179,7 +183,7 @@
         
         
         //start activity indicator
-        [GMDCircleLoader setOnView:self.view withTitle:@"Broadcasting..." animated:YES];
+        [GMDCircleLoader setOnView:self.view withTitle:@"Broadcasting to Friends" animated:YES];
         [[AppSharedModel sharedModel] setBeaconIsBroadcasting:TRUE];
     }
     else

@@ -31,5 +31,6 @@
 - (void)sessionStateChanged:(FBSession *)session state:(FBSessionState) state error:(NSError *)error;
 - (void)facebookAuthenticationSuccessHandler:(NSNotification*)notification;
 - (void)facebookAuthenticationFailedHandler:(NSNotification*)notification;
+- (void)showMessage:(NSString *)text withTitle:(NSString *)title;
 @end
 

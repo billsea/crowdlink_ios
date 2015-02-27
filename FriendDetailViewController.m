@@ -13,9 +13,9 @@
 #import "PulsingHaloLayer.h"
 #import "FlashingDot.h"
 #import "BeaconGrid.h"
-#import "HelpViewController.h"
+#import "HelpTableViewController.h"
 
-#define kMaxRadius 160
+#define kMaxRadius 100
 #define searchStartDistanceY 200
 
 
@@ -72,7 +72,7 @@ float searchDotIncrement;
 
 - (IBAction)ViewHelp:(id)sender
 {
-    HelpViewController * helpView = [[HelpViewController alloc] init];
+    HelpTableViewController * helpView = [[HelpTableViewController alloc] init];
     // Push the view controller.
     [self.navigationController pushViewController:helpView animated:YES];
 
@@ -130,7 +130,7 @@ float searchDotIncrement;
     flashingDot = [FlashingDot layer];
     flashingDot.position = CGPointMake(self.beaconPosition.x,self.beaconPosition.y + searchStartDistanceY);
     //flashingDot.position = CGPointMake(self.beaconViewMuti.center.x, self.beaconViewMuti.center.y + searchStartDistanceY);
-    flashingDot.radius = 20;
+    flashingDot.radius = 15;
     flashingDot.fromValueForAlpha = 1;
     flashingDot.keyTimeForHalfOpacity = 1;
     flashingDot.fromValueForRadius = 1;
@@ -153,7 +153,7 @@ float searchDotIncrement;
 //                                     green:0.51694
 //                                      blue:1.0
 //                                     alpha:1.0];
-    UIColor * color = [UIColor purpleColor];
+    UIColor * color = [UIColor redColor];
     [self.mutiHalo setHaloLayerColor:color.CGColor];
    
 

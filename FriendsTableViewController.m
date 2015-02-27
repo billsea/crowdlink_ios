@@ -18,11 +18,12 @@
 #import "FriendDetailViewController.h"
 #import "AppSharedModel.h"
 #import "GMDCircleLoader.h"
+#import "HelpTableViewController.h"
 
 @interface FriendsTableViewController ()
 
 @property UIBarButtonItem * logoutButton;
-
+@property UIBarButtonItem * helpButton;
 
 @end
 
@@ -50,10 +51,18 @@
                             target:self
                             action:@selector(LogoutUser:)];
     //self.addClientButton.tintColor = [UIColor blackColor];
-    [[self navigationItem] setRightBarButtonItem:self.logoutButton];
+    [[self navigationItem] setLeftBarButtonItem:self.logoutButton];
     
     
- 
+    //add help navigation bar button
+    self.helpButton = [[UIBarButtonItem alloc]
+                       //initWithImage:[UIImage imageNamed:@"reload-50.png"]
+                       initWithTitle:@"Help"
+                       style:UIBarButtonItemStyleBordered
+                       target:self
+                       action:@selector(ViewHelp:)];
+    //self.addClientButton.tintColor = [UIColor blackColor];
+    [[self navigationItem] setRightBarButtonItem:self.helpButton];
 
     
     //check network
@@ -66,6 +75,7 @@
     //initialize friends in range
     self.friendsInRange = [[NSMutableArray alloc] init];
     
+    self.activityIndicatorStopped = TRUE;
     
     //Monitor for broadcasting beacons
     [self startBeaconMonitoring];
@@ -88,25 +98,42 @@
         //stop activity indicator
         [GMDCircleLoader hideFromView:self.view animated:YES];
         self.activityIndicatorStopped = TRUE;
+
     }
 }
 
 - (void)viewWillAppear:(BOOL)animated
 {
-    if([[AppSharedModel sharedModel] beaconIsBroadcasting] ==false)
+    if([[AppSharedModel sharedModel] beaconIsBroadcasting] == false && self.activityIndicatorStopped ==YES)
     {
      //star activity indicator
-     [GMDCircleLoader setOnView:self.view withTitle:@"Searching for friends..." animated:YES];
+     [GMDCircleLoader setOnView:self.view withTitle:@"Searching for friends" animated:YES];
      self.activityIndicatorStopped = FALSE;
     }
-    else
+    else if ([[AppSharedModel sharedModel] beaconIsBroadcasting] == TRUE)
     {
-        //stop activity indicator
-        [GMDCircleLoader hideFromView:self.view animated:YES];
+        //set activity indicator for broadcast
+        [GMDCircleLoader setOnView:self.view withTitle:@"Broadcasting to Friends" animated:YES];
+        
+        [[self friendsInRange] removeAllObjects];
+        
+        [[self tableView] reloadData];
+        
+       // [GMDCircleLoader hideFromView:self.view animated:YES];
         self.activityIndicatorStopped = TRUE;
     }
     
 }
+
+- (IBAction)ViewHelp:(id)sender
+{
+    HelpTableViewController * helpView = [[HelpTableViewController alloc] init];
+    // Push the view controller.
+    [self.navigationController pushViewController:helpView animated:YES];
+    
+}
+
+#pragma mark facebook methods
 
 - (void)requestFacebookFriends
 {
