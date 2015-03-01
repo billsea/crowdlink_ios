@@ -15,26 +15,94 @@
             <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
-                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Crowdlink" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="1kP-yV-8UT">
-                    <rect key="frame" x="262" y="220" width="77" height="21"/>
+                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="chainSingleLogo.png" translatesAutoresizingMaskIntoConstraints="NO" id="wE4-Zb-9bF">
+                    <rect key="frame" x="200" y="134" width="200" height="100"/>
+                    <constraints>
+                        <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="200" id="4xp-ss-uog"/>
+                        <constraint firstAttribute="width" constant="200" id="CcK-qC-7nc"/>
+                        <constraint firstAttribute="width" constant="200" id="FBj-8n-q7V"/>
+                        <constraint firstAttribute="height" constant="100" id="OAc-k6-rxi"/>
+                        <constraint firstAttribute="height" constant="100" id="WtL-24-4U6"/>
+                        <constraint firstAttribute="height" constant="100" id="f2a-X8-Ul6"/>
+                        <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="100" id="lpR-b6-6Tv"/>
+                        <constraint firstAttribute="width" constant="200" id="oDP-lV-Wwd"/>
+                    </constraints>
+                    <variation key="default">
+                        <mask key="constraints">
+                            <exclude reference="4xp-ss-uog"/>
+                            <exclude reference="CcK-qC-7nc"/>
+                            <exclude reference="WtL-24-4U6"/>
+                            <exclude reference="f2a-X8-Ul6"/>
+                            <exclude reference="lpR-b6-6Tv"/>
+                            <exclude reference="oDP-lV-Wwd"/>
+                        </mask>
+                    </variation>
+                </imageView>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="William Seaman" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="1kP-yV-8UT">
+                    <rect key="frame" x="239" y="324" width="123" height="21"/>
                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                    <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                    <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     <nil key="highlightedColor"/>
                 </label>
                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Copyright 2015" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="UTK-bp-LPT">
-                    <rect key="frame" x="241" y="191" width="119" height="21"/>
+                    <rect key="frame" x="241" y="295" width="119" height="21"/>
                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                    <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                    <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    <nil key="highlightedColor"/>
+                </label>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="All Rights Reserved" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="zNH-iw-J5b">
+                    <rect key="frame" x="225" y="353" width="150" height="21"/>
+                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                    <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="calibratedRGB"/>
                     <nil key="highlightedColor"/>
                 </label>
             </subviews>
-            <color key="backgroundColor" red="0.80000000000000004" green="0.79053181949999995" blue="0.2696282472" alpha="1" colorSpace="calibratedRGB"/>
+            <color key="backgroundColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
             <constraints>
                 <constraint firstAttribute="centerY" secondItem="UTK-bp-LPT" secondAttribute="centerY" constant="98.5" id="3gM-tT-Gfh"/>
+                <constraint firstItem="UTK-bp-LPT" firstAttribute="top" secondItem="wE4-Zb-9bF" secondAttribute="bottom" constant="61" id="4LD-fC-rON"/>
+                <constraint firstItem="zNH-iw-J5b" firstAttribute="top" secondItem="1kP-yV-8UT" secondAttribute="bottom" constant="8" id="6wb-Px-b4E"/>
+                <constraint firstAttribute="centerX" secondItem="zNH-iw-J5b" secondAttribute="centerX" id="7TH-KY-Iuy"/>
                 <constraint firstAttribute="centerY" secondItem="1kP-yV-8UT" secondAttribute="centerY" constant="69.5" id="Ckf-Qh-laA"/>
+                <constraint firstItem="wE4-Zb-9bF" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" constant="134" id="DHb-m4-rRD"/>
                 <constraint firstAttribute="centerX" secondItem="1kP-yV-8UT" secondAttribute="centerX" constant="-0.5" id="EMC-Mi-n7H"/>
+                <constraint firstItem="1kP-yV-8UT" firstAttribute="top" secondItem="UTK-bp-LPT" secondAttribute="bottom" constant="8" id="Eek-jU-wY0"/>
+                <constraint firstAttribute="centerY" secondItem="wE4-Zb-9bF" secondAttribute="centerY" constant="116" id="F04-7M-eIQ"/>
                 <constraint firstAttribute="centerX" secondItem="UTK-bp-LPT" secondAttribute="centerX" constant="-0.5" id="JuN-37-Lh9"/>
+                <constraint firstAttribute="centerX" secondItem="zNH-iw-J5b" secondAttribute="centerX" id="OHN-dd-byw"/>
+                <constraint firstItem="UTK-bp-LPT" firstAttribute="top" secondItem="wE4-Zb-9bF" secondAttribute="bottom" constant="26" id="Qxq-NY-P4G"/>
+                <constraint firstAttribute="centerX" secondItem="wE4-Zb-9bF" secondAttribute="centerX" id="REk-LN-iNc"/>
+                <constraint firstItem="1kP-yV-8UT" firstAttribute="top" secondItem="UTK-bp-LPT" secondAttribute="bottom" constant="8" id="YTB-kS-h8g"/>
+                <constraint firstAttribute="centerX" secondItem="wE4-Zb-9bF" secondAttribute="centerX" id="a9g-2F-STv"/>
+                <constraint firstAttribute="centerX" secondItem="UTK-bp-LPT" secondAttribute="centerX" constant="-0.5" id="edg-pg-KI1"/>
+                <constraint firstItem="UTK-bp-LPT" firstAttribute="top" secondItem="wE4-Zb-9bF" secondAttribute="bottom" constant="26" id="mH8-Av-bai"/>
+                <constraint firstItem="wE4-Zb-9bF" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" constant="134" id="mho-fw-tF9"/>
+                <constraint firstAttribute="centerX" secondItem="1kP-yV-8UT" secondAttribute="centerX" constant="-0.5" id="nCe-le-sXw"/>
+                <constraint firstItem="wE4-Zb-9bF" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" constant="134" id="uwa-t3-WD9"/>
+                <constraint firstAttribute="centerY" secondItem="zNH-iw-J5b" secondAttribute="centerY" constant="40.5" id="wL1-Ux-Twb"/>
+                <constraint firstAttribute="centerX" secondItem="wE4-Zb-9bF" secondAttribute="centerX" id="zEI-UI-hbN"/>
             </constraints>
+            <variation key="default">
+                <mask key="constraints">
+                    <exclude reference="DHb-m4-rRD"/>
+                    <exclude reference="F04-7M-eIQ"/>
+                    <exclude reference="REk-LN-iNc"/>
+                    <exclude reference="mho-fw-tF9"/>
+                    <exclude reference="zEI-UI-hbN"/>
+                    <exclude reference="3gM-tT-Gfh"/>
+                    <exclude reference="JuN-37-Lh9"/>
+                    <exclude reference="Qxq-NY-P4G"/>
+                    <exclude reference="mH8-Av-bai"/>
+                    <exclude reference="Ckf-Qh-laA"/>
+                    <exclude reference="EMC-Mi-n7H"/>
+                    <exclude reference="YTB-kS-h8g"/>
+                    <exclude reference="OHN-dd-byw"/>
+                    <exclude reference="wL1-Ux-Twb"/>
+                </mask>
+            </variation>
         </view>
     </objects>
+    <resources>
+        <image name="chainSingleLogo.png" width="1000" height="500"/>
+    </resources>
 </document>

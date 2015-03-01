@@ -220,8 +220,8 @@
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
     
     //stop activity indicator
-//    [GMDCircleLoader hideFromView:self.view animated:YES];
-//    self.activityIndicatorStopped = TRUE;
+    [GMDCircleLoader hideFromView:self.view animated:YES];
+   self.activityIndicatorStopped = TRUE;
     
     static NSString *simpleTableIdentifier = @"FriendsTableViewCell";
     

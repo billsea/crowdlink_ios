@@ -72,11 +72,13 @@ NSMutableArray * helpTopics;
     cell.accessoryView =nil;
    
     UILabel * loginLabel = [[UILabel alloc] initWithFrame:CGRectMake(10, 15, 200, 30)];
-    [loginLabel setTintColor:[UIColor blueColor]];
+    [loginLabel setTextColor:[UIColor whiteColor]];
+    
     [loginLabel setText:[helpTopics objectAtIndex:indexPath.row]];
     
-    UIImageView * arrowImage = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"forward-32.png"]];
-    [arrowImage setFrame:CGRectMake(screenWidth - 32, 7, 30, 30)];
+    UIImageView * arrowImage = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"showSettings.png"]];
+    [arrowImage setBackgroundColor:[UIColor blackColor]];
+    [arrowImage setFrame:CGRectMake(screenWidth - 32, 7, 30, 48)];
     
     [cell addSubview:loginLabel];
     [cell addSubview:arrowImage];

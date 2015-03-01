@@ -46,6 +46,12 @@
 		A9A4D1CC1A96AA4A00DD1ABA /* forward-32.png in Resources */ = {isa = PBXBuildFile; fileRef = A9A4D1CB1A96AA4A00DD1ABA /* forward-32.png */; };
 		A9A4D1D01A96AB0F00DD1ABA /* FriendDetailViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A9A4D1CE1A96AB0F00DD1ABA /* FriendDetailViewController.m */; };
 		A9A4D1D11A96AB0F00DD1ABA /* FriendDetailViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = A9A4D1CF1A96AB0F00DD1ABA /* FriendDetailViewController.xib */; };
+		A9B84D271AA29F2600C7C370 /* chainLink_blackbg.png in Resources */ = {isa = PBXBuildFile; fileRef = A9B84D221AA29F2600C7C370 /* chainLink_blackbg.png */; };
+		A9B84D281AA29F2600C7C370 /* chainLink_nobg.png in Resources */ = {isa = PBXBuildFile; fileRef = A9B84D231AA29F2600C7C370 /* chainLink_nobg.png */; };
+		A9B84D291AA29F2600C7C370 /* chainLink_nobgortext.png in Resources */ = {isa = PBXBuildFile; fileRef = A9B84D241AA29F2600C7C370 /* chainLink_nobgortext.png */; };
+		A9B84D2A1AA29F2600C7C370 /* chainSingleLogo.png in Resources */ = {isa = PBXBuildFile; fileRef = A9B84D251AA29F2600C7C370 /* chainSingleLogo.png */; };
+		A9B84D2B1AA29F2600C7C370 /* chainSingleNoText.png in Resources */ = {isa = PBXBuildFile; fileRef = A9B84D261AA29F2600C7C370 /* chainSingleNoText.png */; };
+		A9B84D2D1AA2A4A000C7C370 /* showSettings.png in Resources */ = {isa = PBXBuildFile; fileRef = A9B84D2C1AA2A4A000C7C370 /* showSettings.png */; };
 		A9C61FBD1A9813B000C41477 /* MultiplePulsingHaloLayer.m in Sources */ = {isa = PBXBuildFile; fileRef = A9C61FBA1A9813B000C41477 /* MultiplePulsingHaloLayer.m */; };
 		A9C61FBE1A9813B000C41477 /* PulsingHaloLayer.m in Sources */ = {isa = PBXBuildFile; fileRef = A9C61FBC1A9813B000C41477 /* PulsingHaloLayer.m */; };
 		A9C61FC01A981C2C00C41477 /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A9C61FBF1A981C2C00C41477 /* QuartzCore.framework */; };
@@ -129,6 +135,12 @@
 		A9A4D1CD1A96AB0F00DD1ABA /* FriendDetailViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FriendDetailViewController.h; sourceTree = "<group>"; };
 		A9A4D1CE1A96AB0F00DD1ABA /* FriendDetailViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FriendDetailViewController.m; sourceTree = "<group>"; };
 		A9A4D1CF1A96AB0F00DD1ABA /* FriendDetailViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = FriendDetailViewController.xib; sourceTree = "<group>"; };
+		A9B84D221AA29F2600C7C370 /* chainLink_blackbg.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = chainLink_blackbg.png; sourceTree = "<group>"; };
+		A9B84D231AA29F2600C7C370 /* chainLink_nobg.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = chainLink_nobg.png; sourceTree = "<group>"; };
+		A9B84D241AA29F2600C7C370 /* chainLink_nobgortext.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = chainLink_nobgortext.png; sourceTree = "<group>"; };
+		A9B84D251AA29F2600C7C370 /* chainSingleLogo.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = chainSingleLogo.png; sourceTree = "<group>"; };
+		A9B84D261AA29F2600C7C370 /* chainSingleNoText.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = chainSingleNoText.png; sourceTree = "<group>"; };
+		A9B84D2C1AA2A4A000C7C370 /* showSettings.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = showSettings.png; sourceTree = "<group>"; };
 		A9C61FB91A9813B000C41477 /* MultiplePulsingHaloLayer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MultiplePulsingHaloLayer.h; sourceTree = "<group>"; };
 		A9C61FBA1A9813B000C41477 /* MultiplePulsingHaloLayer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MultiplePulsingHaloLayer.m; sourceTree = "<group>"; };
 		A9C61FBB1A9813B000C41477 /* PulsingHaloLayer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PulsingHaloLayer.h; sourceTree = "<group>"; };
@@ -291,6 +303,12 @@
 		A934CE331A93F68600008D8F /* Images */ = {
 			isa = PBXGroup;
 			children = (
+				A9B84D2C1AA2A4A000C7C370 /* showSettings.png */,
+				A9B84D221AA29F2600C7C370 /* chainLink_blackbg.png */,
+				A9B84D231AA29F2600C7C370 /* chainLink_nobg.png */,
+				A9B84D241AA29F2600C7C370 /* chainLink_nobgortext.png */,
+				A9B84D251AA29F2600C7C370 /* chainSingleLogo.png */,
+				A9B84D261AA29F2600C7C370 /* chainSingleNoText.png */,
 				A9A4D1CB1A96AA4A00DD1ABA /* forward-32.png */,
 				A934CE4B1A94543200008D8F /* FB-f-Logo__blue_50.png */,
 				A934CE491A94540500008D8F /* FB-f-Logo__blue_29.png */,
@@ -428,10 +446,12 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				A9B84D2B1AA29F2600C7C370 /* chainSingleNoText.png in Resources */,
 				A934CE4C1A94543200008D8F /* FB-f-Logo__blue_50.png in Resources */,
 				A934CE351A93F6F100008D8F /* conference-32.png in Resources */,
 				A9886FE41A9FDDF10028B8F6 /* AboutViewController.xib in Resources */,
 				A934CE431A941D5400008D8F /* settings3-32.png in Resources */,
+				A9B84D2D1AA2A4A000C7C370 /* showSettings.png in Resources */,
 				A934CE2D1A93EC7700008D8F /* LoginViewController.xib in Resources */,
 				A934CE481A94269B00008D8F /* SettingsTableViewCell.xib in Resources */,
 				A934CE091A93E79400008D8F /* Main.storyboard in Resources */,
@@ -439,12 +459,16 @@
 				A934CE321A93F3D700008D8F /* FriendsTableViewController.xib in Resources */,
 				A934CE411A941A7B00008D8F /* SettingsTableViewController.xib in Resources */,
 				A934CE0E1A93E79400008D8F /* LaunchScreen.xib in Resources */,
+				A9B84D281AA29F2600C7C370 /* chainLink_nobg.png in Resources */,
 				A9886FE91A9FE2F50028B8F6 /* HelpTableViewController.xib in Resources */,
+				A9B84D271AA29F2600C7C370 /* chainLink_blackbg.png in Resources */,
 				A934CE4A1A94540500008D8F /* FB-f-Logo__blue_29.png in Resources */,
+				A9B84D291AA29F2600C7C370 /* chainLink_nobgortext.png in Resources */,
 				A9886FEE1AA044AE0028B8F6 /* AdViewController.xib in Resources */,
 				A9C839CB1A9BFB570061F945 /* HelpViewController.xib in Resources */,
 				A934CE0B1A93E79400008D8F /* Images.xcassets in Resources */,
 				A9A410DA1A9560910006C07A /* FriendsTableViewCell.xib in Resources */,
+				A9B84D2A1AA29F2600C7C370 /* chainSingleLogo.png in Resources */,
 				A9A4D1D11A96AB0F00DD1ABA /* FriendDetailViewController.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

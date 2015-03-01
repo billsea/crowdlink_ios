@@ -17,26 +17,27 @@
                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="EBD-g0-Qo1">
                         <rect key="frame" x="89" y="38" width="189" height="21"/>
                         <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                        <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                        <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <nil key="highlightedColor"/>
                     </label>
                     <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="6j4-DL-tn3">
                         <rect key="frame" x="8" y="9" width="73" height="73"/>
                     </imageView>
-                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="forward-32.png" translatesAutoresizingMaskIntoConstraints="NO" id="hWT-6R-ZzV">
-                        <rect key="frame" x="286" y="33" width="26" height="32"/>
+                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="showSettings.png" translatesAutoresizingMaskIntoConstraints="NO" id="hWT-6R-ZzV">
+                        <rect key="frame" x="282" y="22" width="30" height="48"/>
+                        <color key="backgroundColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
                     </imageView>
                 </subviews>
             </tableViewCellContentView>
-            <color key="backgroundColor" red="0.80000000000000004" green="0.79053181949999995" blue="0.2696282472" alpha="1" colorSpace="calibratedRGB"/>
+            <color key="backgroundColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
             <connections>
                 <outlet property="friendNameLabel" destination="EBD-g0-Qo1" id="cKu-x7-CLE"/>
                 <outlet property="userPicture" destination="6j4-DL-tn3" id="DoY-08-G8B"/>
             </connections>
-            <point key="canvasLocation" x="483" y="250"/>
+            <point key="canvasLocation" x="483" y="245"/>
         </tableViewCell>
     </objects>
     <resources>
-        <image name="forward-32.png" width="32" height="32"/>
+        <image name="showSettings.png" width="30" height="55"/>
     </resources>
 </document>

@@ -89,6 +89,8 @@
     cell.accessoryView =nil;
     
     UILabel * cellLabel = [[UILabel alloc] initWithFrame:CGRectMake(10,0, cell.frame.size.width - 100, 50)];
+    
+    [cellLabel setTextColor:[UIColor whiteColor]];
 
     UISwitch * tSwitch = [[UISwitch alloc] initWithFrame:CGRectMake(screenWidth - 75, 15, 30, 30)];
     UIButton * btnRefresh = [[UIButton alloc] init];

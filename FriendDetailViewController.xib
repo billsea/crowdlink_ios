@@ -28,7 +28,7 @@
                         <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="21" id="mfU-qa-Hct"/>
                     </constraints>
                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                    <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                    <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     <nil key="highlightedColor"/>
                     <variation key="default">
                         <mask key="constraints">
@@ -50,7 +50,7 @@
                         <constraint firstAttribute="height" constant="21" id="qeE-o4-Rfh"/>
                     </constraints>
                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                    <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                    <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     <nil key="highlightedColor"/>
                     <variation key="default">
                         <mask key="constraints">
@@ -72,7 +72,7 @@
                         <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="30" id="kMP-Qa-L9K"/>
                     </constraints>
                     <fontDescription key="fontDescription" type="system" pointSize="30"/>
-                    <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                    <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     <nil key="highlightedColor"/>
                     <variation key="default">
                         <mask key="constraints">
@@ -90,7 +90,7 @@
                         <constraint firstAttribute="height" constant="30" id="zRg-HB-bsh"/>
                     </constraints>
                     <fontDescription key="fontDescription" type="system" pointSize="30"/>
-                    <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                    <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     <nil key="highlightedColor"/>
                     <variation key="default">
                         <mask key="constraints">
@@ -100,7 +100,7 @@
                     </variation>
                 </label>
             </subviews>
-            <color key="backgroundColor" red="0.80000000000000004" green="0.79053181949999995" blue="0.2696282472" alpha="1" colorSpace="calibratedRGB"/>
+            <color key="backgroundColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
             <constraints>
                 <constraint firstItem="wIo-De-Je5" firstAttribute="leading" secondItem="2rF-dS-jz8" secondAttribute="trailing" constant="8" id="3vR-MN-QOg"/>
                 <constraint firstItem="Kjc-Ni-nko" firstAttribute="leading" secondItem="kTB-1Z-ixq" secondAttribute="trailing" constant="8" id="Ahf-Ha-iac"/>

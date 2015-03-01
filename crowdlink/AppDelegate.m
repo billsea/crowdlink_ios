@@ -170,7 +170,7 @@
 - (void)userLoggedOut
 {
     // Confirm logout message
-    [self showMessage:@"You're now logged out" withTitle:@""];
+   // [self showMessage:@"You're now logged out" withTitle:@""];
     [self LoginView];
 
 }
