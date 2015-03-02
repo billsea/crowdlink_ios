@@ -223,22 +223,53 @@
     [GMDCircleLoader hideFromView:self.view animated:YES];
    self.activityIndicatorStopped = TRUE;
     
-    static NSString *simpleTableIdentifier = @"FriendsTableViewCell";
+    CGRect screenRect = [[UIScreen mainScreen] bounds];
+    CGFloat screenWidth = screenRect.size.width;
     
-    FriendsTableViewCell *cell = (FriendsTableViewCell *)[tableView dequeueReusableCellWithIdentifier:simpleTableIdentifier];
-    
-    if (cell == nil)
-    {
-        NSArray *nib = [[NSBundle mainBundle] loadNibNamed:@"FriendsTableViewCell" owner:self options:nil];
-        cell = [nib objectAtIndex:0];
-        
+    static NSString *CellIdentifier = @"HelpCell";
+    UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:CellIdentifier];
+    if (cell == nil) {
+        cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:CellIdentifier];
     }
-    // Configure the cell...
+    
+    [cell setBackgroundColor:[UIColor clearColor]];
+    cell.accessoryView =nil;
+    
+    
+    //Configure the cell...
     Friend * friendInRange = [[self friendsInRange] objectAtIndex:[indexPath row]];
     UIImage * fbImage = [UIImage imageWithData:[NSData dataWithContentsOfURL:[NSURL URLWithString:friendInRange.PictureURL]]];
     
-    [[cell friendNameLabel] setText:friendInRange.FullName];
-    [[cell userPicture] setImage:fbImage];
+    
+    //friend fb picture
+    UIImageView * friendImage = [[UIImageView alloc] initWithImage:fbImage];
+    [friendImage setBackgroundColor:[UIColor blackColor]];
+    [friendImage setFrame:CGRectMake(5, 5, 75, 75)];
+    
+//    //round edges
+//    friendImage.layer.cornerRadius = 3;
+//    friendImage.clipsToBounds = YES;
+//    friendImage.layer.borderWidth = 1.0f;
+//    friendImage.layer.backgroundColor = [UIColor blackColor].CGColor;
+    
+    
+    //friend name
+    
+    UILabel * friendLabel = [[UILabel alloc] initWithFrame:CGRectMake(95, 30, 200, 30)];
+    [friendLabel setTextColor:[UIColor whiteColor]];
+    
+    [friendLabel setText:friendInRange.FullName];
+    
+    //navigation arrow
+    UIImageView * arrowImage = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"showSettings.png"]];
+    [arrowImage setBackgroundColor:[UIColor blackColor]];
+    [arrowImage setFrame:CGRectMake(screenWidth - 32, 20, 30, 48)];
+    
+    
+
+    [cell addSubview:friendImage];
+    [cell addSubview:friendLabel];
+    [cell addSubview:arrowImage];
     
     return cell;
 }

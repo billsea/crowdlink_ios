@@ -30,6 +30,8 @@
 FlashingDot * flashingDot;
 float searchDotIncrement;
 
+BOOL _bannerIsVisible;
+ADBannerView *_adBanner;
 
 @implementation FriendDetailViewController
 
@@ -64,10 +66,18 @@ float searchDotIncrement;
     
     //add halo effect
     [self addBeaconHalo];
+
     
     
+}
+
+- (void)viewDidAppear:(BOOL)animated
+{
     
     
+    //iAd banner
+    _adBanner = [[ADBannerView alloc] initWithFrame:CGRectMake(0, self.view.frame.size.height-50, 320, 50)];
+    _adBanner.delegate = self;
 }
 
 - (IBAction)ViewHelp:(id)sender
@@ -251,6 +261,46 @@ float searchDotIncrement;
     // Pass the selected object to the new view controller.
 }
 */
+
+#pragma mark iAd delegate methods
+- (void)bannerViewDidLoadAd:(ADBannerView *)banner
+{
+    if (!_bannerIsVisible)
+    {
+        // If banner isn't part of view hierarchy, add it
+        if (_adBanner.superview == nil)
+        {
+            [self.view addSubview:_adBanner];
+        }
+        
+        [UIView beginAnimations:@"animateAdBannerOn" context:NULL];
+        
+        // Assumes the banner view is just off the bottom of the screen.
+        banner.frame = CGRectOffset(banner.frame, 0, -banner.frame.size.height);
+        
+        [UIView commitAnimations];
+        
+        _bannerIsVisible = YES;
+    }
+}
+
+- (void)bannerView:(ADBannerView *)banner didFailToReceiveAdWithError:(NSError *)error
+{
+    NSLog(@"Failed to retrieve ad");
+    
+    if (_bannerIsVisible)
+    {
+        [UIView beginAnimations:@"animateAdBannerOff" context:NULL];
+        
+        // Assumes the banner view is placed at the bottom of the screen.
+        banner.frame = CGRectOffset(banner.frame, 0, banner.frame.size.height);
+        
+        [UIView commitAnimations];
+        
+        _bannerIsVisible = NO;
+    }
+}
+
 
 
 

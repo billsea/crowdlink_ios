@@ -7,10 +7,10 @@
 //
 
 #import <UIKit/UIKit.h>
-
+#import <iAd/iAd.h>
 #import "Friend.h"
 
-@interface FriendDetailViewController : UIViewController
+@interface FriendDetailViewController : UIViewController<ADBannerViewDelegate>
 
 @property Friend * selectedFriend;
 @property (weak, nonatomic) IBOutlet UILabel *accuracyLabel;

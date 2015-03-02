@@ -28,8 +28,8 @@ NSMutableArray * helpTopics;
     [[self navigationItem] setTitle:@"Help"];
     
     helpTopics = [[NSMutableArray alloc] init];
-    [helpTopics addObject:@"When you start Crowdlink, the app will begin searching for your friends who are currently running the Crowdlink app runnning, within 300 feet, and are broadcasting for friends. Friends that are found will be displayed in the 'Friends' Nearby list. Tap on a Friend in the list to display the details display. The details display will show the distance to the selected friend in meters and feet"];
-    [helpTopics addObject:@"You can allow friends to find you by selecting the 'Settings' tab, in the bottom tab bar, and swithching on the 'Let friends find me' toggle button."];
+    [helpTopics addObject:@"When you start Crowdlink, the app will begin searching for Facebook friends who are currently running the Crowdlink app in the foreground, within 300 feet, and broadcasting for friends. Friends that are found will be displayed in the 'Friends Nearby’ list. Tap on a Friend in the list to display a friends position details. The details display will show the distance to the selected friend in meters and feet, and your relative position as a flashing dot."];
+    [helpTopics addObject:@"To allow friends to find you, select the “Let Friends Find Me” toggle switch in the Settings Tab. Please Note: you must have Crowdlink running in the foreground for friends to track your signal."];
     [helpTopics addObject:@"If a new user has just downloaded the Crowdlink app, you may need to refresh your friends list. To do this, go to the Settings Tab, and and tap the Refresh Friends button."];
     
     [self showTopicDetails];

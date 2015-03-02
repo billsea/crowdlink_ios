@@ -39,8 +39,6 @@
 		A9886FED1AA044AE0028B8F6 /* AdViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A9886FEB1AA044AE0028B8F6 /* AdViewController.m */; };
 		A9886FEE1AA044AE0028B8F6 /* AdViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = A9886FEC1AA044AE0028B8F6 /* AdViewController.xib */; };
 		A9891A591A9AC291001E6390 /* BeaconGrid.m in Sources */ = {isa = PBXBuildFile; fileRef = A9891A581A9AC291001E6390 /* BeaconGrid.m */; };
-		A9A410D91A9560910006C07A /* FriendsTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = A9A410D71A9560910006C07A /* FriendsTableViewCell.m */; };
-		A9A410DA1A9560910006C07A /* FriendsTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = A9A410D81A9560910006C07A /* FriendsTableViewCell.xib */; };
 		A9A4D1C71A9669D000DD1ABA /* AppSharedModel.m in Sources */ = {isa = PBXBuildFile; fileRef = A9A4D1C61A9669D000DD1ABA /* AppSharedModel.m */; };
 		A9A4D1CA1A96A1FF00DD1ABA /* Friend.m in Sources */ = {isa = PBXBuildFile; fileRef = A9A4D1C91A96A1FF00DD1ABA /* Friend.m */; };
 		A9A4D1CC1A96AA4A00DD1ABA /* forward-32.png in Resources */ = {isa = PBXBuildFile; fileRef = A9A4D1CB1A96AA4A00DD1ABA /* forward-32.png */; };
@@ -124,9 +122,6 @@
 		A9886FEC1AA044AE0028B8F6 /* AdViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = AdViewController.xib; sourceTree = "<group>"; };
 		A9891A571A9AC291001E6390 /* BeaconGrid.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BeaconGrid.h; sourceTree = "<group>"; };
 		A9891A581A9AC291001E6390 /* BeaconGrid.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BeaconGrid.m; sourceTree = "<group>"; };
-		A9A410D61A9560910006C07A /* FriendsTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FriendsTableViewCell.h; sourceTree = "<group>"; };
-		A9A410D71A9560910006C07A /* FriendsTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FriendsTableViewCell.m; sourceTree = "<group>"; };
-		A9A410D81A9560910006C07A /* FriendsTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = FriendsTableViewCell.xib; sourceTree = "<group>"; };
 		A9A4D1C51A9669D000DD1ABA /* AppSharedModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AppSharedModel.h; sourceTree = "<group>"; };
 		A9A4D1C61A9669D000DD1ABA /* AppSharedModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AppSharedModel.m; sourceTree = "<group>"; };
 		A9A4D1C81A96A1FF00DD1ABA /* Friend.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Friend.h; sourceTree = "<group>"; };
@@ -278,9 +273,6 @@
 				A934CE441A94269B00008D8F /* SettingsTableViewCell.h */,
 				A934CE451A94269B00008D8F /* SettingsTableViewCell.m */,
 				A934CE461A94269B00008D8F /* SettingsTableViewCell.xib */,
-				A9A410D61A9560910006C07A /* FriendsTableViewCell.h */,
-				A9A410D71A9560910006C07A /* FriendsTableViewCell.m */,
-				A9A410D81A9560910006C07A /* FriendsTableViewCell.xib */,
 				A9A4D1CD1A96AB0F00DD1ABA /* FriendDetailViewController.h */,
 				A9A4D1CE1A96AB0F00DD1ABA /* FriendDetailViewController.m */,
 				A9A4D1CF1A96AB0F00DD1ABA /* FriendDetailViewController.xib */,
@@ -467,7 +459,6 @@
 				A9886FEE1AA044AE0028B8F6 /* AdViewController.xib in Resources */,
 				A9C839CB1A9BFB570061F945 /* HelpViewController.xib in Resources */,
 				A934CE0B1A93E79400008D8F /* Images.xcassets in Resources */,
-				A9A410DA1A9560910006C07A /* FriendsTableViewCell.xib in Resources */,
 				A9B84D2A1AA29F2600C7C370 /* chainSingleLogo.png in Resources */,
 				A9A4D1D11A96AB0F00DD1ABA /* FriendDetailViewController.xib in Resources */,
 			);
@@ -489,7 +480,6 @@
 			files = (
 				A9C61FBE1A9813B000C41477 /* PulsingHaloLayer.m in Sources */,
 				A934CE401A941A7B00008D8F /* SettingsTableViewController.m in Sources */,
-				A9A410D91A9560910006C07A /* FriendsTableViewCell.m in Sources */,
 				A9A4D1D01A96AB0F00DD1ABA /* FriendDetailViewController.m in Sources */,
 				A934CE031A93E79400008D8F /* crowdlink.xcdatamodeld in Sources */,
 				A9886FED1AA044AE0028B8F6 /* AdViewController.m in Sources */,
