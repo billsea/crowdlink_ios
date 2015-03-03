@@ -55,6 +55,9 @@
 		A9BA22D21AA50AE200045AA5 /* CrowdLinkAppIcon152.png in Resources */ = {isa = PBXBuildFile; fileRef = A9BA22CD1AA50AE200045AA5 /* CrowdLinkAppIcon152.png */; };
 		A9BA22D31AA50AE200045AA5 /* CrowdLinkAppIcon180.png in Resources */ = {isa = PBXBuildFile; fileRef = A9BA22CE1AA50AE200045AA5 /* CrowdLinkAppIcon180.png */; };
 		A9BA22D41AA50AE200045AA5 /* CrowdLinkAppIcon1024.png in Resources */ = {isa = PBXBuildFile; fileRef = A9BA22CF1AA50AE200045AA5 /* CrowdLinkAppIcon1024.png */; };
+		A9BA22DF1AA5320500045AA5 /* crowdlinkLaunch640x960.png in Resources */ = {isa = PBXBuildFile; fileRef = A9BA22DC1AA5320500045AA5 /* crowdlinkLaunch640x960.png */; };
+		A9BA22E01AA5320500045AA5 /* crowdlinkLaunch640x1136.png in Resources */ = {isa = PBXBuildFile; fileRef = A9BA22DD1AA5320500045AA5 /* crowdlinkLaunch640x1136.png */; };
+		A9BA22E11AA5320500045AA5 /* crowdlinkLaunch1242x2208.png in Resources */ = {isa = PBXBuildFile; fileRef = A9BA22DE1AA5320500045AA5 /* crowdlinkLaunch1242x2208.png */; };
 		A9C61FBD1A9813B000C41477 /* MultiplePulsingHaloLayer.m in Sources */ = {isa = PBXBuildFile; fileRef = A9C61FBA1A9813B000C41477 /* MultiplePulsingHaloLayer.m */; };
 		A9C61FBE1A9813B000C41477 /* PulsingHaloLayer.m in Sources */ = {isa = PBXBuildFile; fileRef = A9C61FBC1A9813B000C41477 /* PulsingHaloLayer.m */; };
 		A9C61FC01A981C2C00C41477 /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A9C61FBF1A981C2C00C41477 /* QuartzCore.framework */; };
@@ -146,6 +149,9 @@
 		A9BA22CD1AA50AE200045AA5 /* CrowdLinkAppIcon152.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = CrowdLinkAppIcon152.png; sourceTree = "<group>"; };
 		A9BA22CE1AA50AE200045AA5 /* CrowdLinkAppIcon180.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = CrowdLinkAppIcon180.png; sourceTree = "<group>"; };
 		A9BA22CF1AA50AE200045AA5 /* CrowdLinkAppIcon1024.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = CrowdLinkAppIcon1024.png; sourceTree = "<group>"; };
+		A9BA22DC1AA5320500045AA5 /* crowdlinkLaunch640x960.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = crowdlinkLaunch640x960.png; sourceTree = "<group>"; };
+		A9BA22DD1AA5320500045AA5 /* crowdlinkLaunch640x1136.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = crowdlinkLaunch640x1136.png; sourceTree = "<group>"; };
+		A9BA22DE1AA5320500045AA5 /* crowdlinkLaunch1242x2208.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = crowdlinkLaunch1242x2208.png; sourceTree = "<group>"; };
 		A9C61FB91A9813B000C41477 /* MultiplePulsingHaloLayer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MultiplePulsingHaloLayer.h; sourceTree = "<group>"; };
 		A9C61FBA1A9813B000C41477 /* MultiplePulsingHaloLayer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MultiplePulsingHaloLayer.m; sourceTree = "<group>"; };
 		A9C61FBB1A9813B000C41477 /* PulsingHaloLayer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PulsingHaloLayer.h; sourceTree = "<group>"; };
@@ -305,6 +311,7 @@
 		A934CE331A93F68600008D8F /* Images */ = {
 			isa = PBXGroup;
 			children = (
+				A9BA22D51AA52EC800045AA5 /* launchImages */,
 				A9BA22CA1AA50AC700045AA5 /* appIcons */,
 				A9B84D2C1AA2A4A000C7C370 /* showSettings.png */,
 				A9B84D221AA29F2600C7C370 /* chainLink_blackbg.png */,
@@ -370,6 +377,16 @@
 			name = appIcons;
 			sourceTree = "<group>";
 		};
+		A9BA22D51AA52EC800045AA5 /* launchImages */ = {
+			isa = PBXGroup;
+			children = (
+				A9BA22DC1AA5320500045AA5 /* crowdlinkLaunch640x960.png */,
+				A9BA22DD1AA5320500045AA5 /* crowdlinkLaunch640x1136.png */,
+				A9BA22DE1AA5320500045AA5 /* crowdlinkLaunch1242x2208.png */,
+			);
+			name = launchImages;
+			sourceTree = "<group>";
+		};
 		A9C61FB81A9813B000C41477 /* PulsingHalo */ = {
 			isa = PBXGroup;
 			children = (
@@ -430,6 +447,7 @@
 				TargetAttributes = {
 					A934CDF61A93E79400008D8F = {
 						CreatedOnToolsVersion = 6.1.1;
+						DevelopmentTeam = ZZGJ2UYWJY;
 					};
 					A934CE121A93E79400008D8F = {
 						CreatedOnToolsVersion = 6.1.1;
@@ -463,10 +481,13 @@
 			files = (
 				A9B84D2B1AA29F2600C7C370 /* chainSingleNoText.png in Resources */,
 				A934CE4C1A94543200008D8F /* FB-f-Logo__blue_50.png in Resources */,
+				A9BA22DF1AA5320500045AA5 /* crowdlinkLaunch640x960.png in Resources */,
 				A934CE351A93F6F100008D8F /* conference-32.png in Resources */,
 				A9886FE41A9FDDF10028B8F6 /* AboutViewController.xib in Resources */,
+				A9BA22E01AA5320500045AA5 /* crowdlinkLaunch640x1136.png in Resources */,
 				A934CE431A941D5400008D8F /* settings3-32.png in Resources */,
 				A9B84D2D1AA2A4A000C7C370 /* showSettings.png in Resources */,
+				A9BA22E11AA5320500045AA5 /* crowdlinkLaunch1242x2208.png in Resources */,
 				A934CE2D1A93EC7700008D8F /* LoginViewController.xib in Resources */,
 				A9BA22D31AA50AE200045AA5 /* CrowdLinkAppIcon180.png in Resources */,
 				A934CE481A94269B00008D8F /* SettingsTableViewCell.xib in Resources */,
@@ -650,6 +671,9 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					/Users/Bill/Documents/FacebookSDK,
@@ -658,6 +682,8 @@
 				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE = "";
+				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Debug;
 		};
@@ -665,6 +691,9 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					/Users/Bill/Documents/FacebookSDK,
@@ -673,6 +702,8 @@
 				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE = "";
+				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Release;
 		};
