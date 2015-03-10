@@ -208,8 +208,9 @@
         
                 
                 //set this users facebook id
-                _UserFacebookID = user.id;
-                
+               // _UserFacebookID = user.id; //doesn't pass validation
+                _UserFacebookID = [user objectForKey:@"id"];
+                NSLog(@"FB user id:%@",_UserFacebookID);
                 
             }
         }];

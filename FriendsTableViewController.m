@@ -157,7 +157,7 @@
             
             [_allFacebookFriendsUsingTheApp addObject:friend];
             
-            NSLog(@"I have a friend named %@ with id %@", friend.name, friend.id);
+           // NSLog(@"I have a friend named %@ with id %@", friend.name, friend.id);
         }
         
         //[[self tableView] reloadData];
@@ -419,8 +419,13 @@
         
         for (NSDictionary<FBGraphUser>* friend in _allFacebookFriendsUsingTheApp)
         {
-            NSInteger idStringLength = [friend.id length];
-            NSString * lastEightOfFriendID = [friend.id substringWithRange:NSMakeRange (idStringLength - 8, 8)];
+            
+          //NOTE: Using friend.id fails validation for app store!
+            
+            NSInteger idStringLength = [[friend objectForKey:@"id"] length];
+
+            
+            NSString * lastEightOfFriendID = [[friend objectForKey:@"id"] substringWithRange:NSMakeRange (idStringLength - 8, 8)];
             
             if([lastEightOfFriendID isEqualToString:majMinId])
                //if(([lastEightOfFriendID isEqualToString:majMinId]) || [majMinId isEqualToString:@"3630347456"]) //testing with estimote beacon
@@ -428,7 +433,7 @@
                 
                 Friend * friendInRange = [[Friend alloc] init];
                 friendInRange.FullName = friend.name;
-                friendInRange.FacebookID = friend.id;
+                friendInRange.FacebookID = [friend objectForKey:@"id"];
                 
 //                //testing with estimote beacon
 //                if([majMinId isEqualToString:@"3630347456"])
@@ -439,7 +444,9 @@
                 
                 friendInRange.FirstName = friend.first_name;
                 friendInRange.LastName = friend.last_name;
-                friendInRange.PictureURL = [NSString stringWithFormat:@"https://graph.facebook.com/%@/picture?type=large", friend.id];
+                
+                 friendInRange.PictureURL = [NSString stringWithFormat:@"https://graph.facebook.com/%@/picture?type=large", [friend objectForKey:@"id"]];
+                
                 friendInRange.Proximity = [NSString stringWithFormat:@"%ld",beacon.proximity];
                 friendInRange.Accuracy = [NSString stringWithFormat:@"%f",beacon.accuracy];
                 
