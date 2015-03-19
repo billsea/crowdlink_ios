@@ -455,6 +455,8 @@
                 [[[AppSharedModel sharedModel] friendsInRangeAll] addObject:friendInRange];
                 
                 //TODO: add friendInRange to core data table
+                
+                
             }
         }
  

@@ -15,7 +15,8 @@
 @property (strong, nonatomic) CLBeaconRegion *myBeaconRegion;
 @property (strong, nonatomic) NSDictionary *myBeaconData;
 @property (strong, nonatomic) CBPeripheralManager *peripheralManager;
-
+@property UISwitch * FindMeSwitch;
+@property UISwitch * searchSwitch;
 - (void)toggleBeaconBroadcast:(id)sender;
 - (void)refreshFriends:(NSNotification*)notification;
 

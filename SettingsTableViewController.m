@@ -19,13 +19,26 @@
 
 @implementation SettingsTableViewController
 
-
+@synthesize FindMeSwitch = _FindMeSwitch;
+@synthesize searchSwitch = _searchSwitch;
 
 - (void)viewDidLoad {
     [super viewDidLoad];
     
+    CGRect screenRect = [[UIScreen mainScreen] bounds];
+    CGFloat screenWidth = screenRect.size.width;
+    
     // Set the title of the navigation item
     [[self navigationItem] setTitle:@"Settings"];
+    
+    _searchSwitch = [[UISwitch alloc] initWithFrame:CGRectMake(screenWidth - 75, 15, 30, 30)];
+    [_searchSwitch setTag:0];
+    [_searchSwitch setOn:TRUE];
+     [_searchSwitch addTarget:self action:@selector(toggleBeaconBroadcast:) forControlEvents:UIControlEventValueChanged];
+    
+    _FindMeSwitch = [[UISwitch alloc] initWithFrame:CGRectMake(screenWidth - 75, 15, 30, 30)];
+    [_FindMeSwitch setTag:1];
+   [_FindMeSwitch addTarget:self action:@selector(toggleBeaconBroadcast:) forControlEvents:UIControlEventValueChanged];
     
     // Uncomment the following line to preserve selection between presentations.
     // self.clearsSelectionOnViewWillAppear = NO;
@@ -88,28 +101,32 @@
     [cell setBackgroundColor:[UIColor clearColor]];
     cell.accessoryView =nil;
     
-    UILabel * cellLabel = [[UILabel alloc] initWithFrame:CGRectMake(10,0, cell.frame.size.width - 100, 50)];
+    UILabel * cellLabel = [[UILabel alloc] initWithFrame:CGRectMake(10,3, cell.frame.size.width - 100, 50)];
     
     [cellLabel setTextColor:[UIColor whiteColor]];
 
-    UISwitch * tSwitch = [[UISwitch alloc] initWithFrame:CGRectMake(screenWidth - 75, 15, 30, 30)];
+
     UIButton * btnRefresh = [[UIButton alloc] init];
 
-    [btnRefresh setFrame:CGRectMake(10,0,170, 50)];
+    [btnRefresh setFrame:CGRectMake(4,3,170, 50)];
     [btnRefresh setTitleColor:[UIColor blueColor] forState:UIControlStateNormal];
     [btnRefresh setTitleColor:[UIColor grayColor] forState:UIControlStateSelected];
     
     switch ([indexPath row]) {
                     case 0:
-                        [tSwitch addTarget:self action:@selector(toggleBeaconBroadcast:) forControlEvents:UIControlEventValueChanged];
-                        [cellLabel setText:@"Let Friends Find Me"];
-                        [cell addSubview: cellLabel];
-                        [cell addSubview:tSwitch];
+                        [cellLabel setText:@"Search for Friends"];
+                        [[cell contentView] addSubview: cellLabel];
+                        [[cell contentView] addSubview:_searchSwitch];
                         break;
                     case 1:
+                        [cellLabel setText:@"Let Friends Find Me"];
+                        [[cell contentView] addSubview: cellLabel];
+                        [[cell contentView] addSubview:_FindMeSwitch];
+                        break;
+                    case 2:
                         [btnRefresh addTarget:self action:@selector(refreshFriends:) forControlEvents:UIControlEventTouchUpInside];
                         [btnRefresh setTitle:@"Refresh Friends List" forState:UIControlStateNormal];
-                        [cell addSubview:btnRefresh];
+                        [[cell contentView] addSubview:btnRefresh];
                         break;
                     default:
                         break;
@@ -140,7 +157,8 @@
 {
     UISwitch * broadcastToggle = sender;
     
-    if(![[self peripheralManager] isAdvertising] && [broadcastToggle isOn])
+    //tag 0 is search, tag 1 is fine me
+    if(![[self peripheralManager] isAdvertising] && [broadcastToggle isOn] && broadcastToggle.tag == 1)
     {
         //stop beacon monitoring
         [[[AppSharedModel sharedModel] friendsTableViewController]stopBeaconMonitoring];
@@ -182,6 +200,50 @@
         //start activity indicator
         [GMDCircleLoader setOnView:self.view withTitle:@"Broadcasting to Friends" animated:YES];
         [[AppSharedModel sharedModel] setBeaconIsBroadcasting:TRUE];
+        
+        //set switch ui state
+       [_searchSwitch setOn:FALSE];
+       
+        [appDelegate showMessage:@"You are now broadcasting to friends. To search for friends, switch on 'Search for Friends'" withTitle:@"Broadcasting..."];
+        
+        
+    }
+    else if([[self peripheralManager] isAdvertising] && [broadcastToggle isOn] && broadcastToggle.tag == 0)
+    {
+        //stop broadcasting
+        [[self peripheralManager] stopAdvertising];
+        
+        //start beacon monitoring
+        [[[AppSharedModel sharedModel] friendsTableViewController]startBeaconMonitoring];
+        
+        
+        //stop activity indicator
+        [GMDCircleLoader hideFromView:self.view animated:YES];
+        [[AppSharedModel sharedModel] setBeaconIsBroadcasting:FALSE];
+        
+        [_searchSwitch setOn:TRUE];
+        [_FindMeSwitch setOn:FALSE];
+        
+        [self showSearchMessage];
+        
+        
+    }
+    else if(![[self peripheralManager] isAdvertising] && ![broadcastToggle isOn] && broadcastToggle.tag == 0)
+    {
+        //stop broadcasting
+        [[self peripheralManager] stopAdvertising];
+        
+        //start beacon monitoring
+        [[[AppSharedModel sharedModel] friendsTableViewController]startBeaconMonitoring];
+        
+        
+        //stop activity indicator
+        [GMDCircleLoader hideFromView:self.view animated:YES];
+        [[AppSharedModel sharedModel] setBeaconIsBroadcasting:FALSE];
+        
+        [_searchSwitch setOn:FALSE];
+        
+   
     }
     else
     {
@@ -196,8 +258,22 @@
         [GMDCircleLoader hideFromView:self.view animated:YES];
         [[AppSharedModel sharedModel] setBeaconIsBroadcasting:FALSE];
         
-       
+       [_searchSwitch setOn:TRUE];
+        
+       [self showSearchMessage];
+
     }
+    
+    
+    [[self tableView] reloadData];
+   
+}
+
+-(void)showSearchMessage
+{
+    AppDelegate * appDelegate = (AppDelegate *)[UIApplication sharedApplication].delegate;
+    
+    [appDelegate showMessage:@"You are now searching for friends. To broadcast to friends, switch on 'Let Friends Find Me'" withTitle:@"Searching..."];
 }
 
 //- (void)peripheralManager:(CBPeripheralManager *)peripheral central:(CBCentral *)central didSubscribeToCharacteristic:(CBCharacteristic *)characteristic
