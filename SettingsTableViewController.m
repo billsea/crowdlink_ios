@@ -241,7 +241,10 @@
         [GMDCircleLoader hideFromView:self.view animated:YES];
         [[AppSharedModel sharedModel] setBeaconIsBroadcasting:FALSE];
         
-        [_searchSwitch setOn:FALSE];
+        
+        //keep search switch in on position
+        
+        [_searchSwitch setOn:TRUE];
         
    
     }
