@@ -13,11 +13,6 @@
 @end
 
 @implementation HelpViewController
-//@synthesize adBanner = _adBanner;
-
-@synthesize helpTopicIndex = _helpTopicIndex;
-@synthesize helpLabel = _helpLabel;
-
 NSMutableArray * helpTopics;
 
 - (void)viewDidLoad {
@@ -33,9 +28,6 @@ NSMutableArray * helpTopics;
     [helpTopics addObject:@"If a new user has just downloaded the Crowdlink app, you may need to refresh your friends list. To do this, go to the Settings Tab, and and tap the Refresh Friends button."];
     
     [self showTopicDetails];
-    
-    // Make self the delegate of the ad banner.
-    //self.adBanner.delegate = self;
 }
 
 - (void) showTopicDetails
@@ -66,14 +58,4 @@ NSMutableArray * helpTopics;
 -(void)bannerView:(ADBannerView *)banner didFailToReceiveAdWithError:(NSError *)error{
     NSLog(@"Unable to show ads. Error: %@", [error localizedDescription]);
 }
-/*
-#pragma mark - Navigation
-
-// In a storyboard-based application, you will often want to do a little preparation before navigation
-- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
-    // Get the new view controller using [segue destinationViewController].
-    // Pass the selected object to the new view controller.
-}
-*/
-
 @end

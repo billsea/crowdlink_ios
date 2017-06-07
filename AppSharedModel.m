@@ -16,11 +16,6 @@
 
 static AppSharedModel *_model;
 
-@synthesize friendsTableViewController = _friendsTableViewController;
-@synthesize friendsDetailViewController = _friendsDetailViewController;
-@synthesize friendsInRangeAll = _friendsInRangeAll;
-@synthesize beaconIsBroadcasting = _beaconIsBroadcasting;
-
 +(void)initialize
 {
     if(self == [AppSharedModel class]) {

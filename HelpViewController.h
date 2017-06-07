@@ -11,7 +11,5 @@
 
 @interface HelpViewController : UIViewController
 @property (weak, nonatomic) IBOutlet UILabel *helpLabel;
-
-//@property (weak, nonatomic) IBOutlet ADBannerView *adBanner;
 @property (nonatomic) NSInteger helpTopicIndex;
 @end

@@ -10,10 +10,9 @@
 
 
 #define gridLineDistance 50
-#define kLogBase			2
+#define kLogBase 2
 
 @implementation BeaconGrid
-
 
 - (id)initWithFrame:(CGRect)gridFrame
 {
@@ -29,11 +28,6 @@
     
 }
 
-//- (id)init {
-//    return [self initWithFrame:CGRectMake(0, 0, 0, 0)];
-//}
-
-
 - (void)setGridFrame:(CGRect)gridFrame
 {
     _gridFrame = gridFrame;
@@ -48,14 +42,9 @@
     
     for(int x = 0;x<_gridFrame.size.height - x;x=x+gridLineDistance)
     {
-        
         int value = 100 + x;
-        
         double location = value; //logValueForNumber(value, kLogBase) * value;
-        
         [linePath moveToPoint: CGPointMake(_gridFrame.origin.x,location)];
-        //[linePath addLineToPoint:CGPointMake(_gridFrame.size.width, 100)];
-        
         [linePath addCurveToPoint:CGPointMake(_gridFrame.size.width, location) controlPoint1:CGPointMake(10, 104 + x) controlPoint2:CGPointMake(152, 217 + x + (x/2))];
         
         line.path=linePath.CGPath;
@@ -64,7 +53,6 @@
         line.strokeColor = [UIColor darkGrayColor].CGColor;
         [self addSublayer:line];
     }
-    
 }
 
 - (void) buildOvals
@@ -75,7 +63,6 @@
     oval.path = ovalPath.CGPath;
     oval.fillColor = [UIColor lightGrayColor].CGColor;
     oval.opacity = 0.3;
-    //oval.strokeColor = [UIColor blackColor].CGColor;
     [self addSublayer:oval];
     
     CAShapeLayer *ovalInner = [CAShapeLayer layer];
@@ -85,16 +72,13 @@
     float centerXOffset = (_gridFrame.size.width * offset)/2;
     float centerXDiff = centerX - centerXOffset;
     
-    
     CGRect innerRect = CGRectMake(centerXDiff, _gridFrame.origin.y, _gridFrame.size.width * offset, _gridFrame.size.height * offset);
     UIBezierPath *ovalPathInner =[UIBezierPath bezierPathWithOvalInRect:innerRect];
     
     ovalInner.path = ovalPathInner.CGPath;
     ovalInner.fillColor = [UIColor lightGrayColor].CGColor;
     ovalInner.opacity = 0.3;
-    //ovalInner.strokeColor = [UIColor blackColor].CGColor;
     [self addSublayer:ovalInner];
-    
 }
 
 @end

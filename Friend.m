@@ -10,11 +10,4 @@
 
 @implementation Friend
 
-@synthesize FullName = _FullName;
-@synthesize FirstName = _FirstName;
-@synthesize LastName = _LastName;
-@synthesize FacebookID = _FacebookID;
-@synthesize PictureURL = _PictureURL;
-@synthesize Proximity = _Proximity;
-@synthesize Accuracy = _Accuracy;
 @end

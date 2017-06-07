@@ -12,39 +12,22 @@
 #import "AboutViewController.h"
 
 @interface LoginViewController ()
-@property UIBarButtonItem * aboutButton;
+
 @end
 
 @implementation LoginViewController
-
-
-
 - (void)viewDidLoad {
     [super viewDidLoad];
-    // Do any additional setup after loading the view from its nib.
-    
     // Set the title of the navigation item
     [[self navigationItem] setTitle:@"Login"];
     
     //add help navigation bar button
     self.aboutButton = [[UIBarButtonItem alloc]
-                       //initWithImage:[UIImage imageNamed:@"reload-50.png"]
                        initWithTitle:@"About"
                        style:UIBarButtonItemStyleBordered
                        target:self
                        action:@selector(ViewAbout:)];
-    //self.addClientButton.tintColor = [UIColor blackColor];
     [[self navigationItem] setRightBarButtonItem:self.aboutButton];
-    
-//    //facebook login init
-//    FBLoginView *loginView = [[FBLoginView alloc] init];
-//    loginView.center = self.view.center;
-//    [self.view addSubview:loginView];
-}
-
-- (void)didReceiveMemoryWarning {
-    [super didReceiveMemoryWarning];
-    // Dispose of any resources that can be recreated.
 }
 
 - (IBAction)facebookSignon:(id)sender
@@ -85,7 +68,6 @@
     AboutViewController * aboutView = [[AboutViewController alloc] init];
     // Push the view controller.
     [self.navigationController pushViewController:aboutView animated:YES];
-    
 }
 
 #pragma mark - Table view data source
@@ -125,7 +107,6 @@
     [cell addSubview:fbImage];
     [cell addSubview:loginLabel];
     [cell addSubview:arrowImage];
-    
     return cell;
 }
 
@@ -137,18 +118,12 @@
     [self signonWithFacebook];
 }
 
-
-/*
-#pragma mark - Navigation
-
-// In a storyboard-based application, you will often want to do a little preparation before navigation
-- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
-    // Get the new view controller using [segue destinationViewController].
-    // Pass the selected object to the new view controller.
-}
-*/
-
 - (IBAction)loginImage:(id)sender {
     [self signonWithFacebook];
+}
+
+- (void)didReceiveMemoryWarning {
+    [super didReceiveMemoryWarning];
+    // Dispose of any resources that can be recreated.
 }
 @end

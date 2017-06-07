@@ -18,7 +18,6 @@
 
 +(id)sharedModel;
 
-
 @property (nonatomic, weak) FriendsTableViewController * friendsTableViewController;
 @property (nonatomic, weak) FriendDetailViewController * friendsDetailViewController;
 @property (nonatomic, strong) NSMutableArray * friendsInRangeAll;

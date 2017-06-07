@@ -19,14 +19,7 @@
 @end
 
 @implementation AppDelegate
-
-@synthesize tabBarController = _tabBarController;
-@synthesize UserFacebookID = _UserFacebookID;
-
-
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
-    // Override point for customization after application launch.
-    
     //check ios version
     NSString * version = [[UIDevice currentDevice] systemVersion];
     NSLog(@"ios version: %@", version);
@@ -39,7 +32,6 @@
         
         NSArray *permissions = [NSArray arrayWithObjects:@"public_profile",@"email", @"user_friends", nil];
 
-        
         // If there's one, just open the session silently, without showing the user the login UI
         [FBSession openActiveSessionWithReadPermissions:permissions
                                            allowLoginUI:NO
@@ -52,17 +44,14 @@
         //show main view
         [self createNavigationRootView];
         
-
         //show ad banner view first?
         //[self showAdBannerView];
     }
     else
     {
-        
         //show user login view
         [self LoginView];
     }
-    
     return YES;
 }
 
@@ -105,14 +94,12 @@
     self.window = [[UIWindow alloc] initWithFrame:[[UIScreen mainScreen] bounds]];
     [[self window] setRootViewController: loginNavController];
     [[self window] makeKeyAndVisible];
-
 }
 
 
 #pragma mark - Notifications
 - (void)NotificationSetup
 {
-    
     [[NSNotificationCenter defaultCenter] addObserver:self
                                              selector:@selector(facebookAuthenticationSuccessHandler:)
                                                  name:kFacebookAuthenticationSuccessNotification
@@ -122,15 +109,12 @@
                                              selector:@selector(facebookAuthenticationFailedHandler:)
                                                  name:kFacebookAuthenticationFailedNotification
                                                object:nil];
-    
 }
 
 - (void)facebookAuthenticationSuccessHandler:(NSNotification*)notification
 {
     //show main view
     [self createNavigationRootView];
-    
-   
 }
 
 - (void)facebookAuthenticationFailedHandler:(NSNotification*)notification
@@ -154,8 +138,6 @@
 
 
 #pragma mark - Facebook methods
-
-
 - (BOOL)application:(UIApplication *)application
             openURL:(NSURL *)url
   sourceApplication:(NSString *)sourceApplication
@@ -163,8 +145,6 @@
     // attempt to extract a token from the url
     return [FBAppCall handleOpenURL:url sourceApplication:sourceApplication];
 }
-
-
 
 // Show the user the logged-out UI
 - (void)userLoggedOut
@@ -192,7 +172,7 @@
                 //    gender,locale,timezone,pdated_time,verified
                  //                   NSLog(@"FB user ID:%@",user.id);
                 //                     NSLog(@"FB user Link:%@",user.link);
-                                   NSLog(@"FB user first name:%@",user.first_name);
+                //                   NSLog(@"FB user first name:%@",user.first_name);
                 //                    NSLog(@"FB user last name:%@",user.last_name);
                 //                    NSLog(@"FB user birthday:%@",user.birthday);
                 //                    NSLog(@"FB user location:%@",user.location);
@@ -204,18 +184,14 @@
                 
                 //NSString *userName = [user name];
                 //NSString * userEmail =[user objectForKey:@"email"];
-                
         
-                
                 //set this users facebook id
                // _UserFacebookID = user.id; //doesn't pass validation
                 _UserFacebookID = [user objectForKey:@"id"];
                 NSLog(@"FB user id:%@",_UserFacebookID);
-                
             }
         }];
         
-
         //show main application view
         [self createNavigationRootView];
         
@@ -235,10 +211,7 @@
     {
         
     }
-    
-   
-    
-    
+
     // Handle errors
     if (error){
         NSLog(@"Error");
@@ -292,7 +265,6 @@
     
     @try {
         friendsTableView = [[FriendsTableViewController alloc] init];
-        // [[CustomerSharedModel sharedModel] setMainViewController:mainViewController];
     }
     @catch (NSException *exception) {
         friendsTableView = nil;
@@ -317,14 +289,6 @@
                                                      initWithRootViewController:settingsTableView];
     settingsNavController.tabBarItem.title = @"Settings";
     settingsNavController.tabBarItem.image = [UIImage imageNamed:@"settings3-32.png"];
-   
-
-//    //profile tab
-//    ProfileTableViewController * profileView = [[ProfileTableViewController alloc] init];
-//    UINavigationController * profileNavController=[[UINavigationController alloc] initWithRootViewController:profileView];
-//    profileNavController.tabBarItem.title = @"My Profile";
-//    profileNavController.tabBarItem.image = [UIImage imageNamed:@"administrator-32.png"];
-    
     
     //add all nav controllers to stack
     NSArray *viewControllers;
@@ -332,8 +296,6 @@
         viewControllers = [NSArray arrayWithObjects:friendsNavController, settingsNavController,nil];
     else
         viewControllers = [NSArray arrayWithObjects:friendsNavController, settingsNavController,nil];
-    
-    
     
     //load tab bar with view controllers
     // if valid request, add views to tab bar
@@ -344,8 +306,7 @@
     self.window = [[UIWindow alloc] initWithFrame:[[UIScreen mainScreen] bounds]];
     [[self window] setRootViewController: self.tabBarController];
     [[self window] makeKeyAndVisible];
-    
-    
+
     return YES;
 }
 
@@ -361,7 +322,6 @@
                       cancelButtonTitle:@"OK"
                       otherButtonTitles:nil] show];
 }
-
 
 
 #pragma mark - Core Data stack

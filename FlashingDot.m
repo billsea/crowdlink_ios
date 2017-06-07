@@ -13,7 +13,6 @@
 @property (nonatomic, strong) CAAnimationGroup *animationGroup;
 @end
 
-
 @implementation FlashingDot
 
 - (id)initWithRepeatCount:(float) repeatCount

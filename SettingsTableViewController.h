@@ -19,6 +19,4 @@
 @property UISwitch * searchSwitch;
 - (void)toggleBeaconBroadcast:(id)sender;
 - (void)refreshFriends:(NSNotification*)notification;
-
-//- (void)peripheralManager:(CBPeripheralManager *)peripheral central:(CBCentral *)central didSubscribeToCharacteristic:(CBCharacteristic *)characteristic;
 @end

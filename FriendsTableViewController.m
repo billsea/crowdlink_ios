@@ -21,21 +21,9 @@
 #import "HelpTableViewController.h"
 
 @interface FriendsTableViewController ()
-
-@property UIBarButtonItem * logoutButton;
-@property UIBarButtonItem * helpButton;
-
 @end
 
 @implementation FriendsTableViewController
-
-@synthesize bluetoothManager = _bluetoothManager;
-@synthesize myBeaconRegion = _myBeaconRegion;
-@synthesize locationManager = _locationManager;
-@synthesize friendsInRange = _friendsInRange;
-@synthesize activityIndicatorStopped = _activityIndicatorStopped;
-
-
 
 - (void)viewDidLoad {
     [super viewDidLoad];
@@ -65,13 +53,11 @@
     //self.addClientButton.tintColor = [UIColor blackColor];
     [[self navigationItem] setRightBarButtonItem:self.helpButton];
 
-    
     //check network
     [self checkNetworkConnection];
     
     //check bluetooth status
     [self detectBluetooth];
-    
     
     //initialize friends in range
     self.friendsInRange = [[NSMutableArray alloc] init];
@@ -81,15 +67,8 @@
     //Monitor for broadcasting beacons
     [self startBeaconMonitoring];
     
-    // Uncomment the following line to preserve selection between presentations.
-    // self.clearsSelectionOnViewWillAppear = NO;
-    
-    // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
-    // self.navigationItem.rightBarButtonItem = self.editButtonItem;
-    
     //request friends
     [self requestFacebookFriends];
-    
 }
 
 - (void)viewWillDisappear:(BOOL)animated
@@ -99,9 +78,6 @@
         //stop activity indicator
         [GMDCircleLoader hideFromView:self.view animated:YES];
         self.activityIndicatorStopped = TRUE;
-        
-        
-
     }
 }
 
@@ -126,18 +102,14 @@
         
         [[self tableView] reloadData];
         
-       // [GMDCircleLoader hideFromView:self.view animated:YES];
         self.activityIndicatorStopped = TRUE;
     }
-    
 }
 
 - (IBAction)ViewHelp:(id)sender
 {
     HelpTableViewController * helpView = [[HelpTableViewController alloc] init];
-    // Push the view controller.
     [self.navigationController pushViewController:helpView animated:YES];
-    
 }
 
 #pragma mark facebook methods
@@ -154,22 +126,15 @@
         NSArray* friends = [result objectForKey:@"data"];
         NSLog(@"Found: %lu friends", (unsigned long)friends.count);
         for (NSDictionary<FBGraphUser>* friend in friends) {
-            
             [_allFacebookFriendsUsingTheApp addObject:friend];
-            
-           // NSLog(@"I have a friend named %@ with id %@", friend.name, friend.id);
         }
-        
-        //[[self tableView] reloadData];
     }];
 }
 
 - (IBAction)LogoutUser:(id)sender
 {
     [self stopBeaconMonitoring];
-    
     [self FacebookUserLogout];
-    
     LoginViewController * loginView = [[LoginViewController alloc] init];
     //show new login view
     [self.navigationController pushViewController:loginView animated:YES];
@@ -179,7 +144,6 @@
 
 //clear facebook session
 - (void)FacebookUserLogout
-
 {
     [[FBSession activeSession] closeAndClearTokenInformation];
     [[FBSession activeSession] close];
@@ -190,11 +154,8 @@
     NSArray *fbAccounts = [store accountsWithAccountType:[store accountTypeWithAccountTypeIdentifier:ACAccountTypeIdentifierFacebook]];
     for (ACAccount *fb in fbAccounts) {
         [store renewCredentialsForAccount:fb completion:^(ACAccountCredentialRenewResult renewResult, NSError *error) {
-            
         }];
     }
-    
-    
 }
 
 - (void)didReceiveMemoryWarning {
@@ -205,20 +166,17 @@
 #pragma mark - Table view data source
 
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView {
-
     // Return the number of sections.
     return 1;
 }
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
-
     // Return the number of rows in the section.
     return [[self friendsInRange] count];
 }
 
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
-    
     //stop activity indicator
     [GMDCircleLoader hideFromView:self.view animated:YES];
    self.activityIndicatorStopped = TRUE;
@@ -240,21 +198,12 @@
     Friend * friendInRange = [[self friendsInRange] objectAtIndex:[indexPath row]];
     UIImage * fbImage = [UIImage imageWithData:[NSData dataWithContentsOfURL:[NSURL URLWithString:friendInRange.PictureURL]]];
     
-    
     //friend fb picture
     UIImageView * friendImage = [[UIImageView alloc] initWithImage:fbImage];
     [friendImage setBackgroundColor:[UIColor blackColor]];
     [friendImage setFrame:CGRectMake(5, 5, 75, 75)];
     
-//    //round edges
-//    friendImage.layer.cornerRadius = 3;
-//    friendImage.clipsToBounds = YES;
-//    friendImage.layer.borderWidth = 1.0f;
-//    friendImage.layer.backgroundColor = [UIColor blackColor].CGColor;
-    
-    
     //friend name
-    
     UILabel * friendLabel = [[UILabel alloc] initWithFrame:CGRectMake(95, 30, 200, 30)];
     [friendLabel setTextColor:[UIColor whiteColor]];
     
@@ -274,71 +223,16 @@
     return cell;
 }
 
-
-/*
-// Override to support conditional editing of the table view.
-- (BOOL)tableView:(UITableView *)tableView canEditRowAtIndexPath:(NSIndexPath *)indexPath {
-    // Return NO if you do not want the specified item to be editable.
-    return YES;
-}
-*/
-
-/*
-// Override to support editing the table view.
-- (void)tableView:(UITableView *)tableView commitEditingStyle:(UITableViewCellEditingStyle)editingStyle forRowAtIndexPath:(NSIndexPath *)indexPath {
-    if (editingStyle == UITableViewCellEditingStyleDelete) {
-        // Delete the row from the data source
-        [tableView deleteRowsAtIndexPaths:@[indexPath] withRowAnimation:UITableViewRowAnimationFade];
-    } else if (editingStyle == UITableViewCellEditingStyleInsert) {
-        // Create a new instance of the appropriate class, insert it into the array, and add a new row to the table view
-    }   
-}
-*/
-
-/*
-// Override to support rearranging the table view.
-- (void)tableView:(UITableView *)tableView moveRowAtIndexPath:(NSIndexPath *)fromIndexPath toIndexPath:(NSIndexPath *)toIndexPath {
-}
-*/
-
-/*
-// Override to support conditional rearranging of the table view.
-- (BOOL)tableView:(UITableView *)tableView canMoveRowAtIndexPath:(NSIndexPath *)indexPath {
-    // Return NO if you do not want the item to be re-orderable.
-    return YES;
-}
-*/
-
-
 #pragma mark - Table view delegate
-
-// In a xib-based application, navigation from a table can be handled in -tableView:didSelectRowAtIndexPath:
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
-    // Navigation logic may go here, for example:
-    // Create the next view controller.
     FriendDetailViewController *detailViewController = [[FriendDetailViewController alloc] initWithNibName:@"FriendDetailViewController" bundle:nil];
-    
-    // Pass the selected object to the new view controller.
     Friend * selFriendInRange = [[self friendsInRange] objectAtIndex:[indexPath row]];
     
     [detailViewController setSelectedFriend:selFriendInRange];
-    
-    // Push the view controller.
     [self.navigationController pushViewController:detailViewController animated:YES];
     
     [[AppSharedModel sharedModel] setFriendsDetailViewController:detailViewController];
 }
-
-
-/*
-#pragma mark - Navigation
-
-// In a storyboard-based application, you will often want to do a little preparation before navigation
-- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
-    // Get the new view controller using [segue destinationViewController].
-    // Pass the selected object to the new view controller.
-}
-*/
 
 #pragma  mark - Beacon methods
 
@@ -360,13 +254,11 @@
     [self.locationManager requestAlwaysAuthorization];
     
     // Create a NSUUID with the same UUID as the broadcasting beacon
-   
     NSUUID *uuid = [[NSUUID alloc] initWithUUIDString:APPLICATION_BEACON_UUID];
     
     // Setup a new region with that UUID and same identifier as the broadcasting beacon
     self.myBeaconRegion = [[CLBeaconRegion alloc] initWithProximityUUID:uuid
                                                              identifier:@"crowdlink"];
-    
     self.myBeaconRegion.notifyEntryStateOnDisplay = YES;
     self.myBeaconRegion.notifyOnEntry=YES;
     self.myBeaconRegion.notifyOnExit=YES;
@@ -375,7 +267,6 @@
     [self.locationManager startMonitoringForRegion:self.myBeaconRegion];
     [self.locationManager startRangingBeaconsInRegion:self.myBeaconRegion];
     [self.locationManager startUpdatingLocation];
-    
     
     // Check if beacon monitoring is available for this device
     if (![CLLocationManager isMonitoringAvailableForClass:[CLBeaconRegion class]]) {
@@ -386,8 +277,7 @@
 
 - (void)locationManager:(CLLocationManager*)manager didEnterRegion:(CLRegion *)region
 {
-    // We entered a region, now start looking for our target beacons!
-    //self.statusLabel.text = @"Finding beacons.";
+    // We entered a region, now start looking for our target beacons
     NSLog(@"Finding beacons...");
     [self.locationManager startRangingBeaconsInRegion:self.myBeaconRegion];
 }
@@ -398,8 +288,6 @@
     //self.statusLabel.text = @"exited region - none found";
     NSLog(@"exited region - none found");
     [self.locationManager stopRangingBeaconsInRegion:self.myBeaconRegion];
-    
-//    [self sendLocalNotificationWithMessage:[NSString stringWithFormat:@"%@",[[[CustomerSharedModel sharedModel] closestEstablishment] ExitMessage]]];
 }
 
 
@@ -419,33 +307,18 @@
         
         for (NSDictionary<FBGraphUser>* friend in _allFacebookFriendsUsingTheApp)
         {
-            
           //NOTE: Using friend.id fails validation for app store!
-            
             NSInteger idStringLength = [[friend objectForKey:@"id"] length];
-
-            
             NSString * lastEightOfFriendID = [[friend objectForKey:@"id"] substringWithRange:NSMakeRange (idStringLength - 8, 8)];
             
             if([lastEightOfFriendID isEqualToString:majMinId])
-               //if(([lastEightOfFriendID isEqualToString:majMinId]) || [majMinId isEqualToString:@"3630347456"]) //testing with estimote beacon
             {
-                
                 Friend * friendInRange = [[Friend alloc] init];
                 friendInRange.FullName = friend.name;
                 friendInRange.FacebookID = [friend objectForKey:@"id"];
-                
-//                //testing with estimote beacon
-//                if([majMinId isEqualToString:@"3630347456"])
-//                {
-//                   friendInRange.FullName = @"Estimote Beacon";
-//                    friendInRange.FacebookID = @"3630347456";
-//                }
-                
                 friendInRange.FirstName = friend.first_name;
                 friendInRange.LastName = friend.last_name;
-                
-                 friendInRange.PictureURL = [NSString stringWithFormat:@"https://graph.facebook.com/%@/picture?type=large", [friend objectForKey:@"id"]];
+                friendInRange.PictureURL = [NSString stringWithFormat:@"https://graph.facebook.com/%@/picture?type=large", [friend objectForKey:@"id"]];
                 
                 friendInRange.Proximity = [NSString stringWithFormat:@"%ld",beacon.proximity];
                 friendInRange.Accuracy = [NSString stringWithFormat:@"%f",beacon.accuracy];
@@ -453,73 +326,18 @@
                 //add to friends in range
                 [[self friendsInRange] addObject:friendInRange];
                 [[[AppSharedModel sharedModel] friendsInRangeAll] addObject:friendInRange];
-                
-                //TODO: add friendInRange to core data table
-                
-                
             }
         }
- 
     }
-    
-//    //start activity indicator
-//    if([[self friendsInRange] count] == 0 && self.activityIndicatorStopped == TRUE)
-//    {
-//        [GMDCircleLoader hideFromView:self.view animated:YES];
-//        [GMDCircleLoader setOnView:self.view withTitle:@"Searching for friends..." animated:YES];
-//        self.activityIndicatorStopped = FALSE;
-//    }
-    
+
     //reload active friends table
-        [[self tableView] reloadData];
+    [[self tableView] reloadData];
     
     //update selected friend details
     if([[[AppSharedModel sharedModel] friendsDetailViewController] isViewLoaded])
     {
         [[[AppSharedModel sharedModel] friendsDetailViewController] updateDisplay];
     }
-    
-//    //collection of beacons in range
-//    CLBeacon *nearestBeacon = [beacons firstObject];
-//    
-//    if(beacons.count > 0)
-//    {
-//        // You can retrieve the beacon data from its properties
-//                NSString *uuid = nearestBeacon.proximityUUID.UUIDString;
-//                NSString *major = [NSString stringWithFormat:@"%@", nearestBeacon.major];
-//                NSString *minor = [NSString stringWithFormat:@"%@", nearestBeacon.minor];
-//                NSString *proximity= [NSString stringWithFormat:@"%d", nearestBeacon.proximity];
-//                NSString *accuracy= [NSString stringWithFormat:@"%f", nearestBeacon.accuracy];
-//
-//                NSLog(@"UUID: %@",uuid);
-//                NSLog(@"MAJOR: %@", major);
-//                NSLog(@"MINOR: %@", minor);
-//                NSLog(@"PROXIMITY: %@", proximity);
-//                NSLog(@"ACCURACY: %@",accuracy);
-//        
-//
-//        switch(nearestBeacon.proximity) {
-//            case CLProximityFar:
-//                //message = @"You are far away from the beacon";
-//                
-//                break;
-//            case CLProximityNear:
-//                //message = @"You are proximity near of the beacon";
-//                break;
-//            case CLProximityImmediate:
-//                //message = @"You are in the immediate proximity of the beacon";
-//                
-//                break;
-//            case CLProximityUnknown:
-//                return;
-//        }
-//
-//    }
-//    else
-//    {
-//        
-//    }
-    
 }
 
 
@@ -528,48 +346,24 @@
     /*
      A user can transition in or out of a region while the application is not running. When this happens CoreLocation will launch the application momentarily, call this delegate method and we will let the user know via a local notification.
      */
-    
-    
     if(state == CLRegionStateInside)
     {
-        
         //Start Ranging
         [manager startRangingBeaconsInRegion:self.myBeaconRegion];
     }
     else if(state == CLRegionStateOutside)
     {
-        
-        //[self sendLocalNotificationWithMessage:@"You're outside a Zipdin region"];
+        //[self sendLocalNotificationWithMessage:@"You're outside a the region"];
     }
     else
     {
         return;
     }
-    
-    /*
-     If the application is in the foreground, it will get a callback to application:didReceiveLocalNotification:.
-     If it's not, iOS will display the notification to the user.
-     */
-    
-    //    if (state == CLRegionStateInside)
-    //    {
-    //        //self.statusLabel.text = @"state inside region";
-    //
-    //        //Start Ranging
-    //        [manager startRangingBeaconsInRegion:self.myBeaconRegion];
-    //    }
-    //    else
-    //    {
-    //        self.statusLabel.text = @"state outside";
-    //        //Stop Ranging here
-    //    }
 }
 
 
 - (void) locationManager:(CLLocationManager *)manager didStartMonitoringForRegion:(CLRegion *)region
 {
-    //self.statusLabel.text = @"monitoring started";
-    //NSLog(@"monitoring started");
     [self.locationManager requestStateForRegion:self.myBeaconRegion];
 }
 
@@ -594,8 +388,6 @@
 
 - (void)centralManagerDidUpdateState:(CBCentralManager *)central
 {
-    
-   
     
     //    NSString *stateString = nil;
     //

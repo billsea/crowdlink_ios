@@ -18,12 +18,13 @@
 @property (strong, nonatomic) CLLocationManager *locationManager;
 @property (nonatomic, strong) NSMutableArray * friendsInRange;
 @property (nonatomic, strong) NSMutableArray * allFacebookFriendsUsingTheApp;
+@property UIBarButtonItem * logoutButton;
+@property UIBarButtonItem * helpButton;
 @property BOOL activityIndicatorStopped;
 
 - (IBAction)LogoutUser:(id)sender;
+- (IBAction)ViewHelp:(id)sender;
 - (void)startBeaconMonitoring;
 - (void)stopBeaconMonitoring;
 - (void)requestFacebookFriends;
-- (IBAction)ViewHelp:(id)sender;
-
 @end

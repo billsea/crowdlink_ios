@@ -24,21 +24,14 @@
 @property (nonatomic, strong) IBOutlet UIImageView *beaconViewMuti;
 @property (strong, nonatomic) IBOutlet UIImageView *gridImageView;
 @property UIBarButtonItem * helpButton;
-
 @end
 
 FlashingDot * flashingDot;
 float searchDotIncrement;
-
 BOOL _bannerIsVisible;
 ADBannerView *_adBanner;
 
 @implementation FriendDetailViewController
-
-@synthesize selectedFriend = _selectedFriend;
-@synthesize beaconViewMuti = _beaconViewMuti;
-@synthesize gridImageView = _gridImageView;
-
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view from its nib.
@@ -63,18 +56,12 @@ ADBannerView *_adBanner;
     //add oval background
    [self drawGridLines];
     
-    
     //add halo effect
     [self addBeaconHalo];
-
-    
-    
 }
 
 - (void)viewDidAppear:(BOOL)animated
 {
-    
-    
     //iAd banner
     _adBanner = [[ADBannerView alloc] initWithFrame:CGRectMake(0, self.view.frame.size.height-50, 320, 50)];
     _adBanner.delegate = self;
@@ -85,7 +72,6 @@ ADBannerView *_adBanner;
     HelpTableViewController * helpView = [[HelpTableViewController alloc] init];
     // Push the view controller.
     [self.navigationController pushViewController:helpView animated:YES];
-
 }
 
 #pragma mark grid lines
@@ -104,7 +90,6 @@ ADBannerView *_adBanner;
     //add grid lines layer
     BeaconGrid * beaconGrid = [[BeaconGrid layer] initWithFrame:[_gridImageView bounds]];
     [self.gridImageView.layer addSublayer:beaconGrid];
-
 }
 
 
@@ -120,7 +105,6 @@ ADBannerView *_adBanner;
 
 - (void) addBeaconHalo
 {
-
     //add image
     float imageSize = 80;
     _beaconViewMuti = [[UIImageView alloc] initWithFrame:CGRectMake(self.beaconPosition.x - (imageSize/2),self.beaconPosition.y - (imageSize/2), imageSize, imageSize)];
@@ -134,12 +118,10 @@ ADBannerView *_adBanner;
     _beaconViewMuti.layer.borderWidth = 1.0f;
     
     [self.view addSubview:_beaconViewMuti];
-   
-    
+
     //flashing dot for searching device
     flashingDot = [FlashingDot layer];
     flashingDot.position = CGPointMake(self.beaconPosition.x,self.beaconPosition.y + searchStartDistanceY);
-    //flashingDot.position = CGPointMake(self.beaconViewMuti.center.x, self.beaconViewMuti.center.y + searchStartDistanceY);
     flashingDot.radius = 15;
     flashingDot.fromValueForAlpha = 1;
     flashingDot.keyTimeForHalfOpacity = 1;
@@ -158,16 +140,8 @@ ADBannerView *_adBanner;
    [self.view.layer insertSublayer:self.mutiHalo below:self.beaconViewMuti.layer];
     
     self.mutiHalo.radius = 1 * kMaxRadius;
-    
-//    UIColor *color = [UIColor colorWithRed:0.62711
-//                                     green:0.51694
-//                                      blue:1.0
-//                                     alpha:1.0];
     UIColor * color = [UIColor redColor];
     [self.mutiHalo setHaloLayerColor:color.CGColor];
-   
-
-
 }
 
 //called from location manager(beacon loop in FriendsTableViewController) to update the accuracy text
@@ -206,7 +180,6 @@ ADBannerView *_adBanner;
 
 - (void)updateDotPosition:(NSString *)distance
 {
-
     float newYposition = [distance floatValue] * searchDotIncrement;
     
     if(newYposition < 75)
@@ -227,7 +200,6 @@ ADBannerView *_adBanner;
     }
     
     flashingDot.position = CGPointMake(self.beaconPosition.x,self.beaconPosition.y + newYposition);
-    //flashingDot.position = CGPointMake(self.beaconViewMuti.center.x, self.beaconViewMuti.center.y + newYposition);
     
     //adjust starting point if needed
     if(newYposition > searchStartDistanceY)
@@ -251,16 +223,6 @@ ADBannerView *_adBanner;
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
 }
-
-/*
-#pragma mark - Navigation
-
-// In a storyboard-based application, you will often want to do a little preparation before navigation
-- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
-    // Get the new view controller using [segue destinationViewController].
-    // Pass the selected object to the new view controller.
-}
-*/
 
 #pragma mark iAd delegate methods
 - (void)bannerViewDidLoadAd:(ADBannerView *)banner
@@ -300,8 +262,5 @@ ADBannerView *_adBanner;
         _bannerIsVisible = NO;
     }
 }
-
-
-
 
 @end

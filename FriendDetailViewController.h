@@ -11,17 +11,12 @@
 #import "Friend.h"
 
 @interface FriendDetailViewController : UIViewController<ADBannerViewDelegate>
-
 @property Friend * selectedFriend;
 @property (weak, nonatomic) IBOutlet UILabel *accuracyLabel;
-
 @property (weak, nonatomic) IBOutlet UILabel *metersFeetLabel;
 
-
-
 - (void)updateDisplay;
-
 - (IBAction)ViewHelp:(id)sender;
 - (CGPoint)beaconPosition;
--(NSString *)metersToFeet:(float)accuracyMeters;
+- (NSString *)metersToFeet:(float)accuracyMeters;
 @end
