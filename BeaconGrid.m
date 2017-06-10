@@ -71,7 +71,7 @@
     float centerX = _gridFrame.size.width/2;
     float centerXOffset = (_gridFrame.size.width * offset)/2;
     float centerXDiff = centerX - centerXOffset;
-    
+
     CGRect innerRect = CGRectMake(centerXDiff, _gridFrame.origin.y, _gridFrame.size.width * offset, _gridFrame.size.height * offset);
     UIBezierPath *ovalPathInner =[UIBezierPath bezierPathWithOvalInRect:innerRect];
     

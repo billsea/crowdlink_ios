@@ -56,6 +56,6 @@ NSMutableArray * helpTopics;
     NSLog(@"Ad Banner action did finish");
 }
 -(void)bannerView:(ADBannerView *)banner didFailToReceiveAdWithError:(NSError *)error{
-    NSLog(@"Unable to show ads. Error: %@", [error localizedDescription]);
+  NSLog(@"Unable to show ads. Error: %@", [error localizedDescription]);
 }
 @end

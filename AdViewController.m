@@ -49,17 +49,16 @@
     }
 }
 
-- (void)bannerView:(ADBannerView *)banner didFailToReceiveAdWithError:(NSError *)error
-{
-    if (_bannerIsVisible)
-    {
-        [UIView beginAnimations:@"animateAdBannerOff" context:NULL];
-        
-        // Assumes the banner view is placed at the bottom of the screen.
-        banner.frame = CGRectOffset(banner.frame, 0, banner.frame.size.height);
-        [UIView commitAnimations];
-        _bannerIsVisible = NO;
-    }
+- (void)bannerView:(ADBannerView *)banner
+    didFailToReceiveAdWithError:(NSError *)error {
+  if (_bannerIsVisible) {
+    [UIView beginAnimations:@"animateAdBannerOff" context:NULL];
+
+    // Assumes the banner view is placed at the bottom of the screen.
+    banner.frame = CGRectOffset(banner.frame, 0, banner.frame.size.height);
+    [UIView commitAnimations];
+    _bannerIsVisible = NO;
+  }
 }
 
 - (void)didReceiveMemoryWarning {

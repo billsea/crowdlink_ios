@@ -395,15 +395,20 @@
     //    {
     //        case CBCentralManagerStateResetting: stateString = @"The connection with the system service was momentarily lost, update imminent."; break;
     //        case CBCentralManagerStateUnsupported: stateString = @"The platform doesn't support Bluetooth Low Energy."; break;
-    //        case CBCentralManagerStateUnauthorized: stateString = @"The app is not authorized to use Bluetooth Low Energy."; break;
-    //        case CBCentralManagerStatePoweredOff: stateString = @"Bluetooth is currently powered off."; break;
-    //        case CBCentralManagerStatePoweredOn: stateString = @"Bluetooth is currently powered on and available to use."; break;
+    //        case CBCentralManagerStateUnauthorized: stateString = @"The app is
+    //        not authorized to use Bluetooth Low Energy."; break;
+    //        case CBCentralManagerStatePoweredOff: stateString = @"Bluetooth is
+    //        currently powered off."; break;
+    //        case CBCentralManagerStatePoweredOn: stateString = @"Bluetooth is
+    //        currently powered on and available to use."; break;
     //        default: stateString = @"State unknown, update imminent."; break;
     //    }
     //
     //
-    //        UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Bluetooth" message:stateString delegate:nil cancelButtonTitle:@"Ok" otherButtonTitles: nil]; [alert show]; return;
-    
+    //        UIAlertView *alert = [[UIAlertView alloc]
+    //        initWithTitle:@"Bluetooth" message:stateString delegate:nil
+    //        cancelButtonTitle:@"Ok" otherButtonTitles: nil]; [alert show];
+    //        return;
 }
 
 - (void) checkNetworkConnection

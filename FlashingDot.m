@@ -68,14 +68,15 @@
 }
 
 - (void)setupAnimationGroup {
-    
-    self.animationGroup = [CAAnimationGroup animation];
-    self.animationGroup.duration = self.animationDuration + self.pulseInterval;
-    self.animationGroup.repeatCount = self.repeatCount;
-    self.animationGroup.removedOnCompletion = NO;
-    if (self.useTimingFunction) {
-        CAMediaTimingFunction *defaultCurve = [CAMediaTimingFunction functionWithName:kCAMediaTimingFunctionDefault];
-        self.animationGroup.timingFunction = defaultCurve;
+
+  self.animationGroup = [CAAnimationGroup animation];
+  self.animationGroup.duration = self.animationDuration + self.pulseInterval;
+  self.animationGroup.repeatCount = self.repeatCount;
+  self.animationGroup.removedOnCompletion = NO;
+  if (self.useTimingFunction) {
+    CAMediaTimingFunction *defaultCurve =
+        [CAMediaTimingFunction functionWithName:kCAMediaTimingFunctionDefault];
+    self.animationGroup.timingFunction = defaultCurve;
     }
     
     CABasicAnimation *scaleAnimation = [CABasicAnimation animationWithKeyPath:@"transform.scale.xy"];
