@@ -9,44 +9,41 @@
 #import "AdViewController.h"
 
 @interface AdViewController () {
-    BOOL _bannerIsVisible;
-    ADBannerView *_adBanner;
+  BOOL _bannerIsVisible;
+  ADBannerView *_adBanner;
 }
 @end
 
 @implementation AdViewController
 
 - (void)viewDidLoad {
-    [super viewDidLoad];
+  [super viewDidLoad];
 }
 
-- (void)viewDidAppear:(BOOL)animated
-{
-    [super viewDidAppear:animated];
-    
-    _adBanner = [[ADBannerView alloc] initWithFrame:CGRectMake(0, self.view.frame.size.height, 320, 50)];
-    _adBanner.delegate = self;
+- (void)viewDidAppear:(BOOL)animated {
+  [super viewDidAppear:animated];
+
+  _adBanner = [[ADBannerView alloc]
+      initWithFrame:CGRectMake(0, self.view.frame.size.height, 320, 50)];
+  _adBanner.delegate = self;
 }
 
-- (void)bannerViewDidLoadAd:(ADBannerView *)banner
-{
-    if (!_bannerIsVisible)
-    {
-        // If banner isn't part of view hierarchy, add it
-        if (_adBanner.superview == nil)
-        {
-            [self.view addSubview:_adBanner];
-        }
-        
-        [UIView beginAnimations:@"animateAdBannerOn" context:NULL];
-        
-        // Assumes the banner view is just off the bottom of the screen.
-        banner.frame = CGRectOffset(banner.frame, 0, -banner.frame.size.height);
-        
-        [UIView commitAnimations];
-        
-        _bannerIsVisible = YES;
+- (void)bannerViewDidLoadAd:(ADBannerView *)banner {
+  if (!_bannerIsVisible) {
+    // If banner isn't part of view hierarchy, add it
+    if (_adBanner.superview == nil) {
+      [self.view addSubview:_adBanner];
     }
+
+    [UIView beginAnimations:@"animateAdBannerOn" context:NULL];
+
+    // Assumes the banner view is just off the bottom of the screen.
+    banner.frame = CGRectOffset(banner.frame, 0, -banner.frame.size.height);
+
+    [UIView commitAnimations];
+
+    _bannerIsVisible = YES;
+  }
 }
 
 - (void)bannerView:(ADBannerView *)banner
@@ -62,7 +59,7 @@
 }
 
 - (void)didReceiveMemoryWarning {
-    [super didReceiveMemoryWarning];
-    // Dispose of any resources that can be recreated.
+  [super didReceiveMemoryWarning];
+  // Dispose of any resources that can be recreated.
 }
 @end

@@ -8,7 +8,7 @@
 
 #import "AppSharedModel.h"
 
-@interface AppSharedModel()
+@interface AppSharedModel ()
 
 @end
 
@@ -16,28 +16,25 @@
 
 static AppSharedModel *_model;
 
-+(void)initialize
-{
-    if(self == [AppSharedModel class]) {
-        _model = [[self alloc] init];
-    }
++ (void)initialize {
+  if (self == [AppSharedModel class]) {
+    _model = [[self alloc] init];
+  }
 }
-+(AppSharedModel*)sharedModel
-{
-    return _model;
++ (AppSharedModel *)sharedModel {
+  return _model;
 }
 
-- (id)init
-{
-    if(_model){
-        return _model;
-    }
-    
-    self = [super init];
-    
-    self.friendsInRangeAll = [[NSMutableArray alloc] init];
-    
-    return self;
+- (id)init {
+  if (_model) {
+    return _model;
+  }
+
+  self = [super init];
+
+  self.friendsInRangeAll = [[NSMutableArray alloc] init];
+
+  return self;
 }
 
 @end

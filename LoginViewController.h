@@ -8,8 +8,9 @@
 
 #import <UIKit/UIKit.h>
 
-@interface LoginViewController : UIViewController<UITableViewDataSource,UITableViewDelegate>
-@property (weak, nonatomic) IBOutlet UITableView *tableView;
-@property UIBarButtonItem * aboutButton;
+@interface LoginViewController
+    : UIViewController <UITableViewDataSource, UITableViewDelegate>
+@property(weak, nonatomic) IBOutlet UITableView *tableView;
+@property UIBarButtonItem *aboutButton;
 - (IBAction)loginImage:(id)sender;
 @end

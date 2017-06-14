@@ -10,13 +10,14 @@
 #import <CoreBluetooth/CoreBluetooth.h>
 #import <CoreLocation/CoreLocation.h>
 
-@interface SettingsTableViewController : UITableViewController<CBPeripheralManagerDelegate>
+@interface SettingsTableViewController
+    : UITableViewController <CBPeripheralManagerDelegate>
 
-@property (strong, nonatomic) CLBeaconRegion *myBeaconRegion;
-@property (strong, nonatomic) NSDictionary *myBeaconData;
-@property (strong, nonatomic) CBPeripheralManager *peripheralManager;
-@property UISwitch * FindMeSwitch;
-@property UISwitch * searchSwitch;
+@property(strong, nonatomic) CLBeaconRegion *myBeaconRegion;
+@property(strong, nonatomic) NSDictionary *myBeaconData;
+@property(strong, nonatomic) CBPeripheralManager *peripheralManager;
+@property UISwitch *FindMeSwitch;
+@property UISwitch *searchSwitch;
 - (void)toggleBeaconBroadcast:(id)sender;
-- (void)refreshFriends:(NSNotification*)notification;
+- (void)refreshFriends:(NSNotification *)notification;
 @end

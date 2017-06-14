@@ -11,15 +11,17 @@
 #import <CoreBluetooth/CoreBluetooth.h>
 #import <CoreLocation/CoreLocation.h>
 
-@interface FriendsTableViewController : UITableViewController<CLLocationManagerDelegate,CBCentralManagerDelegate>
+@interface FriendsTableViewController
+    : UITableViewController <CLLocationManagerDelegate,
+                             CBCentralManagerDelegate>
 
-@property (nonatomic, strong) CBCentralManager* bluetoothManager;
-@property (strong, nonatomic) CLBeaconRegion *myBeaconRegion;
-@property (strong, nonatomic) CLLocationManager *locationManager;
-@property (nonatomic, strong) NSMutableArray * friendsInRange;
-@property (nonatomic, strong) NSMutableArray * allFacebookFriendsUsingTheApp;
-@property UIBarButtonItem * logoutButton;
-@property UIBarButtonItem * helpButton;
+@property(nonatomic, strong) CBCentralManager *bluetoothManager;
+@property(strong, nonatomic) CLBeaconRegion *myBeaconRegion;
+@property(strong, nonatomic) CLLocationManager *locationManager;
+@property(nonatomic, strong) NSMutableArray *friendsInRange;
+@property(nonatomic, strong) NSMutableArray *allFacebookFriendsUsingTheApp;
+@property UIBarButtonItem *logoutButton;
+@property UIBarButtonItem *helpButton;
 @property BOOL activityIndicatorStopped;
 
 - (IBAction)LogoutUser:(id)sender;

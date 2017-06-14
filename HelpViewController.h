@@ -10,6 +10,6 @@
 #import <iAd/iAd.h>
 
 @interface HelpViewController : UIViewController
-@property (weak, nonatomic) IBOutlet UILabel *helpLabel;
-@property (nonatomic) NSInteger helpTopicIndex;
+@property(weak, nonatomic) IBOutlet UILabel *helpLabel;
+@property(nonatomic) NSInteger helpTopicIndex;
 @end
